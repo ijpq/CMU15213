@@ -166,7 +166,9 @@ int tmin(void) {
  *   Rating: 1
  */
 int isTmax(int x) {
-  return !(x&(1<<31));
+  int fan = ~x;
+  int p1 = x+1;
+  return !(fan^p1);
   // return 2;
 }
 /* 
