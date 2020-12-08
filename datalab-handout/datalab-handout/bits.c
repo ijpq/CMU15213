@@ -255,9 +255,33 @@ int logicalNeg(int x) {
  *  Max ops: 90
  *  Rating: 4
  */
-int howManyBits(int x) {
-  
-  return 0;
+int howManyBits(int x) { //MARK
+  int bit;
+  int res = 1;
+  x = x ^ (x >> 31);
+
+  bit = !!(x >> 16) << 4;
+  res = res + bit;
+  x = x >> bit;
+
+  bit = !!(x >> 8) << 3;
+  res = res + bit;
+  x = x >> bit;
+
+  bit = !!(x >> 4) << 2;
+  res = res + bit;
+  x = x >> bit;
+
+  bit = !!(x >> 2) << 1;
+  res = res + bit;
+  x = x >> bit;
+
+  bit = !!(x >> 1);
+  res = res + bit;
+  x = x >> bit;
+
+  return x + res;
+  // return 0;
 }
 //float
 /* 
@@ -272,6 +296,7 @@ int howManyBits(int x) {
  *   Rating: 4
  */
 unsigned floatScale2(unsigned uf) {
+  
   return 2;
 }
 /* 
