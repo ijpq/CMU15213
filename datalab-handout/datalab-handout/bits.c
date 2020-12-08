@@ -203,7 +203,7 @@ int negate(int x) {
  *   Rating: 3
  */
 int isAsciiDigit(int x) {
-  return !(x>>4^3) & (!(x^(x&0x37)) | !(x^(x&0x39)));
+  return !((x>>4)^3) & (!(x^(x&0x37)) | !(x^(x&0x39)));
   // return 2;
 }
 /* 
@@ -214,8 +214,8 @@ int isAsciiDigit(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-  
-  return 2;
+  x = !x+~0;
+  return (y&x)|(~x&z);
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
@@ -225,8 +225,8 @@ int conditional(int x, int y, int z) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  
-  return 2;
+  int xminusy = x+~y+1;
+  return !(x^y) | (x&~y)>>31 & 0x01 | ((!((x^y)>>31 & 0x01 )) & ((xminusy>>31)&0x01)) ;
 }
 //4
 /* 
@@ -254,6 +254,7 @@ int logicalNeg(int x) {
  *  Rating: 4
  */
 int howManyBits(int x) {
+  
   return 0;
 }
 //float
