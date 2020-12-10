@@ -143,7 +143,7 @@ NOTES:
  *   Rating: 1
  */
 int bitXor(int x, int y) {
-  return ~x & y;
+  return ~(x&y)&~(~x&~y);
   // return 2;
 }
 /* 
@@ -166,9 +166,12 @@ int tmin(void) {
  *   Rating: 1
  */
 int isTmax(int x) {
-  int fan = ~x;
-  int p1 = x+1;
-  return !(fan^p1);
+  int minus1 = !!(x+1);
+  int tmax = !((~x)^(x+1));
+  int res = minus1 & tmax;
+  // return res;
+  // return !((~x^(x+1)) | !(x+1));
+  return !!(x+1) & !((~x) ^ (x+1));
   // return 2;
 }
 /* 
@@ -180,7 +183,9 @@ int isTmax(int x) {
  *   Rating: 2
  */
 int allOddBits(int x) {
-  return !((x>>24) & 0xAA | (x>>16) & 0xAA | (x>>8) & 0xAA | x&0xAA);
+  int comb = ((x>>24) & (x>>16) & (x>>8) & x & 0xAA);
+  
+  return !( comb ^ 0xAA);
   // return 2;
 }
 /* 
@@ -297,7 +302,7 @@ int howManyBits(int x) { //MARK
  */
 unsigned floatScale2(unsigned uf) {
   
-  return 2;
+  return 0;
 }
 /* 
  * floatFloat2Int - Return bit-level equivalent of expression (int) f

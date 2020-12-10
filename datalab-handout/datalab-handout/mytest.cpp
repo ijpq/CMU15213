@@ -1,9 +1,15 @@
 #include "bits.h"
 #include<iostream>
+#include<cstdint>
 
 int main(){
-    int m = -4;
-    int r = howManyBits(m);
-    printf("%d\n", r);
+    int32_t m = 1<<31;
+    m = -1;
+    allOddBits(m);
+
+    
+    
+
+    
     return 0;
 }

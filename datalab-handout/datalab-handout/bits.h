@@ -6,8 +6,8 @@ int test_tmin();
 //2
 int isTmax(int);
 int test_isTmax(int);
-int allOddBits();
-int test_allOddBits();
+int allOddBits(int);
+int test_allOddBits(int);
 int negate(int);
 int test_negate(int);
 //3
