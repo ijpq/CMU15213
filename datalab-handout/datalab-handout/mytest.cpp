@@ -3,11 +3,10 @@
 #include<cstdint>
 
 int main(){
-    int32_t m = 1<<31;
+    int32_t m;
     m = -1;
-    allOddBits(m);
-
     
+    floatScale2(0x7fffff);
     
 
     

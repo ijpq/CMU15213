@@ -301,7 +301,17 @@ int howManyBits(int x) { //MARK
  *   Rating: 4
  */
 unsigned floatScale2(unsigned uf) {
-  
+  unsigned sign = uf>>31&0x01;
+  unsigned exp = uf>>23&0xff;
+
+  unsigned frac = uf ^ (sign<<31) ^ exp<<23;
+  //special val
+  if (!(exp^0xff)) return uf;//
+  if (!exp) {
+    return (sign<<31) | frac<<1;
+  }
+  return (sign<<31) | ((exp+1)<<23)| frac;
+
   return 0;
 }
 /* 
@@ -317,6 +327,29 @@ unsigned floatScale2(unsigned uf) {
  *   Rating: 4
  */
 int floatFloat2Int(unsigned uf) {
+  unsigned exp = uf >> 23 & 0xff;
+  unsigned sign = uf >>31&0x01;
+  unsigned frac = uf ^ (sign<<31) ^ (exp<<23); 
+  
+  //Nan or inf
+  if (!(exp^0xff)) return 1<<31;
+
+  int e;
+
+  //denormalized.
+  if (!exp) {
+    return 0;
+  }
+
+  //normalized
+  e = exp - 127;
+  if (e<0) return 0;
+  if(e>30) return 1<<31;
+  
+  frac = ((1<<23 ) | frac) >> (23-e);
+  if (sign) return -frac;
+  return frac;
+
   return 2;
 }
 /* 
