@@ -366,5 +366,13 @@ int floatFloat2Int(unsigned uf) {
  *   Rating: 4
  */
 unsigned floatPower2(int x) {
+  unsigned sign = 0;
+  if (x<-149) return 0;
+  if (x>128) return 0xff<<23;
+  if (x>=-149 && x<= -127) {
+    int movq = -x - 126 -1;
+    return 1<<(23-movq); 
+  }
+  return x+127<<23;
     return 2;
 }
