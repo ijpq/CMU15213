@@ -1,2 +1,4959 @@
 Already logging to gdb.txt.
 No symbol "output" in current context.
+Num     Type           Disp Enb Address            What
+4       breakpoint     keep y   0x0000000000401062 <phase_5>
+	breakpoint already hit 1 time
+9       breakpoint     keep y   0x000000000040107a <phase_5+24>
+	breakpoint already hit 1 time
+10      breakpoint     keep y   0x00000000004010bd <phase_5+91>
+	breakpoint already hit 1 time
+11      breakpoint     keep y   0x0000000000401062 <phase_5>
+	breakpoint already hit 1 time
+Breakpoint 12 at 0x4010f4
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+Breakpoint 13 at 0x401121
+Continuing.
+[Inferior 1 (process 2852) exited with code 010]
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+Continuing.
+[Inferior 1 (process 2853) exited with code 010]
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+0x00000000004010f6 in phase_6 ()
+=> 0x00000000004010f6 <phase_6+2>:	41 55	push   %r13
+0x00000000004010f8 in phase_6 ()
+=> 0x00000000004010f8 <phase_6+4>:	41 54	push   %r12
+0x00000000004010fa in phase_6 ()
+=> 0x00000000004010fa <phase_6+6>:	55	push   %rbp
+0x00000000004010fb in phase_6 ()
+=> 0x00000000004010fb <phase_6+7>:	53	push   %rbx
+0x00000000004010fc in phase_6 ()
+=> 0x00000000004010fc <phase_6+8>:	48 83 ec 50	sub    $0x50,%rsp
+0x0000000000401100 in phase_6 ()
+=> 0x0000000000401100 <phase_6+12>:	49 89 e5	mov    %rsp,%r13
+0x0000000000401103 in phase_6 ()
+=> 0x0000000000401103 <phase_6+15>:	48 89 e6	mov    %rsp,%rsi
+0x0000000000401106 in phase_6 ()
+=> 0x0000000000401106 <phase_6+18>:	e8 51 03 00 00	callq  0x40145c <read_six_numbers>
+0x000000000040145c in read_six_numbers ()
+=> 0x000000000040145c <read_six_numbers+0>:	48 83 ec 18	sub    $0x18,%rsp
+Undefined command: "finfish".  Try "help".
+Run till exit from #0  0x000000000040145c in read_six_numbers ()
+[Inferior 1 (process 2857) exited with code 010]
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+Continuing.
+[Inferior 1 (process 2858) exited with code 010]
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+Continuing.
+[Inferior 1 (process 2859) exited with code 010]
+Num     Type           Disp Enb Address            What
+12      breakpoint     keep y   0x00000000004010f4 <phase_6>
+	breakpoint already hit 1 time
+13      breakpoint     keep y   0x0000000000401121 <phase_6+45>
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+0x00000000004010fc in phase_6 ()
+=> 0x00000000004010fc <phase_6+8>:	48 83 ec 50	sub    $0x50,%rsp
+0x0000000000401100 in phase_6 ()
+=> 0x0000000000401100 <phase_6+12>:	49 89 e5	mov    %rsp,%r13
+0x0000000000401103 in phase_6 ()
+=> 0x0000000000401103 <phase_6+15>:	48 89 e6	mov    %rsp,%rsi
+0x0000000000401106 in phase_6 ()
+=> 0x0000000000401106 <phase_6+18>:	e8 51 03 00 00	callq  0x40145c <read_six_numbers>
+0x000000000040145c in read_six_numbers ()
+=> 0x000000000040145c <read_six_numbers+0>:	48 83 ec 18	sub    $0x18,%rsp
+Undefined command: "finfish".  Try "help".
+Run till exit from #0  0x000000000040145c in read_six_numbers ()
+[Inferior 1 (process 2860) exited with code 010]
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+0x0000000000401100 in phase_6 ()
+=> 0x0000000000401100 <phase_6+12>:	49 89 e5	mov    %rsp,%r13
+0x0000000000401103 in phase_6 ()
+=> 0x0000000000401103 <phase_6+15>:	48 89 e6	mov    %rsp,%rsi
+0x0000000000401106 in phase_6 ()
+=> 0x0000000000401106 <phase_6+18>:	e8 51 03 00 00	callq  0x40145c <read_six_numbers>
+0x7fffffffdde0:	0x0a	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x7fffffffdde8:	0x60	0x42	0x60	0x00	0x00	0x00	0x00	0x00
+0x7fffffffddf0:	0x10	0x39	0x60	0x00
+0x000000000040145c in read_six_numbers ()
+=> 0x000000000040145c <read_six_numbers+0>:	48 83 ec 18	sub    $0x18,%rsp
+Dump of assembler code for function read_six_numbers:
+=> 0x000000000040145c <+0>:	sub    $0x18,%rsp
+   0x0000000000401460 <+4>:	mov    %rsi,%rdx
+   0x0000000000401463 <+7>:	lea    0x4(%rsi),%rcx
+   0x0000000000401467 <+11>:	lea    0x14(%rsi),%rax
+   0x000000000040146b <+15>:	mov    %rax,0x8(%rsp)
+   0x0000000000401470 <+20>:	lea    0x10(%rsi),%rax
+   0x0000000000401474 <+24>:	mov    %rax,(%rsp)
+   0x0000000000401478 <+28>:	lea    0xc(%rsi),%r9
+   0x000000000040147c <+32>:	lea    0x8(%rsi),%r8
+   0x0000000000401480 <+36>:	mov    $0x4025c3,%esi
+   0x0000000000401485 <+41>:	mov    $0x0,%eax
+   0x000000000040148a <+46>:	callq  0x400bf0 <__isoc99_sscanf@plt>
+   0x000000000040148f <+51>:	cmp    $0x5,%eax
+   0x0000000000401492 <+54>:	jg     0x401499 <read_six_numbers+61>
+   0x0000000000401494 <+56>:	callq  0x40143a <explode_bomb>
+   0x0000000000401499 <+61>:	add    $0x18,%rsp
+   0x000000000040149d <+65>:	retq   
+End of assembler dump.
+Breakpoint 14 at 0x40148a
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 14, 0x000000000040148a in read_six_numbers ()
+=> 0x000000000040148a <read_six_numbers+46>:	e8 61 f7 ff ff	callq  0x400bf0 <__isoc99_sscanf@plt>
+Continuing.
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+Continuing.
+
+Breakpoint 14, 0x000000000040148a in read_six_numbers ()
+=> 0x000000000040148a <read_six_numbers+46>:	e8 61 f7 ff ff	callq  0x400bf0 <__isoc99_sscanf@plt>
+0x4025c3:	0x25	0x64	0x20	0x25	0x64	0x20	0x25	0x64
+0x4025cb:	0x20	0x25	0x64	0x20	0x25	0x64	0x20	0x25
+0x4025d3:	0x64	0x00	0x45	0x72
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 14, 0x000000000040148a in read_six_numbers ()
+=> 0x000000000040148a <read_six_numbers+46>:	e8 61 f7 ff ff	callq  0x400bf0 <__isoc99_sscanf@plt>
+Continuing.
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+Continuing.
+
+Breakpoint 14, 0x000000000040148a in read_six_numbers ()
+=> 0x000000000040148a <read_six_numbers+46>:	e8 61 f7 ff ff	callq  0x400bf0 <__isoc99_sscanf@plt>
+Continuing.
+[Inferior 1 (process 2865) exited with code 010]
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 14, 0x000000000040148a in read_six_numbers ()
+=> 0x000000000040148a <read_six_numbers+46>:	e8 61 f7 ff ff	callq  0x400bf0 <__isoc99_sscanf@plt>
+Undefined command: "y".  Try "help".
+Continuing.
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+Continuing.
+
+Breakpoint 14, 0x000000000040148a in read_six_numbers ()
+=> 0x000000000040148a <read_six_numbers+46>:	e8 61 f7 ff ff	callq  0x400bf0 <__isoc99_sscanf@plt>
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+eax            0x5	5
+Num     Type           Disp Enb Address            What
+12      breakpoint     keep y   0x00000000004010f4 <phase_6>
+	breakpoint already hit 1 time
+13      breakpoint     keep y   0x0000000000401121 <phase_6+45>
+	breakpoint already hit 1 time
+14      breakpoint     keep y   0x000000000040148a <read_six_numbers+46>
+	breakpoint already hit 2 times
+Breakpoint 15 at 0x401062
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 15, 0x0000000000401062 in phase_5 ()
+=> 0x0000000000401062 <phase_5+0>:	53	push   %rbx
+0x0000000000401063 in phase_5 ()
+=> 0x0000000000401063 <phase_5+1>:	48 83 ec 20	sub    $0x20,%rsp
+0x0000000000401067 in phase_5 ()
+=> 0x0000000000401067 <phase_5+5>:	48 89 fb	mov    %rdi,%rbx
+1: $rdi = 6305984
+2: ($rdi) = 6305984
+3: /x $rdi = 0x6038c0
+A syntax error in expression, near `/x $rdi)'.
+A syntax error in expression, near `/x $rbx)'.
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x6038c0
+0x6038c0 <input_strings+320>:	0x69
+0x000000000040106a in phase_5 ()
+=> 0x000000000040106a <phase_5+8>:	64 48 8b 04 25 28 00 00 00	mov    %fs:0x28,%rax
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+0x6038c0 <input_strings+320>:	0x69
+6: /x $rcx = 0x6
+7: /x $ecx = 0x6
+0x0000000000401073 in phase_5 ()
+=> 0x0000000000401073 <phase_5+17>:	48 89 44 24 18	mov    %rax,0x18(%rsp)
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x6
+7: /x $ecx = 0x6
+8: /x $rax = 0xbc5bf873da553b00
+9: /x $rsp = 0x7fffffffde30
+0x7fffffffde42:	0xff
+0x0000000000401078 in phase_5 ()
+=> 0x0000000000401078 <phase_5+22>:	31 c0	xor    %eax,%eax
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x6
+7: /x $ecx = 0x6
+8: /x $rax = 0xbc5bf873da553b00
+9: /x $rsp = 0x7fffffffde30
+0x7fffffffde42:	0xff
+0x000000000040107a in phase_5 ()
+=> 0x000000000040107a <phase_5+24>:	e8 9c 02 00 00	callq  0x40131b <string_length>
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x6
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffde30
+0x000000000040131b in string_length ()
+=> 0x000000000040131b <string_length+0>:	80 3f 00	cmpb   $0x0,(%rdi)
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x6
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffde28
+Run till exit from #0  0x000000000040131b in string_length ()
+0x000000000040107f in phase_5 ()
+=> 0x000000000040107f <phase_5+29>:	83 f8 06	cmp    $0x6,%eax
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x6
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffde30
+0x0000000000401082 in phase_5 ()
+=> 0x0000000000401082 <phase_5+32>:	74 4e	je     0x4010d2 <phase_5+112>
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x6
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffde30
+0x00000000004010d2 in phase_5 ()
+=> 0x00000000004010d2 <phase_5+112>:	b8 00 00 00 00	mov    $0x0,%eax
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x6
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffde30
+0x00000000004010d7 in phase_5 ()
+=> 0x00000000004010d7 <phase_5+117>:	eb b2	jmp    0x40108b <phase_5+41>
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x6
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffde30
+0x000000000040108b in phase_5 ()
+=> 0x000000000040108b <phase_5+41>:	0f b6 0c 03	movzbl (%rbx,%rax,1),%ecx
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x6
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffde30
+0x6038c0 <input_strings+320>:	0x69
+0x000000000040108f in phase_5 ()
+=> 0x000000000040108f <phase_5+45>:	88 0c 24	mov    %cl,(%rsp)
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x69
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffde30
+0x7fffffffde30:	0x10
+0x0000000000401092 in phase_5 ()
+=> 0x0000000000401092 <phase_5+48>:	48 8b 14 24	mov    (%rsp),%rdx
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x69
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffde30
+0x7fffffffde30:	0x69
+10: /x $rdx = 0x6038c6
+0x6038c6 <input_strings+326>:	0x00
+0x0000000000401096 in phase_5 ()
+=> 0x0000000000401096 <phase_5+52>:	83 e2 0f	and    $0xf,%edx
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x69
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffde30
+10: /x $rdx = 0x402269
+0x402269 <__libc_csu_init+89>:	0x41
+0x0000000000401099 in phase_5 ()
+=> 0x0000000000401099 <phase_5+55>:	0f b6 92 b0 24 40 00	movzbl 0x4024b0(%rdx),%edx
+3: /x $rdi = 0x6038c0
+4: /x $rbx = 0x6038c0
+5: /x $rsi = 0x6038c0
+6: /x $rcx = 0x69
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffde30
+10: /x $rdx = 0x9
+Continuing.
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0xb
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffde58
+10: /x $rdx = 0x6
+Num     Type           Disp Enb Address            What
+12      breakpoint     keep y   0x00000000004010f4 <phase_6>
+	breakpoint already hit 1 time
+13      breakpoint     keep y   0x0000000000401121 <phase_6+45>
+15      breakpoint     keep y   0x0000000000401062 <phase_5>
+	breakpoint already hit 1 time
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0xb
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffde58
+10: /x $rdx = 0x6
+Num     Type           Disp Enb Address            What
+12      breakpoint     keep y   0x00000000004010f4 <phase_6>
+	breakpoint already hit 1 time
+13      breakpoint     keep y   0x0000000000401121 <phase_6+45>
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x5
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+0x7fffffffdde0:	0x06
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0x11
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffde58
+10: /x $rdx = 0x6
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+0x0000000000401123 in phase_6 ()
+=> 0x0000000000401123 <phase_6+47>:	e8 12 03 00 00	callq  0x40143a <explode_bomb>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+0x000000000040143a in explode_bomb ()
+=> 0x000000000040143a <explode_bomb+0>:	48 83 ec 08	sub    $0x8,%rsp
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffddd8
+10: /x $rdx = 0x7fffffffddf4
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0x11
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffde58
+10: /x $rdx = 0x6
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+Dump of assembler code for function phase_6:
+   0x00000000004010f4 <+0>:	push   %r14
+   0x00000000004010f6 <+2>:	push   %r13
+   0x00000000004010f8 <+4>:	push   %r12
+   0x00000000004010fa <+6>:	push   %rbp
+   0x00000000004010fb <+7>:	push   %rbx
+   0x00000000004010fc <+8>:	sub    $0x50,%rsp
+   0x0000000000401100 <+12>:	mov    %rsp,%r13
+   0x0000000000401103 <+15>:	mov    %rsp,%rsi
+   0x0000000000401106 <+18>:	callq  0x40145c <read_six_numbers>
+   0x000000000040110b <+23>:	mov    %rsp,%r14
+   0x000000000040110e <+26>:	mov    $0x0,%r12d
+   0x0000000000401114 <+32>:	mov    %r13,%rbp
+   0x0000000000401117 <+35>:	mov    0x0(%r13),%eax
+   0x000000000040111b <+39>:	sub    $0x1,%eax
+   0x000000000040111e <+42>:	cmp    $0x5,%eax
+=> 0x0000000000401121 <+45>:	jbe    0x401128 <phase_6+52>
+   0x0000000000401123 <+47>:	callq  0x40143a <explode_bomb>
+   0x0000000000401128 <+52>:	add    $0x1,%r12d
+   0x000000000040112c <+56>:	cmp    $0x6,%r12d
+   0x0000000000401130 <+60>:	je     0x401153 <phase_6+95>
+   0x0000000000401132 <+62>:	mov    %r12d,%ebx
+   0x0000000000401135 <+65>:	movslq %ebx,%rax
+   0x0000000000401138 <+68>:	mov    (%rsp,%rax,4),%eax
+   0x000000000040113b <+71>:	cmp    %eax,0x0(%rbp)
+   0x000000000040113e <+74>:	jne    0x401145 <phase_6+81>
+   0x0000000000401140 <+76>:	callq  0x40143a <explode_bomb>
+   0x0000000000401145 <+81>:	add    $0x1,%ebx
+   0x0000000000401148 <+84>:	cmp    $0x5,%ebx
+   0x000000000040114b <+87>:	jle    0x401135 <phase_6+65>
+   0x000000000040114d <+89>:	add    $0x4,%r13
+   0x0000000000401151 <+93>:	jmp    0x401114 <phase_6+32>
+   0x0000000000401153 <+95>:	lea    0x18(%rsp),%rsi
+   0x0000000000401158 <+100>:	mov    %r14,%rax
+   0x000000000040115b <+103>:	mov    $0x7,%ecx
+   0x0000000000401160 <+108>:	mov    %ecx,%edx
+   0x0000000000401162 <+110>:	sub    (%rax),%edx
+   0x0000000000401164 <+112>:	mov    %edx,(%rax)
+   0x0000000000401166 <+114>:	add    $0x4,%rax
+   0x000000000040116a <+118>:	cmp    %rsi,%rax
+   0x000000000040116d <+121>:	jne    0x401160 <phase_6+108>
+   0x000000000040116f <+123>:	mov    $0x0,%esi
+   0x0000000000401174 <+128>:	jmp    0x401197 <phase_6+163>
+   0x0000000000401176 <+130>:	mov    0x8(%rdx),%rdx
+   0x000000000040117a <+134>:	add    $0x1,%eax
+   0x000000000040117d <+137>:	cmp    %ecx,%eax
+   0x000000000040117f <+139>:	jne    0x401176 <phase_6+130>
+   0x0000000000401181 <+141>:	jmp    0x401188 <phase_6+148>
+   0x0000000000401183 <+143>:	mov    $0x6032d0,%edx
+   0x0000000000401188 <+148>:	mov    %rdx,0x20(%rsp,%rsi,2)
+   0x000000000040118d <+153>:	add    $0x4,%rsi
+   0x0000000000401191 <+157>:	cmp    $0x18,%rsi
+   0x0000000000401195 <+161>:	je     0x4011ab <phase_6+183>
+   0x0000000000401197 <+163>:	mov    (%rsp,%rsi,1),%ecx
+   0x000000000040119a <+166>:	cmp    $0x1,%ecx
+   0x000000000040119d <+169>:	jle    0x401183 <phase_6+143>
+   0x000000000040119f <+171>:	mov    $0x1,%eax
+   0x00000000004011a4 <+176>:	mov    $0x6032d0,%edx
+   0x00000000004011a9 <+181>:	jmp    0x401176 <phase_6+130>
+   0x00000000004011ab <+183>:	mov    0x20(%rsp),%rbx
+Quit
+rax            0x13	19
+Breakpoint 16 at 0x40110b
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0x11
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffde58
+10: /x $rdx = 0x6
+Continuing.
+
+Breakpoint 16, 0x000000000040110b in phase_6 ()
+=> 0x000000000040110b <phase_6+23>:	49 89 e6	mov    %rsp,%r14
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+0x000000000040110e in phase_6 ()
+=> 0x000000000040110e <phase_6+26>:	41 bc 00 00 00 00	mov    $0x0,%r12d
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+0x0000000000401114 in phase_6 ()
+=> 0x0000000000401114 <phase_6+32>:	4c 89 ed	mov    %r13,%rbp
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+0x0000000000401117 in phase_6 ()
+=> 0x0000000000401117 <phase_6+35>:	41 8b 45 00	mov    0x0(%r13),%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+0x000000000040111b in phase_6 ()
+=> 0x000000000040111b <phase_6+39>:	83 e8 01	sub    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x14
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 12, 0x00000000004010f4 in phase_6 ()
+=> 0x00000000004010f4 <phase_6+0>:	41 56	push   %r14
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0x11
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffde58
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffdf40
+Continuing.
+
+Breakpoint 16, 0x000000000040110b in phase_6 ()
+=> 0x000000000040110b <phase_6+23>:	49 89 e6	mov    %rsp,%r14
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+0x7fffffffdde0:	0x14
+Dump of assembler code for function phase_6:
+   0x00000000004010f4 <+0>:	push   %r14
+   0x00000000004010f6 <+2>:	push   %r13
+   0x00000000004010f8 <+4>:	push   %r12
+   0x00000000004010fa <+6>:	push   %rbp
+   0x00000000004010fb <+7>:	push   %rbx
+   0x00000000004010fc <+8>:	sub    $0x50,%rsp
+   0x0000000000401100 <+12>:	mov    %rsp,%r13
+   0x0000000000401103 <+15>:	mov    %rsp,%rsi
+   0x0000000000401106 <+18>:	callq  0x40145c <read_six_numbers>
+=> 0x000000000040110b <+23>:	mov    %rsp,%r14
+   0x000000000040110e <+26>:	mov    $0x0,%r12d
+   0x0000000000401114 <+32>:	mov    %r13,%rbp
+   0x0000000000401117 <+35>:	mov    0x0(%r13),%eax
+   0x000000000040111b <+39>:	sub    $0x1,%eax
+   0x000000000040111e <+42>:	cmp    $0x5,%eax
+   0x0000000000401121 <+45>:	jbe    0x401128 <phase_6+52>
+   0x0000000000401123 <+47>:	callq  0x40143a <explode_bomb>
+   0x0000000000401128 <+52>:	add    $0x1,%r12d
+   0x000000000040112c <+56>:	cmp    $0x6,%r12d
+   0x0000000000401130 <+60>:	je     0x401153 <phase_6+95>
+   0x0000000000401132 <+62>:	mov    %r12d,%ebx
+   0x0000000000401135 <+65>:	movslq %ebx,%rax
+   0x0000000000401138 <+68>:	mov    (%rsp,%rax,4),%eax
+   0x000000000040113b <+71>:	cmp    %eax,0x0(%rbp)
+   0x000000000040113e <+74>:	jne    0x401145 <phase_6+81>
+   0x0000000000401140 <+76>:	callq  0x40143a <explode_bomb>
+   0x0000000000401145 <+81>:	add    $0x1,%ebx
+   0x0000000000401148 <+84>:	cmp    $0x5,%ebx
+   0x000000000040114b <+87>:	jle    0x401135 <phase_6+65>
+   0x000000000040114d <+89>:	add    $0x4,%r13
+   0x0000000000401151 <+93>:	jmp    0x401114 <phase_6+32>
+   0x0000000000401153 <+95>:	lea    0x18(%rsp),%rsi
+   0x0000000000401158 <+100>:	mov    %r14,%rax
+   0x000000000040115b <+103>:	mov    $0x7,%ecx
+   0x0000000000401160 <+108>:	mov    %ecx,%edx
+   0x0000000000401162 <+110>:	sub    (%rax),%edx
+   0x0000000000401164 <+112>:	mov    %edx,(%rax)
+   0x0000000000401166 <+114>:	add    $0x4,%rax
+   0x000000000040116a <+118>:	cmp    %rsi,%rax
+   0x000000000040116d <+121>:	jne    0x401160 <phase_6+108>
+   0x000000000040116f <+123>:	mov    $0x0,%esi
+   0x0000000000401174 <+128>:	jmp    0x401197 <phase_6+163>
+   0x0000000000401176 <+130>:	mov    0x8(%rdx),%rdx
+   0x000000000040117a <+134>:	add    $0x1,%eax
+   0x000000000040117d <+137>:	cmp    %ecx,%eax
+   0x000000000040117f <+139>:	jne    0x401176 <phase_6+130>
+   0x0000000000401181 <+141>:	jmp    0x401188 <phase_6+148>
+   0x0000000000401183 <+143>:	mov    $0x6032d0,%edx
+   0x0000000000401188 <+148>:	mov    %rdx,0x20(%rsp,%rsi,2)
+   0x000000000040118d <+153>:	add    $0x4,%rsi
+   0x0000000000401191 <+157>:	cmp    $0x18,%rsi
+   0x0000000000401195 <+161>:	je     0x4011ab <phase_6+183>
+   0x0000000000401197 <+163>:	mov    (%rsp,%rsi,1),%ecx
+   0x000000000040119a <+166>:	cmp    $0x1,%ecx
+   0x000000000040119d <+169>:	jle    0x401183 <phase_6+143>
+   0x000000000040119f <+171>:	mov    $0x1,%eax
+   0x00000000004011a4 <+176>:	mov    $0x6032d0,%edx
+   0x00000000004011a9 <+181>:	jmp    0x401176 <phase_6+130>
+   0x00000000004011ab <+183>:	mov    0x20(%rsp),%rbx
+Quit
+Breakpoint 17 at 0x4010fc
+Num     Type           Disp Enb Address            What
+12      breakpoint     keep y   0x00000000004010f4 <phase_6>
+	breakpoint already hit 1 time
+13      breakpoint     keep y   0x0000000000401121 <phase_6+45>
+16      breakpoint     keep y   0x000000000040110b <phase_6+23>
+	breakpoint already hit 1 time
+17      breakpoint     keep y   0x00000000004010fc <phase_6+8>
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 17, 0x00000000004010fc in phase_6 ()
+=> 0x00000000004010fc <phase_6+8>:	48 83 ec 50	sub    $0x50,%rsp
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0x11
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffde30
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffdf40
+0x7fffffffde30:	0x48
+0x7fffffffde30:	0xffffdf48
+0x0000000000401100 in phase_6 ()
+=> 0x0000000000401100 <phase_6+12>:	49 89 e5	mov    %rsp,%r13
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0x11
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffdf40
+0x7fffffffdde0:	0x0000000a
+0x7fffffffdde0:	0x0000000a
+0x7fffffffdde0:	0x0a
+0x7fffffffdde0:	0x0a	0x00	0x00	0x00	0x00
+0x7fffffffdde0:	0x0000000a	0x00000000	0x00604260	0x00000000
+0x7fffffffddf0:	0x00603910
+0x0000000000401103 in phase_6 ()
+=> 0x0000000000401103 <phase_6+15>:	48 89 e6	mov    %rsp,%rsi
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0x11
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffdde0
+Continuing.
+
+Breakpoint 16, 0x000000000040110b in phase_6 ()
+=> 0x000000000040110b <phase_6+23>:	49 89 e6	mov    %rsp,%r14
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+0x7fffffffdf48:	0xffffe2ca	0x00007fff	0xffffe2ed	0x00007fff
+0x7fffffffdf58:	0x00000000	0x00000000	0xffffe2f1	0x00007fff
+0x7fffffffdf68:	0xffffe307	0x00007fff	0xffffe8f3	0x00007fff
+0x7fffffffdf78:	0xffffe90e	0x00007fff	0xffffe930	0x00007fff
+0x7fffffffdf88:	0xffffe945	0x00007fff	0xffffe95d	0x00007fff
+0x7fffffffdf98:	0xffffe974	0x00007fff	0xffffe983	0x00007fff
+0x7fffffffdfa8:	0xffffe994	0x00007fff	0xffffe99f	0x00007fff
+0x7fffffffdfb8:	0xffffe9ba	0x00007fff
+0x7fffffffdf48:	0xca	0xe2	0xff	0xff	0xff	0x7f	0x00	0x00
+0x7fffffffdf50:	0xed	0xe2	0xff	0xff	0xff	0x7f	0x00	0x00
+0x7fffffffdf58:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x7fffffffdf60:	0xf1	0xe2	0xff	0xff	0xff	0x7f
+0x7fffffffdf48:	0xffffe2ca	0x00007fff	0xffffe2ed	0x00007fff
+0x7fffffffdf58:	0x00000000	0x00000000	0xffffe2f1	0x00007fff
+0x7fffffffdf68:	0xffffe307	0x00007fff	0xffffe8f3	0x00007fff
+0x7fffffffdf78:	0xffffe90e	0x00007fff	0xffffe930	0x00007fff
+0x7fffffffdf88:	0xffffe945	0x00007fff	0xffffe95d	0x00007fff
+0x7fffffffdf98:	0xffffe974	0x00007fff	0xffffe983	0x00007fff
+0x7fffffffdfa8:	0xffffe994	0x00007fff	0xffffe99f	0x00007fff
+0x7fffffffdfb8:	0xffffe9ba	0x00007fff
+0x7fffffffddf4:	0x0000000f	0x00000000	0x00000000	0xffffdf40
+0x7fffffffde04:	0x00007fff	0x00000000	0x00000000	0x00000000
+0x7fffffffde14:	0x00000000	0x004013cc	0x00000000	0xffffdf48
+0x7fffffffde24:	0x00007fff	0x00603910	0x00000000	0xffffdf48
+0x7fffffffde34:	0x00007fff	0x00402210	0x00000000	0x00400c90
+0x7fffffffde44:	0x00000000	0xffffdf40	0x00007fff	0x00000000
+0x7fffffffde54:	0x00000000	0x00400ecb	0x00000000	0x00000000
+0x7fffffffde64:	0x00000000	0xf7a03bf7
+0x7fffffffddf4:	0x0f	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x7fffffffddfc:	0x00	0x00	0x00	0x00	0x40	0xdf	0xff	0xff
+0x7fffffffde04:	0xff	0x7f	0x00	0x00	0x00	0x00	0x00	0x00
+0x7fffffffde0c:	0x00	0x00	0x00	0x00	0x00	0x00
+0x7fffffffd750:	0x00003531
+0x7fffffffd750:	0x31
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 17, 0x00000000004010fc in phase_6 ()
+=> 0x00000000004010fc <phase_6+8>:	48 83 ec 50	sub    $0x50,%rsp
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0x11
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffde30
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffdf40
+0x603910 <input_strings+400>:	0x32
+0x603910 <input_strings+400>:	0x32	0x30	0x20	0x31	0x39	0x20	0x31	0x38
+0x603918 <input_strings+408>:	0x20	0x31	0x37	0x20	0x31	0x36
+Continuing.
+
+Breakpoint 16, 0x000000000040110b in phase_6 ()
+=> 0x000000000040110b <phase_6+23>:	49 89 e6	mov    %rsp,%r14
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+0x7fffffffdde0:	0x00000014	0x00000013	0x00000012	0x00000011
+0x7fffffffddf0:	0x00000010	0x0000000f	0x00000000	0x00000000
+0x7fffffffde00:	0xffffdf40	0x00007fff	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x7fffffffdde0:	0x14	0x00	0x00	0x00	0x13	0x00	0x00	0x00
+0x7fffffffdde8:	0x12	0x00	0x00	0x00	0x11	0x00	0x00	0x00
+0x7fffffffddf0:	0x10	0x00	0x00	0x00	0x0f	0x00	0x00	0x00
+0x7fffffffddf8:	0x00	0x00	0x00	0x00	0x00	0x00
+0x000000000040111b in phase_6 ()
+=> 0x000000000040111b <phase_6+39>:	83 e8 01	sub    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x14
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x0
+Dump of assembler code for function phase_6:
+   0x00000000004010f4 <+0>:	push   %r14
+   0x00000000004010f6 <+2>:	push   %r13
+   0x00000000004010f8 <+4>:	push   %r12
+   0x00000000004010fa <+6>:	push   %rbp
+   0x00000000004010fb <+7>:	push   %rbx
+   0x00000000004010fc <+8>:	sub    $0x50,%rsp
+   0x0000000000401100 <+12>:	mov    %rsp,%r13
+   0x0000000000401103 <+15>:	mov    %rsp,%rsi
+   0x0000000000401106 <+18>:	callq  0x40145c <read_six_numbers>
+   0x000000000040110b <+23>:	mov    %rsp,%r14
+   0x000000000040110e <+26>:	mov    $0x0,%r12d
+   0x0000000000401114 <+32>:	mov    %r13,%rbp
+   0x0000000000401117 <+35>:	mov    0x0(%r13),%eax
+=> 0x000000000040111b <+39>:	sub    $0x1,%eax
+   0x000000000040111e <+42>:	cmp    $0x5,%eax
+   0x0000000000401121 <+45>:	jbe    0x401128 <phase_6+52>
+   0x0000000000401123 <+47>:	callq  0x40143a <explode_bomb>
+   0x0000000000401128 <+52>:	add    $0x1,%r12d
+   0x000000000040112c <+56>:	cmp    $0x6,%r12d
+   0x0000000000401130 <+60>:	je     0x401153 <phase_6+95>
+   0x0000000000401132 <+62>:	mov    %r12d,%ebx
+   0x0000000000401135 <+65>:	movslq %ebx,%rax
+   0x0000000000401138 <+68>:	mov    (%rsp,%rax,4),%eax
+   0x000000000040113b <+71>:	cmp    %eax,0x0(%rbp)
+   0x000000000040113e <+74>:	jne    0x401145 <phase_6+81>
+   0x0000000000401140 <+76>:	callq  0x40143a <explode_bomb>
+   0x0000000000401145 <+81>:	add    $0x1,%ebx
+   0x0000000000401148 <+84>:	cmp    $0x5,%ebx
+   0x000000000040114b <+87>:	jle    0x401135 <phase_6+65>
+   0x000000000040114d <+89>:	add    $0x4,%r13
+   0x0000000000401151 <+93>:	jmp    0x401114 <phase_6+32>
+   0x0000000000401153 <+95>:	lea    0x18(%rsp),%rsi
+   0x0000000000401158 <+100>:	mov    %r14,%rax
+   0x000000000040115b <+103>:	mov    $0x7,%ecx
+   0x0000000000401160 <+108>:	mov    %ecx,%edx
+   0x0000000000401162 <+110>:	sub    (%rax),%edx
+   0x0000000000401164 <+112>:	mov    %edx,(%rax)
+   0x0000000000401166 <+114>:	add    $0x4,%rax
+   0x000000000040116a <+118>:	cmp    %rsi,%rax
+   0x000000000040116d <+121>:	jne    0x401160 <phase_6+108>
+   0x000000000040116f <+123>:	mov    $0x0,%esi
+   0x0000000000401174 <+128>:	jmp    0x401197 <phase_6+163>
+   0x0000000000401176 <+130>:	mov    0x8(%rdx),%rdx
+   0x000000000040117a <+134>:	add    $0x1,%eax
+   0x000000000040117d <+137>:	cmp    %ecx,%eax
+   0x000000000040117f <+139>:	jne    0x401176 <phase_6+130>
+   0x0000000000401181 <+141>:	jmp    0x401188 <phase_6+148>
+   0x0000000000401183 <+143>:	mov    $0x6032d0,%edx
+   0x0000000000401188 <+148>:	mov    %rdx,0x20(%rsp,%rsi,2)
+   0x000000000040118d <+153>:	add    $0x4,%rsi
+   0x0000000000401191 <+157>:	cmp    $0x18,%rsi
+   0x0000000000401195 <+161>:	je     0x4011ab <phase_6+183>
+   0x0000000000401197 <+163>:	mov    (%rsp,%rsi,1),%ecx
+   0x000000000040119a <+166>:	cmp    $0x1,%ecx
+   0x000000000040119d <+169>:	jle    0x401183 <phase_6+143>
+   0x000000000040119f <+171>:	mov    $0x1,%eax
+   0x00000000004011a4 <+176>:	mov    $0x6032d0,%edx
+   0x00000000004011a9 <+181>:	jmp    0x401176 <phase_6+130>
+   0x00000000004011ab <+183>:	mov    0x20(%rsp),%rbx
+   0x00000000004011b0 <+188>:	lea    0x28(%rsp),%rax
+   0x00000000004011b5 <+193>:	lea    0x50(%rsp),%rsi
+   0x00000000004011ba <+198>:	mov    %rbx,%rcx
+   0x00000000004011bd <+201>:	mov    (%rax),%rdx
+   0x00000000004011c0 <+204>:	mov    %rdx,0x8(%rcx)
+   0x00000000004011c4 <+208>:	add    $0x8,%rax
+   0x00000000004011c8 <+212>:	cmp    %rsi,%rax
+   0x00000000004011cb <+215>:	je     0x4011d2 <phase_6+222>
+   0x00000000004011cd <+217>:	mov    %rdx,%rcx
+   0x00000000004011d0 <+220>:	jmp    0x4011bd <phase_6+201>
+   0x00000000004011d2 <+222>:	movq   $0x0,0x8(%rdx)
+   0x00000000004011da <+230>:	mov    $0x5,%ebp
+   0x00000000004011df <+235>:	mov    0x8(%rbx),%rax
+   0x00000000004011e3 <+239>:	mov    (%rax),%eax
+   0x00000000004011e5 <+241>:	cmp    %eax,(%rbx)
+   0x00000000004011e7 <+243>:	jge    0x4011ee <phase_6+250>
+   0x00000000004011e9 <+245>:	callq  0x40143a <explode_bomb>
+   0x00000000004011ee <+250>:	mov    0x8(%rbx),%rbx
+   0x00000000004011f2 <+254>:	sub    $0x1,%ebp
+   0x00000000004011f5 <+257>:	jne    0x4011df <phase_6+235>
+   0x00000000004011f7 <+259>:	add    $0x50,%rsp
+   0x00000000004011fb <+263>:	pop    %rbx
+   0x00000000004011fc <+264>:	pop    %rbp
+   0x00000000004011fd <+265>:	pop    %r12
+   0x00000000004011ff <+267>:	pop    %r13
+   0x0000000000401201 <+269>:	pop    %r14
+   0x0000000000401203 <+271>:	retq   
+End of assembler dump.
+0x000000000040111e in phase_6 ()
+=> 0x000000000040111e <phase_6+42>:	83 f8 05	cmp    $0x5,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x0
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x0
+rax            0x13	19
+rbx            0x7fffffffdf48	140737488346952
+rcx            0x0	0
+rdx            0x7fffffffddf4	140737488346612
+rsi            0x0	0
+rdi            0x7fffffffd750	140737488344912
+rbp            0x7fffffffdde0	0x7fffffffdde0
+rsp            0x7fffffffdde0	0x7fffffffdde0
+r8             0x0	0
+r9             0x0	0
+r10            0x7ffff7b80c40	140737349422144
+r11            0x4025d4	4203988
+r12            0x0	0
+r13            0x7fffffffdde0	140737488346592
+r14            0x7fffffffdde0	140737488346592
+r15            0x0	0
+rip            0x401121	0x401121 <phase_6+45>
+eflags         0x212	[ AF IF ]
+cs             0x33	51
+ss             0x2b	43
+ds             0x0	0
+es             0x0	0
+fs             0x0	0
+gs             0x0	0
+0x0000000000401123 in phase_6 ()
+=> 0x0000000000401123 <phase_6+47>:	e8 12 03 00 00	callq  0x40143a <explode_bomb>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x0
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 17, 0x00000000004010fc in phase_6 ()
+=> 0x00000000004010fc <phase_6+8>:	48 83 ec 50	sub    $0x50,%rsp
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0x10
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffde30
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffdf40
+12: /x $r12d = 0x400c90
+Continuing.
+
+Breakpoint 16, 0x000000000040110b in phase_6 ()
+=> 0x000000000040110b <phase_6+23>:	49 89 e6	mov    %rsp,%r14
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x400c90
+0x000000000040110e in phase_6 ()
+=> 0x000000000040110e <phase_6+26>:	41 bc 00 00 00 00	mov    $0x0,%r12d
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x400c90
+0x000000000040111e in phase_6 ()
+=> 0x000000000040111e <phase_6+42>:	83 f8 05	cmp    $0x5,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x0
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x0
+rax            0x4	4
+rbx            0x7fffffffdf48	140737488346952
+rcx            0x0	0
+rdx            0x7fffffffddf4	140737488346612
+rsi            0x0	0
+rdi            0x7fffffffd750	140737488344912
+rbp            0x7fffffffdde0	0x7fffffffdde0
+rsp            0x7fffffffdde0	0x7fffffffdde0
+r8             0x0	0
+r9             0x0	0
+r10            0x7ffff7b80c40	140737349422144
+r11            0x4025d4	4203988
+r12            0x0	0
+r13            0x7fffffffdde0	140737488346592
+r14            0x7fffffffdde0	140737488346592
+r15            0x0	0
+rip            0x401121	0x401121 <phase_6+45>
+eflags         0x297	[ CF PF AF SF IF ]
+cs             0x33	51
+ss             0x2b	43
+ds             0x0	0
+es             0x0	0
+fs             0x0	0
+gs             0x0	0
+0x0000000000401128 in phase_6 ()
+=> 0x0000000000401128 <phase_6+52>:	41 83 c4 01	add    $0x1,%r12d
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x0
+0x000000000040112c in phase_6 ()
+=> 0x000000000040112c <phase_6+56>:	41 83 fc 06	cmp    $0x6,%r12d
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401130 in phase_6 ()
+=> 0x0000000000401130 <phase_6+60>:	74 21	je     0x401153 <phase_6+95>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0xffffffffffffdf48:	Cannot access memory at address 0xffffffffffffdf48
+0xffffffffffffdf48:	Cannot access memory at address 0xffffffffffffdf48
+0x0000000000401132 in phase_6 ()
+=> 0x0000000000401132 <phase_6+62>:	44 89 e3	mov    %r12d,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401135 in phase_6 ()
+=> 0x0000000000401135 <phase_6+65>:	48 63 c3	movslq %ebx,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x1
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x1:	Cannot access memory at address 0x1
+0x0000000000401138 in phase_6 ()
+=> 0x0000000000401138 <phase_6+68>:	8b 04 84	mov    (%rsp,%rax,4),%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x1
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x000000000040113b in phase_6 ()
+=> 0x000000000040113b <phase_6+71>:	39 45 00	cmp    %eax,0x0(%rbp)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x1
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x7fffffffdde0:	0x00000005	0x00000013	0x00000012	0x00000011
+0x7fffffffddf0:	0x00000010	0x0000000f	0x00000000	0x00000000
+0x7fffffffde00:	0xffffdf40	0x00007fff	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x7fffffffdde4:	0x00000013	0x00000012	0x00000011	0x00000010
+0x7fffffffddf4:	0x0000000f	0x00000000	0x00000000	0xffffdf40
+0x7fffffffde04:	0x00007fff	0x00000000	0x00000000	0x00000000
+0x7fffffffde14:	0x00000000	0x004013cc	0x00000000	0xffffdf48
+0x7fffffffde24:	0x00007fff	0x00603910	0x00000000	0xffffdf48
+0x7fffffffde34:	0x00007fff	0x00402210	0x00000000	0x00400c90
+0x7fffffffde44:	0x00000000	0xffffdf40	0x00007fff	0x00000000
+0x7fffffffde54:	0x00000000	0x00400ecb
+0x7fffffffdde4:	0x00000013
+0x7fffffffdde5:	0x12000000
+0x7fffffffdde0:	0x00000005
+0x7fffffffdde1:	0x13000000
+0x7fffffffdde2:	0x00130000
+0x7fffffffdde3:	0x00001300
+0x7fffffffdde4:	0x00000013
+0x7fffffffdde5:	0x12000000
+0x7fffffffdde6:	0x00120000
+0x7fffffffde2d:	0x48000000
+0x7fffffffdde7:	0x00001200
+0x7fffffffdde0:	0x05
+0x7fffffffdde1:	0x00
+0x7fffffffdde2:	0x00
+0x7fffffffdde3:	0x00
+0x7fffffffdde4:	0x13
+A syntax error in expression, near `%rbp'.
+0x7fffffffdde0:	0x05
+rbx            0x1	1
+0x000000000040113e in phase_6 ()
+=> 0x000000000040113e <phase_6+74>:	75 05	jne    0x401145 <phase_6+81>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x1
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401145 in phase_6 ()
+=> 0x0000000000401145 <phase_6+81>:	83 c3 01	add    $0x1,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x1
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401148 in phase_6 ()
+=> 0x0000000000401148 <phase_6+84>:	83 fb 05	cmp    $0x5,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x2
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x000000000040114b in phase_6 ()
+=> 0x000000000040114b <phase_6+87>:	7e e8	jle    0x401135 <phase_6+65>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x2
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401135 in phase_6 ()
+=> 0x0000000000401135 <phase_6+65>:	48 63 c3	movslq %ebx,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x2
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401138 in phase_6 ()
+=> 0x0000000000401138 <phase_6+68>:	8b 04 84	mov    (%rsp,%rax,4),%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x2
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x000000000040113b in phase_6 ()
+=> 0x000000000040113b <phase_6+71>:	39 45 00	cmp    %eax,0x0(%rbp)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x2
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x12
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x000000000040113e in phase_6 ()
+=> 0x000000000040113e <phase_6+74>:	75 05	jne    0x401145 <phase_6+81>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x2
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x12
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401145 in phase_6 ()
+=> 0x0000000000401145 <phase_6+81>:	83 c3 01	add    $0x1,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x2
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x12
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401148 in phase_6 ()
+=> 0x0000000000401148 <phase_6+84>:	83 fb 05	cmp    $0x5,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x3
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x12
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x000000000040114b in phase_6 ()
+=> 0x000000000040114b <phase_6+87>:	7e e8	jle    0x401135 <phase_6+65>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x3
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x12
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401135 in phase_6 ()
+=> 0x0000000000401135 <phase_6+65>:	48 63 c3	movslq %ebx,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x3
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x12
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401138 in phase_6 ()
+=> 0x0000000000401138 <phase_6+68>:	8b 04 84	mov    (%rsp,%rax,4),%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x3
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x000000000040113b in phase_6 ()
+=> 0x000000000040113b <phase_6+71>:	39 45 00	cmp    %eax,0x0(%rbp)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x3
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x11
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x000000000040113e in phase_6 ()
+=> 0x000000000040113e <phase_6+74>:	75 05	jne    0x401145 <phase_6+81>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x3
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x11
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401145 in phase_6 ()
+=> 0x0000000000401145 <phase_6+81>:	83 c3 01	add    $0x1,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x3
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x11
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401148 in phase_6 ()
+=> 0x0000000000401148 <phase_6+84>:	83 fb 05	cmp    $0x5,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x4
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x11
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x000000000040114b in phase_6 ()
+=> 0x000000000040114b <phase_6+87>:	7e e8	jle    0x401135 <phase_6+65>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x4
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x11
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401135 in phase_6 ()
+=> 0x0000000000401135 <phase_6+65>:	48 63 c3	movslq %ebx,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x4
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x11
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x0000000000401138 in phase_6 ()
+=> 0x0000000000401138 <phase_6+68>:	8b 04 84	mov    (%rsp,%rax,4),%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x4
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+0x000000000040113b in phase_6 ()
+=> 0x000000000040113b <phase_6+71>:	39 45 00	cmp    %eax,0x0(%rbp)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x4
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x10
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x000000000040113e in phase_6 ()
+=> 0x000000000040113e <phase_6+74>:	75 05	jne    0x401145 <phase_6+81>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x4
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x10
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x0000000000401145 in phase_6 ()
+=> 0x0000000000401145 <phase_6+81>:	83 c3 01	add    $0x1,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x4
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x10
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x0000000000401148 in phase_6 ()
+=> 0x0000000000401148 <phase_6+84>:	83 fb 05	cmp    $0x5,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x5
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x10
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x000000000040114b in phase_6 ()
+=> 0x000000000040114b <phase_6+87>:	7e e8	jle    0x401135 <phase_6+65>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x5
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x10
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x0000000000401135 in phase_6 ()
+=> 0x0000000000401135 <phase_6+65>:	48 63 c3	movslq %ebx,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x5
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x10
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x0000000000401138 in phase_6 ()
+=> 0x0000000000401138 <phase_6+68>:	8b 04 84	mov    (%rsp,%rax,4),%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x5
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x5
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x000000000040113b in phase_6 ()
+=> 0x000000000040113b <phase_6+71>:	39 45 00	cmp    %eax,0x0(%rbp)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x5
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xf
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x000000000040113e in phase_6 ()
+=> 0x000000000040113e <phase_6+74>:	75 05	jne    0x401145 <phase_6+81>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x5
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xf
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x0000000000401145 in phase_6 ()
+=> 0x0000000000401145 <phase_6+81>:	83 c3 01	add    $0x1,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x5
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xf
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x0000000000401148 in phase_6 ()
+=> 0x0000000000401148 <phase_6+84>:	83 fb 05	cmp    $0x5,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xf
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x000000000040114b in phase_6 ()
+=> 0x000000000040114b <phase_6+87>:	7e e8	jle    0x401135 <phase_6+65>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xf
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x000000000040114d in phase_6 ()
+=> 0x000000000040114d <phase_6+89>:	49 83 c5 04	add    $0x4,%r13
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xf
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x0000000000401151 in phase_6 ()
+=> 0x0000000000401151 <phase_6+93>:	eb c1	jmp    0x401114 <phase_6+32>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xf
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x0000000000401114 in phase_6 ()
+=> 0x0000000000401114 <phase_6+32>:	4c 89 ed	mov    %r13,%rbp
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xf
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde0
+0x0000000000401117 in phase_6 ()
+=> 0x0000000000401117 <phase_6+35>:	41 8b 45 00	mov    0x0(%r13),%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xf
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde4
+0x000000000040111b in phase_6 ()
+=> 0x000000000040111b <phase_6+39>:	83 e8 01	sub    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x13
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde4
+0x000000000040111e in phase_6 ()
+=> 0x000000000040111e <phase_6+42>:	83 f8 05	cmp    $0x5,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x12
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde4
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x12
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde4
+0x0000000000401123 in phase_6 ()
+=> 0x0000000000401123 <phase_6+47>:	e8 12 03 00 00	callq  0x40143a <explode_bomb>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x12
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde4
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 17, 0x00000000004010fc in phase_6 ()
+=> 0x00000000004010fc <phase_6+8>:	48 83 ec 50	sub    $0x50,%rsp
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0xb
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffde30
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffdf40
+12: /x $r12d = 0x400c90
+13: /x $rbp = 0x402210
+Continuing.
+
+Breakpoint 16, 0x000000000040110b in phase_6 ()
+=> 0x000000000040110b <phase_6+23>:	49 89 e6	mov    %rsp,%r14
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x400c90
+13: /x $rbp = 0x402210
+Num     Type           Disp Enb Address            What
+13      breakpoint     keep y   0x0000000000401121 <phase_6+45>
+16      breakpoint     keep y   0x000000000040110b <phase_6+23>
+	breakpoint already hit 1 time
+17      breakpoint     keep y   0x00000000004010fc <phase_6+8>
+	breakpoint already hit 1 time
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x0
+13: /x $rbp = 0x7fffffffdde0
+0x0000000000401128 in phase_6 ()
+=> 0x0000000000401128 <phase_6+52>:	41 83 c4 01	add    $0x1,%r12d
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x0
+13: /x $rbp = 0x7fffffffdde0
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde4
+0x0000000000401128 in phase_6 ()
+=> 0x0000000000401128 <phase_6+52>:	41 83 c4 01	add    $0x1,%r12d
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde4
+0x000000000040112c in phase_6 ()
+=> 0x000000000040112c <phase_6+56>:	41 83 fc 06	cmp    $0x6,%r12d
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x2
+13: /x $rbp = 0x7fffffffdde4
+0x0000000000401130 in phase_6 ()
+=> 0x0000000000401130 <phase_6+60>:	74 21	je     0x401153 <phase_6+95>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x2
+13: /x $rbp = 0x7fffffffdde4
+0x0000000000401132 in phase_6 ()
+=> 0x0000000000401132 <phase_6+62>:	44 89 e3	mov    %r12d,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x2
+13: /x $rbp = 0x7fffffffdde4
+0x0000000000401135 in phase_6 ()
+=> 0x0000000000401135 <phase_6+65>:	48 63 c3	movslq %ebx,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x2
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x2
+13: /x $rbp = 0x7fffffffdde4
+0x0000000000401138 in phase_6 ()
+=> 0x0000000000401138 <phase_6+68>:	8b 04 84	mov    (%rsp,%rax,4),%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x2
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x2
+13: /x $rbp = 0x7fffffffdde4
+0x000000000040113b in phase_6 ()
+=> 0x000000000040113b <phase_6+71>:	39 45 00	cmp    %eax,0x0(%rbp)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x2
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x2
+13: /x $rbp = 0x7fffffffdde4
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde8
+12: /x $r12d = 0x2
+13: /x $rbp = 0x7fffffffdde8
+0x0000000000401128 in phase_6 ()
+=> 0x0000000000401128 <phase_6+52>:	41 83 c4 01	add    $0x1,%r12d
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde8
+12: /x $r12d = 0x2
+13: /x $rbp = 0x7fffffffdde8
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddec
+12: /x $r12d = 0x3
+13: /x $rbp = 0x7fffffffddec
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x4
+13: /x $rbp = 0x7fffffffddf0
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xffffffff
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+[Inferior 1 (process 3819) exited with code 010]
+Num     Type           Disp Enb Address            What
+13      breakpoint     keep y   0x0000000000401121 <phase_6+45>
+	breakpoint already hit 6 times
+16      breakpoint     keep y   0x000000000040110b <phase_6+23>
+	breakpoint already hit 1 time
+17      breakpoint     keep y   0x00000000004010fc <phase_6+8>
+	breakpoint already hit 1 time
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 17, 0x00000000004010fc in phase_6 ()
+=> 0x00000000004010fc <phase_6+8>:	48 83 ec 50	sub    $0x50,%rsp
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0xb
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffde30
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffdf40
+12: /x $r12d = 0x400c90
+13: /x $rbp = 0x402210
+Continuing.
+
+Breakpoint 16, 0x000000000040110b in phase_6 ()
+=> 0x000000000040110b <phase_6+23>:	49 89 e6	mov    %rsp,%r14
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x400c90
+13: /x $rbp = 0x402210
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x0
+13: /x $rbp = 0x7fffffffdde0
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde4
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde8
+12: /x $r12d = 0x2
+13: /x $rbp = 0x7fffffffdde8
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddec
+12: /x $r12d = 0x3
+13: /x $rbp = 0x7fffffffddec
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x4
+13: /x $rbp = 0x7fffffffddf0
+Num     Type           Disp Enb Address            What
+13      breakpoint     keep y   0x0000000000401121 <phase_6+45>
+	breakpoint already hit 5 times
+16      breakpoint     keep y   0x000000000040110b <phase_6+23>
+	breakpoint already hit 1 time
+17      breakpoint     keep y   0x00000000004010fc <phase_6+8>
+	breakpoint already hit 1 time
+0x0000000000401128 in phase_6 ()
+=> 0x0000000000401128 <phase_6+52>:	41 83 c4 01	add    $0x1,%r12d
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x4
+13: /x $rbp = 0x7fffffffddf0
+0x000000000040112c in phase_6 ()
+=> 0x000000000040112c <phase_6+56>:	41 83 fc 06	cmp    $0x6,%r12d
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x0000000000401130 in phase_6 ()
+=> 0x0000000000401130 <phase_6+60>:	74 21	je     0x401153 <phase_6+95>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x0000000000401132 in phase_6 ()
+=> 0x0000000000401132 <phase_6+62>:	44 89 e3	mov    %r12d,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x0000000000401135 in phase_6 ()
+=> 0x0000000000401135 <phase_6+65>:	48 63 c3	movslq %ebx,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x5
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x0000000000401138 in phase_6 ()
+=> 0x0000000000401138 <phase_6+68>:	8b 04 84	mov    (%rsp,%rax,4),%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x5
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x5
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x000000000040113b in phase_6 ()
+=> 0x000000000040113b <phase_6+71>:	39 45 00	cmp    %eax,0x0(%rbp)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x5
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x000000000040113e in phase_6 ()
+=> 0x000000000040113e <phase_6+74>:	75 05	jne    0x401145 <phase_6+81>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x5
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x0000000000401145 in phase_6 ()
+=> 0x0000000000401145 <phase_6+81>:	83 c3 01	add    $0x1,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x5
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x0000000000401148 in phase_6 ()
+=> 0x0000000000401148 <phase_6+84>:	83 fb 05	cmp    $0x5,%ebx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x000000000040114b in phase_6 ()
+=> 0x000000000040114b <phase_6+87>:	7e e8	jle    0x401135 <phase_6+65>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x000000000040114d in phase_6 ()
+=> 0x000000000040114d <phase_6+89>:	49 83 c5 04	add    $0x4,%r13
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x0000000000401151 in phase_6 ()
+=> 0x0000000000401151 <phase_6+93>:	eb c1	jmp    0x401114 <phase_6+32>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x0000000000401114 in phase_6 ()
+=> 0x0000000000401114 <phase_6+32>:	4c 89 ed	mov    %r13,%rbp
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf0
+0x0000000000401117 in phase_6 ()
+=> 0x0000000000401117 <phase_6+35>:	41 8b 45 00	mov    0x0(%r13),%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040111b in phase_6 ()
+=> 0x000000000040111b <phase_6+39>:	83 e8 01	sub    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040111e in phase_6 ()
+=> 0x000000000040111e <phase_6+42>:	83 f8 05	cmp    $0x5,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xffffffff
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf4
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xffffffff
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401123 in phase_6 ()
+=> 0x0000000000401123 <phase_6+47>:	e8 12 03 00 00	callq  0x40143a <explode_bomb>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0xffffffff
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf4
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 17, 0x00000000004010fc in phase_6 ()
+=> 0x00000000004010fc <phase_6+8>:	48 83 ec 50	sub    $0x50,%rsp
+3: /x $rdi = 0x603910
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x603910
+6: /x $rcx = 0xb
+8: /x $rax = 0x603910
+9: /x $rsp = 0x7fffffffde30
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffdf40
+12: /x $r12d = 0x400c90
+13: /x $rbp = 0x402210
+Continuing.
+
+Breakpoint 16, 0x000000000040110b in phase_6 ()
+=> 0x000000000040110b <phase_6+23>:	49 89 e6	mov    %rsp,%r14
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x400c90
+13: /x $rbp = 0x402210
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x7fffffffdf48
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x5
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde0
+12: /x $r12d = 0x0
+13: /x $rbp = 0x7fffffffdde0
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde4
+12: /x $r12d = 0x1
+13: /x $rbp = 0x7fffffffdde4
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffdde8
+12: /x $r12d = 0x2
+13: /x $rbp = 0x7fffffffdde8
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddec
+12: /x $r12d = 0x3
+13: /x $rbp = 0x7fffffffddec
+Num     Type           Disp Enb Address            What
+13      breakpoint     keep y   0x0000000000401121 <phase_6+45>
+	breakpoint already hit 4 times
+16      breakpoint     keep y   0x000000000040110b <phase_6+23>
+	breakpoint already hit 1 time
+17      breakpoint     keep y   0x00000000004010fc <phase_6+8>
+	breakpoint already hit 1 time
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf0
+12: /x $r12d = 0x4
+13: /x $rbp = 0x7fffffffddf0
+Num     Type           Disp Enb Address            What
+13      breakpoint     keep y   0x0000000000401121 <phase_6+45>
+	breakpoint already hit 5 times
+16      breakpoint     keep y   0x000000000040110b <phase_6+23>
+	breakpoint already hit 1 time
+17      breakpoint     keep y   0x00000000004010fc <phase_6+8>
+	breakpoint already hit 1 time
+Continuing.
+
+Breakpoint 13, 0x0000000000401121 in phase_6 ()
+=> 0x0000000000401121 <phase_6+45>:	76 05	jbe    0x401128 <phase_6+52>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401128 in phase_6 ()
+=> 0x0000000000401128 <phase_6+52>:	41 83 c4 01	add    $0x1,%r12d
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x5
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040112c in phase_6 ()
+=> 0x000000000040112c <phase_6+56>:	41 83 fc 06	cmp    $0x6,%r12d
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401130 in phase_6 ()
+=> 0x0000000000401130 <phase_6+60>:	74 21	je     0x401153 <phase_6+95>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401153 in phase_6 ()
+=> 0x0000000000401153 <phase_6+95>:	48 8d 74 24 18	lea    0x18(%rsp),%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401158 in phase_6 ()
+=> 0x0000000000401158 <phase_6+100>:	4c 89 f0	mov    %r14,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+$20 = 140737488346592
+0x7fffffffdde0:	0x06
+$21 = 0x7fffffffdde0
+Value can't be converted to integer.
+"info" must be followed by the name of an info command.
+List of info subcommands:
+
+info address -- Describe where symbol SYM is stored
+info all-registers -- List of all registers and their contents
+info args -- Argument variables of current stack frame
+info auto-load -- Print current status of auto-loaded files
+info auxv -- Display the inferior's auxiliary vector
+info bookmarks -- Status of user-settable bookmarks
+info breakpoints -- Status of specified breakpoints (all user-settable breakpoints if no argument)
+info checkpoints -- IDs of currently known checkpoints
+info classes -- All Objective-C classes
+info common -- Print out the values contained in a Fortran COMMON block
+info copying -- Conditions for redistributing copies of GDB
+info dcache -- Print information on the dcache performance
+info display -- Expressions to display when program stops
+info exceptions -- List all Ada exception names
+info extensions -- All filename extensions associated with a source language
+info files -- Names of targets and files being debugged
+info float -- Print the status of the floating point unit
+info frame -- All about selected stack frame
+info frame-filter -- List all registered Python frame-filters
+info functions -- All function names
+info guile -- Prefix command for Guile info displays
+info handle -- What debugger does when program gets various signals
+info inferiors -- IDs of specified inferiors (all inferiors if no argument)
+info line -- Core addresses of the code for a source line
+info locals -- Local variables of current stack frame
+info macro -- Show the definition of MACRO
+info macros -- Show the definitions of all macros at LINESPEC
+info mem -- Memory region attributes
+info os -- Show OS data ARG
+info pretty-printer -- GDB command to list all registered pretty-printers
+info probes -- Show available static probes
+info proc -- Show /proc process information about any running process
+info program -- Execution status of the program
+info record -- Info record options
+info registers -- List of integer registers and their contents
+info scope -- List the variables local to a scope
+info selectors -- All Objective-C selectors
+info set -- Show all GDB settings
+info sharedlibrary -- Status of loaded shared object libraries
+info signals -- What debugger does when program gets various signals
+info skip -- Display the status of skips
+info source -- Information about the current source file
+info sources -- Source files in the program
+info stack -- Backtrace of the stack
+info static-tracepoint-markers -- List target static tracepoints markers
+info symbol -- Describe what symbol is at location ADDR
+info target -- Names of targets and files being debugged
+info tasks -- Provide information about all known Ada tasks
+info terminal -- Print inferior's saved terminal status
+info threads -- Display currently known threads
+info tracepoints -- Status of specified tracepoints (all tracepoints if no argument)
+info tvariables -- Status of trace state variables and their values
+info type-printers -- GDB command to list all registered type-printers
+info types -- All type names
+info unwinder -- GDB command to list unwinders
+info variables -- All global and static variable names
+info vector -- Print the status of the vector unit
+info vtbl -- Show the virtual function table for a C++ object
+Quit
+0x7fffffffddf8:	0x00
+0x000000000040115b in phase_6 ()
+=> 0x000000000040115b <phase_6+103>:	b9 07 00 00 00	mov    $0x7,%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x0
+8: /x $rax = 0x7fffffffdde0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401160 in phase_6 ()
+=> 0x0000000000401160 <phase_6+108>:	89 ca	mov    %ecx,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401162 in phase_6 ()
+=> 0x0000000000401162 <phase_6+110>:	2b 10	sub    (%rax),%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401164 in phase_6 ()
+=> 0x0000000000401164 <phase_6+112>:	89 10	mov    %edx,(%rax)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x1
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401166 in phase_6 ()
+=> 0x0000000000401166 <phase_6+114>:	48 83 c0 04	add    $0x4,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x1
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040116a in phase_6 ()
+=> 0x000000000040116a <phase_6+118>:	48 39 f0	cmp    %rsi,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x1
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffddf8:	0x00
+0x7fffffffdde4:	0x05
+0x000000000040116d in phase_6 ()
+=> 0x000000000040116d <phase_6+121>:	75 f1	jne    0x401160 <phase_6+108>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x1
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401160 in phase_6 ()
+=> 0x0000000000401160 <phase_6+108>:	89 ca	mov    %ecx,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x1
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401162 in phase_6 ()
+=> 0x0000000000401162 <phase_6+110>:	2b 10	sub    (%rax),%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401164 in phase_6 ()
+=> 0x0000000000401164 <phase_6+112>:	89 10	mov    %edx,(%rax)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x2
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401166 in phase_6 ()
+=> 0x0000000000401166 <phase_6+114>:	48 83 c0 04	add    $0x4,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x2
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040116a in phase_6 ()
+=> 0x000000000040116a <phase_6+118>:	48 39 f0	cmp    %rsi,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x2
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde8:	0x04
+Undefined command: "0x000000000040116f".  Try "help".
+Breakpoint 18 at 0x40116f
+Continuing.
+
+Breakpoint 18, 0x000000000040116f in phase_6 ()
+=> 0x000000000040116f <phase_6+123>:	be 00 00 00 00	mov    $0x0,%esi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401174 in phase_6 ()
+=> 0x0000000000401174 <phase_6+128>:	eb 21	jmp    0x401197 <phase_6+163>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401197 in phase_6 ()
+=> 0x0000000000401197 <phase_6+163>:	8b 0c 34	mov    (%rsp,%rsi,1),%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffddf8:	0x00
+0x7fffffffdde0:	0x01
+"info" must be followed by the name of an info command.
+List of info subcommands:
+
+info address -- Describe where symbol SYM is stored
+info all-registers -- List of all registers and their contents
+info args -- Argument variables of current stack frame
+info auto-load -- Print current status of auto-loaded files
+info auxv -- Display the inferior's auxiliary vector
+info bookmarks -- Status of user-settable bookmarks
+info breakpoints -- Status of specified breakpoints (all user-settable breakpoints if no argument)
+info checkpoints -- IDs of currently known checkpoints
+info classes -- All Objective-C classes
+info common -- Print out the values contained in a Fortran COMMON block
+info copying -- Conditions for redistributing copies of GDB
+info dcache -- Print information on the dcache performance
+info display -- Expressions to display when program stops
+info exceptions -- List all Ada exception names
+info extensions -- All filename extensions associated with a source language
+info files -- Names of targets and files being debugged
+info float -- Print the status of the floating point unit
+info frame -- All about selected stack frame
+info frame-filter -- List all registered Python frame-filters
+info functions -- All function names
+info guile -- Prefix command for Guile info displays
+info handle -- What debugger does when program gets various signals
+info inferiors -- IDs of specified inferiors (all inferiors if no argument)
+info line -- Core addresses of the code for a source line
+info locals -- Local variables of current stack frame
+info macro -- Show the definition of MACRO
+info macros -- Show the definitions of all macros at LINESPEC
+info mem -- Memory region attributes
+info os -- Show OS data ARG
+info pretty-printer -- GDB command to list all registered pretty-printers
+info probes -- Show available static probes
+info proc -- Show /proc process information about any running process
+info program -- Execution status of the program
+info record -- Info record options
+info registers -- List of integer registers and their contents
+info scope -- List the variables local to a scope
+info selectors -- All Objective-C selectors
+info set -- Show all GDB settings
+info sharedlibrary -- Status of loaded shared object libraries
+info signals -- What debugger does when program gets various signals
+info skip -- Display the status of skips
+info source -- Information about the current source file
+info sources -- Source files in the program
+info stack -- Backtrace of the stack
+info static-tracepoint-markers -- List target static tracepoints markers
+info symbol -- Describe what symbol is at location ADDR
+info target -- Names of targets and files being debugged
+info tasks -- Provide information about all known Ada tasks
+info terminal -- Print inferior's saved terminal status
+info threads -- Display currently known threads
+info tracepoints -- Status of specified tracepoints (all tracepoints if no argument)
+info tvariables -- Status of trace state variables and their values
+info type-printers -- GDB command to list all registered type-printers
+info types -- All type names
+info unwinder -- GDB command to list unwinders
+info variables -- All global and static variable names
+info vector -- Print the status of the vector unit
+info vtbl -- Show the virtual function table for a C++ object
+Quit
+0x000000000040119a in phase_6 ()
+=> 0x000000000040119a <phase_6+166>:	83 f9 01	cmp    $0x1,%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x01
+0x000000000040119d in phase_6 ()
+=> 0x000000000040119d <phase_6+169>:	7e e4	jle    0x401183 <phase_6+143>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401183 in phase_6 ()
+=> 0x0000000000401183 <phase_6+143>:	ba d0 32 60 00	mov    $0x6032d0,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Breakpoint 19 at 0x4011e9
+Continuing.
+
+Breakpoint 19, 0x00000000004011e9 in phase_6 ()
+=> 0x00000000004011e9 <phase_6+245>:	e8 4c 02 00 00	callq  0x40143a <explode_bomb>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032e0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x603310
+8: /x $rax = 0x39c
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x4
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0x006032d0	0x00000000	0x006032e0	0x00000000
+0x7fffffffde10:	0x006032f0	0x00000000	0x00603300	0x00000000
+0x7fffffffde20:	0x00603310	0x00000000	0x00603320	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+$22 = 924
+0x6032e0 <node2>:	0x000000a8
+Num     Type           Disp Enb Address            What
+13      breakpoint     keep y   0x0000000000401121 <phase_6+45>
+	breakpoint already hit 6 times
+16      breakpoint     keep y   0x000000000040110b <phase_6+23>
+	breakpoint already hit 1 time
+17      breakpoint     keep y   0x00000000004010fc <phase_6+8>
+	breakpoint already hit 1 time
+18      breakpoint     keep y   0x000000000040116f <phase_6+123>
+	breakpoint already hit 1 time
+19      breakpoint     keep y   0x00000000004011e9 <phase_6+245>
+	breakpoint already hit 1 time
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 18, 0x000000000040116f in phase_6 ()
+=> 0x000000000040116f <phase_6+123>:	be 00 00 00 00	mov    $0x0,%esi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401174 in phase_6 ()
+=> 0x0000000000401174 <phase_6+128>:	eb 21	jmp    0x401197 <phase_6+163>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0xffffdf40	0x00007fff	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x0000000000401197 in phase_6 ()
+=> 0x0000000000401197 <phase_6+163>:	8b 0c 34	mov    (%rsp,%rsi,1),%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119a in phase_6 ()
+=> 0x000000000040119a <phase_6+166>:	83 f9 01	cmp    $0x1,%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+$23 = 1
+0x000000000040119d in phase_6 ()
+=> 0x000000000040119d <phase_6+169>:	7e e4	jle    0x401183 <phase_6+143>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401183 in phase_6 ()
+=> 0x0000000000401183 <phase_6+143>:	ba d0 32 60 00	mov    $0x6032d0,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Breakpoint 20 at 0x401153
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 20, 0x0000000000401153 in phase_6 ()
+=> 0x0000000000401153 <phase_6+95>:	48 8d 74 24 18	lea    0x18(%rsp),%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000006	0x00000005	0x00000004	0x00000003
+0x7fffffffddf0:	0x00000002	0x00000001	0x00000000	0x00000000
+0x7fffffffde00:	0xffffdf40	0x00007fff	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+Num     Type           Disp Enb Address            What
+18      breakpoint     keep y   0x000000000040116f <phase_6+123>
+19      breakpoint     keep y   0x00000000004011e9 <phase_6+245>
+20      breakpoint     keep y   0x0000000000401153 <phase_6+95>
+	breakpoint already hit 1 time
+Continuing.
+
+Breakpoint 18, 0x000000000040116f in phase_6 ()
+=> 0x000000000040116f <phase_6+123>:	be 00 00 00 00	mov    $0x0,%esi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0xffffdf40	0x00007fff	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 20, 0x0000000000401153 in phase_6 ()
+=> 0x0000000000401153 <phase_6+95>:	48 8d 74 24 18	lea    0x18(%rsp),%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 18, 0x000000000040116f in phase_6 ()
+=> 0x000000000040116f <phase_6+123>:	be 00 00 00 00	mov    $0x0,%esi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0xffffdf40	0x00007fff	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+Num     Type           Disp Enb Address            What
+18      breakpoint     keep y   0x000000000040116f <phase_6+123>
+	breakpoint already hit 1 time
+19      breakpoint     keep y   0x00000000004011e9 <phase_6+245>
+20      breakpoint     keep y   0x0000000000401153 <phase_6+95>
+	breakpoint already hit 1 time
+Breakpoint 21 at 0x401174
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 20, 0x0000000000401153 in phase_6 ()
+=> 0x0000000000401153 <phase_6+95>:	48 8d 74 24 18	lea    0x18(%rsp),%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 21, 0x0000000000401174 in phase_6 ()
+=> 0x0000000000401174 <phase_6+128>:	eb 21	jmp    0x401197 <phase_6+163>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Breakpoint 22 at 0x40116d
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 20, 0x0000000000401153 in phase_6 ()
+=> 0x0000000000401153 <phase_6+95>:	48 8d 74 24 18	lea    0x18(%rsp),%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 22, 0x000000000040116d in phase_6 ()
+=> 0x000000000040116d <phase_6+121>:	75 f1	jne    0x401160 <phase_6+108>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x1
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000001	0x00000005	0x00000004	0x00000003
+0x7fffffffddf0:	0x00000002	0x00000001	0x00000000	0x00000000
+0x7fffffffde00:	0xffffdf40	0x00007fff	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x0000000000401160 in phase_6 ()
+=> 0x0000000000401160 <phase_6+108>:	89 ca	mov    %ecx,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x1
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde4:	0x00000005
+0x0000000000401162 in phase_6 ()
+=> 0x0000000000401162 <phase_6+110>:	2b 10	sub    (%rax),%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Value can't be converted to integer.
+0x7fffffffdde4:	0x00000005
+0x0000000000401164 in phase_6 ()
+=> 0x0000000000401164 <phase_6+112>:	89 10	mov    %edx,(%rax)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x2
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde4:	0x00000005
+0x0000000000401166 in phase_6 ()
+=> 0x0000000000401166 <phase_6+114>:	48 83 c0 04	add    $0x4,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x2
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde4:	0x00000002
+0x000000000040116a in phase_6 ()
+=> 0x000000000040116a <phase_6+118>:	48 39 f0	cmp    %rsi,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x2
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde8:	0x00000004
+
+Breakpoint 22, 0x000000000040116d in phase_6 ()
+=> 0x000000000040116d <phase_6+121>:	75 f1	jne    0x401160 <phase_6+108>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x2
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401160 in phase_6 ()
+=> 0x0000000000401160 <phase_6+108>:	89 ca	mov    %ecx,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x2
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7:	Cannot access memory at address 0x7
+$24 = 7
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 20, 0x0000000000401153 in phase_6 ()
+=> 0x0000000000401153 <phase_6+95>:	48 8d 74 24 18	lea    0x18(%rsp),%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x0
+8: /x $rax = 0x0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7fffffffddf4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0:	Cannot access memory at address 0x0
+0x7fffffffdde0:	0x00000006	0x00000005	0x00000004	0x00000003
+0x7fffffffddf0:	0x00000002	0x00000001	0x00000000	0x00000000
+0x7fffffffde00:	0xffffdf40	0x00007fff	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x7fffffffdde0:	0x00000006
+Continuing.
+
+Breakpoint 22, 0x000000000040116d in phase_6 ()
+=> 0x000000000040116d <phase_6+121>:	75 f1	jne    0x401160 <phase_6+108>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x1
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Num     Type           Disp Enb Address            What
+19      breakpoint     keep y   0x00000000004011e9 <phase_6+245>
+20      breakpoint     keep y   0x0000000000401153 <phase_6+95>
+	breakpoint already hit 1 time
+22      breakpoint     keep y   0x000000000040116d <phase_6+121>
+	breakpoint already hit 1 time
+Continuing.
+
+Breakpoint 22, 0x000000000040116d in phase_6 ()
+=> 0x000000000040116d <phase_6+121>:	75 f1	jne    0x401160 <phase_6+108>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x2
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 22, 0x000000000040116d in phase_6 ()
+=> 0x000000000040116d <phase_6+121>:	75 f1	jne    0x401160 <phase_6+108>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddec
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x3
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 22, 0x000000000040116d in phase_6 ()
+=> 0x000000000040116d <phase_6+121>:	75 f1	jne    0x401160 <phase_6+108>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x4
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Num     Type           Disp Enb Address            What
+19      breakpoint     keep y   0x00000000004011e9 <phase_6+245>
+20      breakpoint     keep y   0x0000000000401153 <phase_6+95>
+	breakpoint already hit 1 time
+22      breakpoint     keep y   0x000000000040116d <phase_6+121>
+	breakpoint already hit 4 times
+Continuing.
+
+Breakpoint 22, 0x000000000040116d in phase_6 ()
+=> 0x000000000040116d <phase_6+121>:	75 f1	jne    0x401160 <phase_6+108>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x5
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401160 in phase_6 ()
+=> 0x0000000000401160 <phase_6+108>:	89 ca	mov    %ecx,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x5
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401162 in phase_6 ()
+=> 0x0000000000401162 <phase_6+110>:	2b 10	sub    (%rax),%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x7
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401164 in phase_6 ()
+=> 0x0000000000401164 <phase_6+112>:	89 10	mov    %edx,(%rax)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401166 in phase_6 ()
+=> 0x0000000000401166 <phase_6+114>:	48 83 c0 04	add    $0x4,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040116a in phase_6 ()
+=> 0x000000000040116a <phase_6+118>:	48 39 f0	cmp    %rsi,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+
+Breakpoint 22, 0x000000000040116d in phase_6 ()
+=> 0x000000000040116d <phase_6+121>:	75 f1	jne    0x401160 <phase_6+108>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040116f in phase_6 ()
+=> 0x000000000040116f <phase_6+123>:	be 00 00 00 00	mov    $0x0,%esi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401174 in phase_6 ()
+=> 0x0000000000401174 <phase_6+128>:	eb 21	jmp    0x401197 <phase_6+163>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401197 in phase_6 ()
+=> 0x0000000000401197 <phase_6+163>:	8b 0c 34	mov    (%rsp,%rsi,1),%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119a in phase_6 ()
+=> 0x000000000040119a <phase_6+166>:	83 f9 01	cmp    $0x1,%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+$25 = 1
+0x000000000040119d in phase_6 ()
+=> 0x000000000040119d <phase_6+169>:	7e e4	jle    0x401183 <phase_6+143>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401183 in phase_6 ()
+=> 0x0000000000401183 <phase_6+143>:	ba d0 32 60 00	mov    $0x6032d0,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401188 in phase_6 ()
+=> 0x0000000000401188 <phase_6+148>:	48 89 54 74 20	mov    %rdx,0x20(%rsp,%rsi,2)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x6032d0 <node1>:	0x0000014c
+$26 = 332
+0x7fffffffddf4:	0x00000006
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0xffffdf40	0x00007fff	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x6032d0 <node1>:	0x0000014c
+Quit
+0x000000000040118d in phase_6 ()
+=> 0x000000000040118d <phase_6+153>:	48 83 c6 04	add    $0x4,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x01	0x00	0x00	0x00	0x02	0x00	0x00	0x00
+0x7fffffffdde8:	0x03	0x00	0x00	0x00	0x04	0x00	0x00	0x00
+0x7fffffffddf0:	0x05	0x00	0x00	0x00	0x06	0x00	0x00	0x00
+0x7fffffffddf8:	0x00	0x00	0x00	0x00	0x00	0x00
+0x7fffffffddf4:	0x06
+0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffddf4:	0x06
+0x7fffffffdde0:	0x01	0x00	0x00	0x00	0x02	0x00	0x00	0x00
+0x7fffffffdde8:	0x03	0x00	0x00	0x00	0x04	0x00	0x00	0x00
+0x7fffffffddf0:	0x05	0x00	0x00	0x00	0x06	0x00	0x00	0x00
+0x7fffffffddf8:	0x00	0x00	0x00	0x00	0x00	0x00
+0x0000000000401195 in phase_6 ()
+=> 0x0000000000401195 <phase_6+161>:	74 14	je     0x4011ab <phase_6+183>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401197 in phase_6 ()
+=> 0x0000000000401197 <phase_6+163>:	8b 0c 34	mov    (%rsp,%rsi,1),%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119a in phase_6 ()
+=> 0x000000000040119a <phase_6+166>:	83 f9 01	cmp    $0x1,%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119d in phase_6 ()
+=> 0x000000000040119d <phase_6+169>:	7e e4	jle    0x401183 <phase_6+143>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119f in phase_6 ()
+=> 0x000000000040119f <phase_6+171>:	b8 01 00 00 00	mov    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x00000000004011a4 in phase_6 ()
+=> 0x00000000004011a4 <phase_6+176>:	ba d0 32 60 00	mov    $0x6032d0,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x00000000004011a9 in phase_6 ()
+=> 0x00000000004011a9 <phase_6+181>:	eb cb	jmp    0x401176 <phase_6+130>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x6032d0 <node1>:	0x4c
+$27 = 76
+0x6032d8 <node1+8>:	0xe0
+$28 = 224
+0x0000000000401176 in phase_6 ()
+=> 0x0000000000401176 <phase_6+130>:	48 8b 52 08	mov    0x8(%rdx),%rdx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117a in phase_6 ()
+=> 0x000000000040117a <phase_6+134>:	83 c0 01	add    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117d in phase_6 ()
+=> 0x000000000040117d <phase_6+137>:	39 c8	cmp    %ecx,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117f in phase_6 ()
+=> 0x000000000040117f <phase_6+139>:	75 f5	jne    0x401176 <phase_6+130>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401181 in phase_6 ()
+=> 0x0000000000401181 <phase_6+141>:	eb 05	jmp    0x401188 <phase_6+148>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401188 in phase_6 ()
+=> 0x0000000000401188 <phase_6+148>:	48 89 54 74 20	mov    %rdx,0x20(%rsp,%rsi,2)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x6032e0 <node2>:	0xa8
+$29 = 168
+0x7fffffffddfc:	0x00
+0x000000000040118d in phase_6 ()
+=> 0x000000000040118d <phase_6+153>:	48 83 c6 04	add    $0x4,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffddfc:	0x00
+0x7fffffffdde0:	0x01	0x00	0x00	0x00	0x02	0x00	0x00	0x00
+0x7fffffffdde8:	0x03	0x00	0x00	0x00	0x04	0x00	0x00	0x00
+0x7fffffffddf0:	0x05	0x00	0x00	0x00	0x06	0x00	0x00	0x00
+0x7fffffffddf8:	0x00	0x00	0x00	0x00	0x00	0x00
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0x006032d0	0x00000000	0x006032e0	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x6032e0 <node2>:	0x000000a8
+$30 = 168
+Num     Type           Disp Enb Address            What
+19      breakpoint     keep y   0x00000000004011e9 <phase_6+245>
+20      breakpoint     keep y   0x0000000000401153 <phase_6+95>
+	breakpoint already hit 1 time
+22      breakpoint     keep y   0x000000000040116d <phase_6+121>
+	breakpoint already hit 6 times
+0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401195 in phase_6 ()
+=> 0x0000000000401195 <phase_6+161>:	74 14	je     0x4011ab <phase_6+183>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401197 in phase_6 ()
+=> 0x0000000000401197 <phase_6+163>:	8b 0c 34	mov    (%rsp,%rsi,1),%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119a in phase_6 ()
+=> 0x000000000040119a <phase_6+166>:	83 f9 01	cmp    $0x1,%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119d in phase_6 ()
+=> 0x000000000040119d <phase_6+169>:	7e e4	jle    0x401183 <phase_6+143>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119f in phase_6 ()
+=> 0x000000000040119f <phase_6+171>:	b8 01 00 00 00	mov    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x00000000004011a4 in phase_6 ()
+=> 0x00000000004011a4 <phase_6+176>:	ba d0 32 60 00	mov    $0x6032d0,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x00000000004011a9 in phase_6 ()
+=> 0x00000000004011a9 <phase_6+181>:	eb cb	jmp    0x401176 <phase_6+130>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0x006032d0	0x00000000	0x006032e0	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x0000000000401176 in phase_6 ()
+=> 0x0000000000401176 <phase_6+130>:	48 8b 52 08	mov    0x8(%rdx),%rdx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117a in phase_6 ()
+=> 0x000000000040117a <phase_6+134>:	83 c0 01	add    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117d in phase_6 ()
+=> 0x000000000040117d <phase_6+137>:	39 c8	cmp    %ecx,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117f in phase_6 ()
+=> 0x000000000040117f <phase_6+139>:	75 f5	jne    0x401176 <phase_6+130>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401176 in phase_6 ()
+=> 0x0000000000401176 <phase_6+130>:	48 8b 52 08	mov    0x8(%rdx),%rdx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117a in phase_6 ()
+=> 0x000000000040117a <phase_6+134>:	83 c0 01	add    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117d in phase_6 ()
+=> 0x000000000040117d <phase_6+137>:	39 c8	cmp    %ecx,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117f in phase_6 ()
+=> 0x000000000040117f <phase_6+139>:	75 f5	jne    0x401176 <phase_6+130>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401181 in phase_6 ()
+=> 0x0000000000401181 <phase_6+141>:	eb 05	jmp    0x401188 <phase_6+148>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401188 in phase_6 ()
+=> 0x0000000000401188 <phase_6+148>:	48 89 54 74 20	mov    %rdx,0x20(%rsp,%rsi,2)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040118d in phase_6 ()
+=> 0x000000000040118d <phase_6+153>:	48 83 c6 04	add    $0x4,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0xc
+6: /x $rcx = 0x3
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401195 in phase_6 ()
+=> 0x0000000000401195 <phase_6+161>:	74 14	je     0x4011ab <phase_6+183>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0xc
+6: /x $rcx = 0x3
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401197 in phase_6 ()
+=> 0x0000000000401197 <phase_6+163>:	8b 0c 34	mov    (%rsp,%rsi,1),%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0xc
+6: /x $rcx = 0x3
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119a in phase_6 ()
+=> 0x000000000040119a <phase_6+166>:	83 f9 01	cmp    $0x1,%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0xc
+6: /x $rcx = 0x4
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119d in phase_6 ()
+=> 0x000000000040119d <phase_6+169>:	7e e4	jle    0x401183 <phase_6+143>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0xc
+6: /x $rcx = 0x4
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119f in phase_6 ()
+=> 0x000000000040119f <phase_6+171>:	b8 01 00 00 00	mov    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0xc
+6: /x $rcx = 0x4
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x00000000004011a4 in phase_6 ()
+=> 0x00000000004011a4 <phase_6+176>:	ba d0 32 60 00	mov    $0x6032d0,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0xc
+6: /x $rcx = 0x4
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x6032f0 <node3>:	0x0000039c
+0x00000000004011a9 in phase_6 ()
+=> 0x00000000004011a9 <phase_6+181>:	eb cb	jmp    0x401176 <phase_6+130>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0xc
+6: /x $rcx = 0x4
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Num     Type           Disp Enb Address            What
+19      breakpoint     keep y   0x00000000004011e9 <phase_6+245>
+20      breakpoint     keep y   0x0000000000401153 <phase_6+95>
+	breakpoint already hit 1 time
+22      breakpoint     keep y   0x000000000040116d <phase_6+121>
+	breakpoint already hit 6 times
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 22, 0x000000000040116d in phase_6 ()
+=> 0x000000000040116d <phase_6+121>:	75 f1	jne    0x401160 <phase_6+108>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x1
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Num     Type           Disp Enb Address            What
+19      breakpoint     keep y   0x00000000004011e9 <phase_6+245>
+22      breakpoint     keep y   0x000000000040116d <phase_6+121>
+	breakpoint already hit 1 time
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 22, 0x000000000040116d in phase_6 ()
+=> 0x000000000040116d <phase_6+121>:	75 f1	jne    0x401160 <phase_6+108>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x1
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401160 in phase_6 ()
+=> 0x0000000000401160 <phase_6+108>:	89 ca	mov    %ecx,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffdde4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x1
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Breakpoint 23 at 0x40116f
+Num     Type           Disp Enb Address            What
+19      breakpoint     keep y   0x00000000004011e9 <phase_6+245>
+22      breakpoint     keep y   0x000000000040116d <phase_6+121>
+	breakpoint already hit 1 time
+23      breakpoint     keep y   0x000000000040116f <phase_6+123>
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 23, 0x000000000040116f in phase_6 ()
+=> 0x000000000040116f <phase_6+123>:	be 00 00 00 00	mov    $0x0,%esi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0xffffdf40	0x00007fff	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x0000000000401174 in phase_6 ()
+=> 0x0000000000401174 <phase_6+128>:	eb 21	jmp    0x401197 <phase_6+163>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401197 in phase_6 ()
+=> 0x0000000000401197 <phase_6+163>:	8b 0c 34	mov    (%rsp,%rsi,1),%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119a in phase_6 ()
+=> 0x000000000040119a <phase_6+166>:	83 f9 01	cmp    $0x1,%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0xffffdf40	0x00007fff	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+$31 = 1
+0x6:	Cannot access memory at address 0x6
+0x000000000040119d in phase_6 ()
+=> 0x000000000040119d <phase_6+169>:	7e e4	jle    0x401183 <phase_6+143>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401183 in phase_6 ()
+=> 0x0000000000401183 <phase_6+143>:	ba d0 32 60 00	mov    $0x6032d0,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x6:	Cannot access memory at address 0x6
+0x0000000000401188 in phase_6 ()
+=> 0x0000000000401188 <phase_6+148>:	48 89 54 74 20	mov    %rdx,0x20(%rsp,%rsi,2)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+$32 = 6304464
+$33 = 0x6032d0
+0x6032d0 <node1>:	0x0000014c
+$34 = 0x6032d0
+$35 = 0x7fffffffddf4
+0x7fffffffddf4:	0x00000006
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0xffffdf40	0x00007fff	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x000000000040118d in phase_6 ()
+=> 0x000000000040118d <phase_6+153>:	48 83 c6 04	add    $0x4,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x0
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0x006032d0	0x00000000	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0x006032d0	0x00000000	0x00000000	0x00000000
+0x7fffffffde10:	0x00000000	0x00000000	0x004013cc	0x00000000
+0x7fffffffde20:	0xffffdf48	0x00007fff	0x00603910	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+'at 0x0x20' has unknown return type; cast the call to its declared return type
+Quit
+Quit
+Quit
+Quit
+Quit
+Quit
+Quit
+Quit
+Quit
+0x7fffffffddf4:	0x00000006
+0x7fffffffde00:	0x006032d0
+0x0000000000401195 in phase_6 ()
+=> 0x0000000000401195 <phase_6+161>:	74 14	je     0x4011ab <phase_6+183>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401197 in phase_6 ()
+=> 0x0000000000401197 <phase_6+163>:	8b 0c 34	mov    (%rsp,%rsi,1),%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x1
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde4:	0x00000002
+0x000000000040119a in phase_6 ()
+=> 0x000000000040119a <phase_6+166>:	83 f9 01	cmp    $0x1,%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119d in phase_6 ()
+=> 0x000000000040119d <phase_6+169>:	7e e4	jle    0x401183 <phase_6+143>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119f in phase_6 ()
+=> 0x000000000040119f <phase_6+171>:	b8 01 00 00 00	mov    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+$36 = 6304464
+$37 = 0x6032d0
+0x00000000004011a4 in phase_6 ()
+=> 0x00000000004011a4 <phase_6+176>:	ba d0 32 60 00	mov    $0x6032d0,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x00000000004011a9 in phase_6 ()
+=> 0x00000000004011a9 <phase_6+181>:	eb cb	jmp    0x401176 <phase_6+130>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401176 in phase_6 ()
+=> 0x0000000000401176 <phase_6+130>:	48 8b 52 08	mov    0x8(%rdx),%rdx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+$38 = 0x6032d0
+0x000000000040117a in phase_6 ()
+=> 0x000000000040117a <phase_6+134>:	83 c0 01	add    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+$39 = 0x6032e0
+0x000000000040117d in phase_6 ()
+=> 0x000000000040117d <phase_6+137>:	39 c8	cmp    %ecx,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117f in phase_6 ()
+=> 0x000000000040117f <phase_6+139>:	75 f5	jne    0x401176 <phase_6+130>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401181 in phase_6 ()
+=> 0x0000000000401181 <phase_6+141>:	eb 05	jmp    0x401188 <phase_6+148>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401188 in phase_6 ()
+=> 0x0000000000401188 <phase_6+148>:	48 89 54 74 20	mov    %rdx,0x20(%rsp,%rsi,2)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffde08:	0x00000000
+0x000000000040118d in phase_6 ()
+=> 0x000000000040118d <phase_6+153>:	48 83 c6 04	add    $0x4,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffde08:	0x006032e0
+0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401195 in phase_6 ()
+=> 0x0000000000401195 <phase_6+161>:	74 14	je     0x4011ab <phase_6+183>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401197 in phase_6 ()
+=> 0x0000000000401197 <phase_6+163>:	8b 0c 34	mov    (%rsp,%rsi,1),%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119a in phase_6 ()
+=> 0x000000000040119a <phase_6+166>:	83 f9 01	cmp    $0x1,%ecx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119d in phase_6 ()
+=> 0x000000000040119d <phase_6+169>:	7e e4	jle    0x401183 <phase_6+143>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040119f in phase_6 ()
+=> 0x000000000040119f <phase_6+171>:	b8 01 00 00 00	mov    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x00000000004011a4 in phase_6 ()
+=> 0x00000000004011a4 <phase_6+176>:	ba d0 32 60 00	mov    $0x6032d0,%edx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x00000000004011a9 in phase_6 ()
+=> 0x00000000004011a9 <phase_6+181>:	eb cb	jmp    0x401176 <phase_6+130>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401176 in phase_6 ()
+=> 0x0000000000401176 <phase_6+130>:	48 8b 52 08	mov    0x8(%rdx),%rdx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117a in phase_6 ()
+=> 0x000000000040117a <phase_6+134>:	83 c0 01	add    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x1
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117d in phase_6 ()
+=> 0x000000000040117d <phase_6+137>:	39 c8	cmp    %ecx,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117f in phase_6 ()
+=> 0x000000000040117f <phase_6+139>:	75 f5	jne    0x401176 <phase_6+130>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401176 in phase_6 ()
+=> 0x0000000000401176 <phase_6+130>:	48 8b 52 08	mov    0x8(%rdx),%rdx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117a in phase_6 ()
+=> 0x000000000040117a <phase_6+134>:	83 c0 01	add    $0x1,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117d in phase_6 ()
+=> 0x000000000040117d <phase_6+137>:	39 c8	cmp    %ecx,%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x000000000040117f in phase_6 ()
+=> 0x000000000040117f <phase_6+139>:	75 f5	jne    0x401176 <phase_6+130>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x3
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Breakpoint 24 at 0x401191
+Continuing.
+
+Breakpoint 24, 0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0xc
+6: /x $rcx = 0x3
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 24, 0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x10
+6: /x $rcx = 0x4
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603300
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 24, 0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x14
+6: /x $rcx = 0x5
+8: /x $rax = 0x5
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603310
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 24, 0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x18
+6: /x $rcx = 0x6
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x0000000000401195 in phase_6 ()
+=> 0x0000000000401195 <phase_6+161>:	74 14	je     0x4011ab <phase_6+183>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x18
+6: /x $rcx = 0x6
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0x006032d0	0x00000000	0x006032e0	0x00000000
+0x7fffffffde10:	0x006032f0	0x00000000	0x00603300	0x00000000
+0x7fffffffde20:	0x00603310	0x00000000	0x00603320	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x00000000004011ab in phase_6 ()
+=> 0x00000000004011ab <phase_6+183>:	48 8b 5c 24 20	mov    0x20(%rsp),%rbx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x18
+6: /x $rcx = 0x6
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+$40 = 0x7fffffffde00
+0x00000000004011b0 in phase_6 ()
+=> 0x00000000004011b0 <phase_6+188>:	48 8d 44 24 28	lea    0x28(%rsp),%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x18
+6: /x $rcx = 0x6
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+$41 = 0x7fffffffde08
+0x7fffffffde08:	0x006032e0
+0x00000000004011b5 in phase_6 ()
+=> 0x00000000004011b5 <phase_6+193>:	48 8d 74 24 50	lea    0x50(%rsp),%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x18
+6: /x $rcx = 0x6
+8: /x $rax = 0x7fffffffde08
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffde30:	0xffffdf48
+0x00000000004011ba in phase_6 ()
+=> 0x00000000004011ba <phase_6+198>:	48 89 d9	mov    %rbx,%rcx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x6
+8: /x $rax = 0x7fffffffde08
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x00000000004011bd in phase_6 ()
+=> 0x00000000004011bd <phase_6+201>:	48 8b 10	mov    (%rax),%rdx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x6032d0
+8: /x $rax = 0x7fffffffde08
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x00000000004011c0 in phase_6 ()
+=> 0x00000000004011c0 <phase_6+204>:	48 89 51 08	mov    %rdx,0x8(%rcx)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x6032d0
+8: /x $rax = 0x7fffffffde08
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+No symbol "rdx" in current context.
+$42 = 0x6032e0
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0x006032d0	0x00000000	0x006032e0	0x00000000
+0x7fffffffde10:	0x006032f0	0x00000000	0x00603300	0x00000000
+0x7fffffffde20:	0x00603310	0x00000000	0x00603320	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+Quit
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0x006032d0	0x00000000	0x006032e0	0x00000000
+0x7fffffffde10:	0x006032f0	0x00000000	0x00603300	0x00000000
+0x7fffffffde20:	0x00603310	0x00000000	0x00603320	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x00000000004011c4 in phase_6 ()
+=> 0x00000000004011c4 <phase_6+208>:	48 83 c0 08	add    $0x8,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x6032d0
+8: /x $rax = 0x7fffffffde08
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0x006032d0	0x00000000	0x006032e0	0x00000000
+0x7fffffffde10:	0x006032f0	0x00000000	0x00603300	0x00000000
+0x7fffffffde20:	0x00603310	0x00000000	0x00603320	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x00000000004011c8 in phase_6 ()
+=> 0x00000000004011c8 <phase_6+212>:	48 39 f0	cmp    %rsi,%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x6032d0
+8: /x $rax = 0x7fffffffde10
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+$43 = 0x7fffffffde10
+0x00000000004011cb in phase_6 ()
+=> 0x00000000004011cb <phase_6+215>:	74 05	je     0x4011d2 <phase_6+222>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x6032d0
+8: /x $rax = 0x7fffffffde10
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x00000000004011cd in phase_6 ()
+=> 0x00000000004011cd <phase_6+217>:	48 89 d1	mov    %rdx,%rcx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x6032d0
+8: /x $rax = 0x7fffffffde10
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Num     Type           Disp Enb Address            What
+19      breakpoint     keep y   0x00000000004011e9 <phase_6+245>
+23      breakpoint     keep y   0x000000000040116f <phase_6+123>
+	breakpoint already hit 1 time
+24      breakpoint     keep y   0x0000000000401191 <phase_6+157>
+	breakpoint already hit 4 times
+Breakpoint 25 at 0x4011d2
+Continuing.
+
+Breakpoint 25, 0x00000000004011d2 in phase_6 ()
+=> 0x00000000004011d2 <phase_6+222>:	48 c7 42 08 00 00 00 00	movq   $0x0,0x8(%rdx)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x603310
+8: /x $rax = 0x7fffffffde30
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x7fffffffdde0:	0x00000001	0x00000002	0x00000003	0x00000004
+0x7fffffffddf0:	0x00000005	0x00000006	0x00000000	0x00000000
+0x7fffffffde00:	0x006032d0	0x00000000	0x006032e0	0x00000000
+0x7fffffffde10:	0x006032f0	0x00000000	0x00603300	0x00000000
+0x7fffffffde20:	0x00603310	0x00000000	0x00603320	0x00000000
+0x7fffffffde30:	0xffffdf48	0x00007fff	0x00402210	0x00000000
+0x7fffffffde40:	0x00400c90	0x00000000	0xffffdf40	0x00007fff
+0x7fffffffde50:	0x00000000	0x00000000
+0x6032d0 <node1>:	0x0000014c
+0x6032e0 <node2>:	0x000000a8
+0x6032f0 <node3>:	0x0000039c
+0x603300 <node4>:	0x000002b3
+0x603310 <node5>:	0x000001dd
+0x603320 <node6>:	0x000001bb
+0x603328 <node6+8>:	0x00000000
+0x603328 <node6+8>:	0x00000000
+0x00000000004011da in phase_6 ()
+=> 0x00000000004011da <phase_6+230>:	bd 05 00 00 00	mov    $0x5,%ebp
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x603310
+8: /x $rax = 0x7fffffffde30
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+0x603328 <node6+8>:	0x00000000
+0x7fffffffddf4:	0x00000006
+0x00000000004011df in phase_6 ()
+=> 0x00000000004011df <phase_6+235>:	48 8b 43 08	mov    0x8(%rbx),%rax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x603310
+8: /x $rax = 0x7fffffffde30
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x5
+0x5:	Cannot access memory at address 0x5
+0x6032d8 <node1+8>:	0x006032e0
+0x00000000004011e3 in phase_6 ()
+=> 0x00000000004011e3 <phase_6+239>:	8b 00	mov    (%rax),%eax
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x603310
+8: /x $rax = 0x6032e0
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x5
+0x6032e0 <node2>:	0x000000a8
+$44 = 332
+$45 = 168
+0x00000000004011e5 in phase_6 ()
+=> 0x00000000004011e5 <phase_6+241>:	39 03	cmp    %eax,(%rbx)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x603310
+8: /x $rax = 0xa8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x5
+0x00000000004011e7 in phase_6 ()
+=> 0x00000000004011e7 <phase_6+243>:	7d 05	jge    0x4011ee <phase_6+250>
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x603310
+8: /x $rax = 0xa8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x5
+0x00000000004011ee in phase_6 ()
+=> 0x00000000004011ee <phase_6+250>:	48 8b 5b 08	mov    0x8(%rbx),%rbx
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032d0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x603310
+8: /x $rax = 0xa8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x5
+$46 = 332
+$47 = 168
+$48 = 924
+$49 = 700
+$50 = 691
+$51 = 477
+$52 = 443
+Starting program: /home/ketang/ICSlab/bomb/bomb/bomb txt
+
+Breakpoint 23, 0x000000000040116f in phase_6 ()
+=> 0x000000000040116f <phase_6+123>:	be 00 00 00 00	mov    $0x0,%esi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x7fffffffddf8
+6: /x $rcx = 0x7
+8: /x $rax = 0x7fffffffddf8
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x2
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 24, 0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x4
+6: /x $rcx = 0x3
+8: /x $rax = 0x3
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032f0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 24, 0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x8
+6: /x $rcx = 0x4
+8: /x $rax = 0x4
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603300
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 24, 0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0xc
+6: /x $rcx = 0x5
+8: /x $rax = 0x5
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603310
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 24, 0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x10
+6: /x $rcx = 0x6
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x603320
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 24, 0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x14
+6: /x $rcx = 0x1
+8: /x $rax = 0x6
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032d0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 24, 0x0000000000401191 in phase_6 ()
+=> 0x0000000000401191 <phase_6+157>:	48 83 fe 18	cmp    $0x18,%rsi
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6
+5: /x $rsi = 0x18
+6: /x $rcx = 0x2
+8: /x $rax = 0x2
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+
+Breakpoint 25, 0x00000000004011d2 in phase_6 ()
+=> 0x00000000004011d2 <phase_6+222>:	48 c7 42 08 00 00 00 00	movq   $0x0,0x8(%rdx)
+3: /x $rdi = 0x7fffffffd750
+4: /x $rbx = 0x6032f0
+5: /x $rsi = 0x7fffffffde30
+6: /x $rcx = 0x6032d0
+8: /x $rax = 0x7fffffffde30
+9: /x $rsp = 0x7fffffffdde0
+10: /x $rdx = 0x6032e0
+11: /x $r13 = 0x7fffffffddf4
+12: /x $r12d = 0x6
+13: /x $rbp = 0x7fffffffddf4
+Continuing.
+[Inferior 1 (process 4006) exited normally]
+quit
