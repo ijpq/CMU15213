@@ -1,0 +1,2 @@
+Already logging to gdb.txt.
+No symbol "output" in current context.
