@@ -3,7 +3,12 @@
 
 int main(int argc, char* argv[])
 {
-    testFunc(fopen(argv[1],"r"));
+    
+    retStruct ret = getoptHelper(argc, argv);
+    
+    
+
+    //testFunc(fopen(argv[1],"r"));
     printSummary(0, 0, 0);
     return 0;
 }
