@@ -1,0 +1,48 @@
+#!/bin/bash
+# Basic testing script for pyth_solver
+
+echo "Running Test 1 (3, 4, 5)... (should work)"
+./pyth_solver -a 3 -b 4 -c 5
+echo ""
+
+echo "Running Test 2 (5, 12, 13)... (should work)"
+./pyth_solver -a 5 -b 12 -c 13
+echo ""
+
+echo "Running Test 3 (7, 24, 25)... (should work)"
+./pyth_solver -a 7 -b 24 -c 25
+echo ""
+
+echo "Running Test 4 (5, 10, 25)... (should not work)"
+./pyth_solver -a 5 -b 10 -c 25
+echo ""
+
+echo "Running Test 5 (no input)... (error)"
+./pyth_solver
+echo ""
+
+echo "Running Test 6 (only input for a)... (error)"
+./pyth_solver -a 1
+echo ""
+
+echo "Running Test 7 (only input for b)... (error)"
+./pyth_solver -b 1
+echo ""
+
+echo "Running Test 8 (only input for c)... (error)"
+./pyth_solver -c 1
+echo ""
+
+echo "Running Test 9 (negative input)... (error)"
+./pyth_solver -a 1 -b -2 -c 5
+echo ""
+
+echo "Running Test 10 (7, 24, 25, verbose)... (should work)"
+./pyth_solver -v -a 7 -b 24 -c 25
+echo ""
+
+echo "Running Test 11 (5, 10, 25, verbose)... (should not work)"
+./pyth_solver -v -a 5 -b 10 -c 25
+echo ""
+
+echo "All tests completed! :^)"
