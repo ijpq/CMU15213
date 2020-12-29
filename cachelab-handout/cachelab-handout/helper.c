@@ -68,9 +68,8 @@ void cacheSimulator(char File[], addrStruct* Arg, resStruct *pRes){
 
 	int numOfSet = (int) pow(2,Arg->set);
 	int numOfLine = Arg->line;
-	long long cacheSize = numOfLine * numOfSet * (int)sizeof(unit);
+	long long cacheSize = numOfLine * numOfSet * sizeof(unit);
 	unit *pCache = (unit*)malloc(cacheSize);
-	// InitCache(pCache, Arg->set*Arg->line);
 	memset(pCache, 0, cacheSize);
 	if (!pCache) exit(1);
 	
@@ -81,18 +80,12 @@ void cacheSimulator(char File[], addrStruct* Arg, resStruct *pRes){
 			   optionCI = { Arg->set, Arg->block },\
 			   optionCT = { ADDRLEN - Arg->block - Arg->set,\
 							Arg->block + Arg->set };
-	int r = 0;
 	unsigned long time = 0;
 	unsigned long *ptime = &time;
 	char resChar[MAXRES] = {};
 	FILE* pFile = fopen(File,"r");
 
-	while (true) {
-		r = fscanf(pFile, " %c %lx,%d", &op, &addr, &bytes);
-		if (r <= 0) {
-			//printf("what i read: %c %lx,%d\n", op, addr, bytes);
-			break;
-		}
+	while (fscanf(pFile, " %c %lx,%d", &op, &addr, &bytes) == 3) {
 		block = GetDecimalBit(addr, optionCO);
 		set = GetDecimalBit(addr, optionCI);
 		tag = GetDecimalBit(addr, optionCT);
@@ -111,6 +104,7 @@ void cacheSimulator(char File[], addrStruct* Arg, resStruct *pRes){
 		}
 	}	
 	free(pCache);
+	fclose(pFile);
 
 }
 
