@@ -32,7 +32,7 @@ void testFunc();
 resStruct cacheSimulator(addrStruct*, resStruct);
 unsigned long GetDecimalBit(unsigned long, maskOption);
 	
-char* LoadCache(int, int, int, int, unit*, resStruct*, unsigned long*, char []);
+void LoadCache(int, int, int, int, unit*, resStruct*, unsigned long*, char*);
 void WriteCache(int, int, int, int, unit*, resStruct*, unsigned long*);
 
 

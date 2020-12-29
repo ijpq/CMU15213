@@ -7,7 +7,7 @@
 #include "helper.h"
 #include <getopt.h>
 
-#define MAXRES 17
+#define MAXRES 100
 #define MAXTAGLEN 8
 #define ADDRLEN 64
 #define SCALE 2
@@ -68,7 +68,6 @@ resStruct cacheSimulator(addrStruct* Arg, resStruct res){
 
 	int cacheSize = Arg->set * Arg->line * sizeof(unit);
 	unit *pCache = malloc(cacheSize);
-	//unit* pTarget = pCache;
 	if (!pCache) exit(1);
 	
 	int block = 0, set = 0, tag = 0,
@@ -79,60 +78,45 @@ resStruct cacheSimulator(addrStruct* Arg, resStruct res){
 			   optionCI = { Arg->set, Arg->block },\
 			   optionCT = { ADDRLEN - Arg->block - Arg->set,\
 							Arg->block + Arg->set };
-	FILE* pFile = fopen(Arg->File,"r");
+	int r = 0;
 	unsigned long time = 0;
 	unsigned long *ptime = &time;
 	char resChar[MAXRES] = {};
+	FILE* pFile = fopen(Arg->File,"r");
 
-	while (fscanf(pFile, " %c %lx,%d\n", &op, &addr, &bytes) != 3) {
+	while (true) {
+		r = fscanf(pFile, " %c %lx,%d", &op, &addr, &bytes);
+		if (r!=3) break;
 		block = GetDecimalBit(addr, optionCO);
 		set = GetDecimalBit(addr, optionCI);
 		tag = GetDecimalBit(addr, optionCT);
 		
 		memset(resChar, 0, sizeof(resChar));
-		switch (op) {
-			case 'L': {
-				char *tmpres = NULL;
-				tmpres = LoadCache(tag, set, block, line, pCache, pRes, ptime,\
-				 resChar);
-				strcpy(resChar, tmpres);
-				break;
-			}
-			case 'S': {
-				char *tmpres = NULL;
-				tmpres = LoadCache(tag, set, block, line, pCache, pRes, ptime,\
-				 resChar);
-				strcpy(resChar, tmpres);
-				break;
-			}
-			case 'M': {
-				char *tmpres = NULL;
-				tmpres = LoadCache(tag, set, block, line, pCache, pRes, ptime,\
-				 resChar);
-				strcpy(resChar, tmpres);
-				strcat(resChar, " hit");
-				pRes->hits++;
-				break;
-			}
-		}
+		if (op == 'M') {
+			LoadCache(tag, set, block, line, pCache, pRes, ptime, resChar);
+			strcat(resChar, " hit");
+			pRes->hits++;
+		} else if (op == 'L' || op == 'S') {
+			 LoadCache(tag, set, block, line, pCache, pRes, ptime, resChar);
+		  }
+
 		if (Arg->verbose) {
 			printf("%c %lx,%d %s\n", op, addr, bytes, resChar);
 		}
-
 	}	
 	fclose(pFile);
 	free(pCache);
 	return res;
 }
 
-char* LoadCache(int tag,
+void LoadCache(int tag,
 			   int set,
 			   int block,
 			   int line,
 			   unit* pCache,
 			   resStruct* pRes,
 			   unsigned long *time,
-			   char ret[MAXRES] ) {
+			   char ret[] ) {
 	int get = 0;
 	unit *pTarget = NULL;
 	while (!get) {
@@ -155,16 +139,13 @@ char* LoadCache(int tag,
 			}
 		}
 		if (!get) {
-			//(*time)++;
 			WriteCache(tag, set, block, line, pCache, pRes, time);
 			(pRes->misses)++;
 			strcpy(ret, "miss eviction");
 			get = 1;
-			//return ret;
 		}
 	}
 	++*time;
-	return ret;
 
 }
 
@@ -216,7 +197,3 @@ void testFunc(const char* FilePath){
     
 
 }
-
-//		int main(){
-//				return 0;
-//		}
