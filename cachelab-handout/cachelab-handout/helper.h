@@ -6,7 +6,6 @@ typedef struct {
 	int set;
 	int block;
 	int line;
-	char *File;
 	int verbose;
 } addrStruct;
 
@@ -27,13 +26,13 @@ typedef struct {
 	int valid; //valid bit
 } unit;
 
-void getoptHelper(int, char*[], addrStruct*);
-void testFunc();
-resStruct cacheSimulator(addrStruct*, resStruct);
+void getoptHelper(int, char*[], addrStruct*, char []);
 unsigned long GetDecimalBit(unsigned long, maskOption);
 	
-void LoadCache(int, int, int, int, unit*, resStruct*, unsigned long*, char*);
-void WriteCache(int, int, int, int, unit*, resStruct*, unsigned long*);
+void cacheSimulator(char [],addrStruct*, resStruct*);
+void LoadCache(int, const int, int, const int, unit*, resStruct*, unsigned long*, char*);
+void WriteCache(const int, const int, const int, const int, unit*, resStruct*, unsigned long*);
+void InitCache(unit*, int);
 
 
 #endif

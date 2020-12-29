@@ -12,7 +12,7 @@
 #define ADDRLEN 64
 #define SCALE 2
 
-void getoptHelper(int argc, char* argv[], addrStruct* addrArg){
+void getoptHelper(int argc, char* argv[], addrStruct* addrArg, char File[]){
     extern char* optarg;
     extern int optind, opterr, optopt;
     
@@ -40,7 +40,8 @@ void getoptHelper(int argc, char* argv[], addrStruct* addrArg){
 				addrArg->block = atoi(optarg);
 				break;
 			case 't':
-				addrArg->File = optarg;
+				//File = optarg;
+				strcpy(File, optarg);
 				break;
 			default:
 				errorFlag = 1;
@@ -58,22 +59,24 @@ void getoptHelper(int argc, char* argv[], addrStruct* addrArg){
 
 }
 
-resStruct cacheSimulator(addrStruct* Arg, resStruct res){
-	resStruct *pRes = &res;
+void cacheSimulator(char File[], addrStruct* Arg, resStruct *pRes){
 	
 	// fscanf vars
 	char op;
 	unsigned long addr;
 	int bytes;
 
-	int cacheSize = Arg->set * Arg->line * sizeof(unit);
-	unit *pCache = malloc(cacheSize);
+	int numOfSet = (int) pow(2,Arg->set);
+	int numOfLine = Arg->line;
+	long long cacheSize = numOfLine * numOfSet * (int)sizeof(unit);
+	unit *pCache = (unit*)malloc(cacheSize);
+	// InitCache(pCache, Arg->set*Arg->line);
+	memset(pCache, 0, cacheSize);
 	if (!pCache) exit(1);
 	
 	int block = 0, set = 0, tag = 0,
 	   	line = Arg->line; // this var save result in decimal.
 
-	int64_t maskCO, maskCI, maskCT; // address mask
 	maskOption optionCO = { Arg->block, 0},\
 			   optionCI = { Arg->set, Arg->block },\
 			   optionCT = { ADDRLEN - Arg->block - Arg->set,\
@@ -82,11 +85,14 @@ resStruct cacheSimulator(addrStruct* Arg, resStruct res){
 	unsigned long time = 0;
 	unsigned long *ptime = &time;
 	char resChar[MAXRES] = {};
-	FILE* pFile = fopen(Arg->File,"r");
+	FILE* pFile = fopen(File,"r");
 
 	while (true) {
 		r = fscanf(pFile, " %c %lx,%d", &op, &addr, &bytes);
-		if (r!=3) break;
+		if (r <= 0) {
+			//printf("what i read: %c %lx,%d\n", op, addr, bytes);
+			break;
+		}
 		block = GetDecimalBit(addr, optionCO);
 		set = GetDecimalBit(addr, optionCI);
 		tag = GetDecimalBit(addr, optionCT);
@@ -97,22 +103,21 @@ resStruct cacheSimulator(addrStruct* Arg, resStruct res){
 			strcat(resChar, " hit");
 			pRes->hits++;
 		} else if (op == 'L' || op == 'S') {
-			 LoadCache(tag, set, block, line, pCache, pRes, ptime, resChar);
+			LoadCache(tag, set, block, line, pCache, pRes, ptime, resChar);
 		  }
 
 		if (Arg->verbose) {
 			printf("%c %lx,%d %s\n", op, addr, bytes, resChar);
 		}
 	}	
-	fclose(pFile);
 	free(pCache);
-	return res;
+
 }
 
 void LoadCache(int tag,
-			   int set,
+			   const int set,
 			   int block,
-			   int line,
+			   const int line,
 			   unit* pCache,
 			   resStruct* pRes,
 			   unsigned long *time,
@@ -121,7 +126,7 @@ void LoadCache(int tag,
 	unit *pTarget = NULL;
 	while (!get) {
 		for (int l = 0; l < line; ++l) {
-			pTarget = pCache + (set*line+l)*sizeof(unit);
+			pTarget = pCache + (set*line+l);
 			if (pTarget->valid && pTarget->tag == tag){
 				(pRes->hits)++;
 				pTarget->timer = *time;
@@ -138,41 +143,44 @@ void LoadCache(int tag,
 				break;
 			}
 		}
+		
 		if (!get) {
-			WriteCache(tag, set, block, line, pCache, pRes, time);
+			WriteCache(tag, set, block, line, pTarget, pRes, time);
 			(pRes->misses)++;
 			strcpy(ret, "miss eviction");
 			get = 1;
+			break;
 		}
 	}
-	++*time;
+	(*time)++;
 
 }
 
-void WriteCache(int tag,
-				int set,
-			   	int block,
-			   	int line,
-			   	unit* pCache,
+void WriteCache(const int tag,
+				const int set,
+			   	const int block,
+			   	const int line,
+			   	unit* pTarget,
 				resStruct *pRes,
 			   	unsigned long *time) {
 	// simulate behavior , write tag. 
 	unit *pBlock = NULL;
-	long int LeastRecentUsed = INT64_MAX, LRUIdx = 0;
-
+	unsigned long LeastRecentUsed = 999999;
+    int	LRUIdx = 0;
+	
 	// prior to write empty block.
 	for (int l = 0; l < line; l++) {
-		pBlock = pCache + (set*line+l)*sizeof(unit);
-		if (pBlock->timer < LeastRecentUsed) {
+		pBlock = pTarget - l;
+		if ((pBlock->timer) < LeastRecentUsed) {
 			LeastRecentUsed = pBlock->timer;
 			LRUIdx = l;
 		}
 	}
-	pBlock = pCache + (set*line+LRUIdx)*sizeof(unit);
-	pBlock->tag = tag;
-	pBlock->timer = *time;
+	unit* pNewTarget = pTarget - LRUIdx;
+	pNewTarget->tag = tag;
+	pNewTarget->timer = *time;
 	(pRes->evictions)++;
-	++*time;
+	(*time)++;
 }
 unsigned long  GetDecimalBit(unsigned long addr, maskOption opt) {
 	int64_t mask = (1 << opt.bit) - 1;
@@ -183,17 +191,12 @@ unsigned long  GetDecimalBit(unsigned long addr, maskOption opt) {
 }
 	
 
-void testFunc(const char* FilePath){
-    FILE* pFile = fopen(FilePath, "r");
-    char inStruc;
-    unsigned long address;
-    int size;
-    while(fscanf(pFile, " %c %lx,%d", &inStruc, &address, &size)>0){
-        printf("parsing instruction:%c %lx %d\n", inStruc, address, size);
-
-    }
-    fclose(pFile);
-    return;
+void InitCache(unit* pCache, int numOfBlock) {
+	for (int i =0; i<numOfBlock; ++i) {
+		(pCache+i)->valid = 0;
+		(pCache+i)->tag = 0;
+		(pCache+i)->timer = 0;
+	}
+}
     
 
-}
