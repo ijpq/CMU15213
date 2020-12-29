@@ -4,11 +4,13 @@
 int main(int argc, char* argv[])
 {
     
-    retStruct ret = getoptHelper(argc, argv);
-    
-    
+	//testFunc(argv[1]);
+	addrStruct addr;
+	addrStruct *pAddr = &addr;
+    getoptHelper(argc, argv, pAddr);
+	resStruct OutputRes = {0, 0, 0};
+	resStruct res = cacheSimulator(pAddr, OutputRes);	
 
-    //testFunc(fopen(argv[1],"r"));
-    printSummary(0, 0, 0);
+    printSummary(res.hits, res.misses, res.evictions);
     return 0;
 }
