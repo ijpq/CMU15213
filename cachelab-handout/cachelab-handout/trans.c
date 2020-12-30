@@ -14,6 +14,7 @@
 
 int is_transpose(int M, int N, int A[N][M], int B[M][N]);
 void Optimize(int M, int N, int A[M][N], int B[M][N]);
+void trans(int M, int N, int A[N][M], int B[M][N]);
 
 /* 
  * transpose_submit - This is the solution transpose function that you
@@ -25,7 +26,8 @@ void Optimize(int M, int N, int A[M][N], int B[M][N]);
 char transpose_submit_desc[] = "Transpose submission";
 void transpose_submit(int M, int N, int A[N][M], int B[M][N])
 {
-	Optimize(M,N,A,B);
+	// Optimize(M,N,A,B);
+	trans(M,N,A,B);
 }
 
 /* 
@@ -93,6 +95,7 @@ void OptimizeM32_rowlocal(int M, int N, int A[N][M], int B[M][N]) {
 void OptimizeM64(int M, int N, int A[N][M], int B[M][N]) {
 	//
 	
+	
 }
 
 /*
@@ -112,7 +115,6 @@ void registerFunctions()
 
 	registerTransFunction(OptimizeM32, OptimizeM32_desc);
 	registerTransFunction(OptimizeM32_rowlocal, OptimizeM32_rowlocal_desc);
-	registerTransFunction();
 
 }
 
