@@ -10,7 +10,8 @@
 #include <stdio.h>
 #include "cachelab.h"
 
-#define MAGICSIZE 8
+#define M32BLOCKSIZE 8
+#define M64BLOCKSIZE 4
 
 int is_transpose(int M, int N, int A[N][M], int B[M][N]);
 void Optimize(int M, int N, int A[M][N], int B[M][N]);
@@ -59,8 +60,8 @@ void OptimizeM32(int M, int N, int A[N][M], int B[M][N]) {
 	int tmp;
 	for (iMov=0; iMov<N;iMov+=8 ) {
 		for (jMov=0;jMov<M;jMov+=8) {
-			for (iLocal=0;iLocal<MAGICSIZE;iLocal++) {
-				for (jLocal=0;jLocal<MAGICSIZE;jLocal++) {
+			for (iLocal=0;iLocal<M32BLOCKSIZE;iLocal++) {
+				for (jLocal=0;jLocal<M32BLOCKSIZE;jLocal++) {
 					tmp = A[iLocal+iMov][jLocal+jMov];
 					B[jLocal+jMov][iLocal+iMov] = tmp;
 					
@@ -71,18 +72,18 @@ void OptimizeM32(int M, int N, int A[N][M], int B[M][N]) {
 	
 }
 
-char OptimizeM32_rowlocal_desc[] = "Optimize for 12 local vars";
+char OptimizeM32_rowlocal_desc[] = "8x8 block";
 void OptimizeM32_rowlocal(int M, int N, int A[N][M], int B[M][N]) {
 	
 	int iLocal, jLocal, iMov, jMov;
 	int tmp8[8];
 	for (iMov=0; iMov<N;iMov+=8 ) {
 		for (jMov=0;jMov<M;jMov+=8) {
-			for (iLocal=0;iLocal<MAGICSIZE;iLocal++) {
-				for (jLocal=0;jLocal<MAGICSIZE;jLocal++) {
+			for (iLocal=0;iLocal<M32BLOCKSIZE;iLocal++) {
+				for (jLocal=0;jLocal<M32BLOCKSIZE;jLocal++) {
 					tmp8[jLocal] = A[iLocal+iMov][jLocal+jMov];	
 				}
-				for (jLocal=0;jLocal<MAGICSIZE;jLocal++) {
+				for (jLocal=0;jLocal<M32BLOCKSIZE;jLocal++) {
 					B[jLocal+jMov][iLocal+iMov] = tmp8[jLocal];
 				}
 				
@@ -91,11 +92,31 @@ void OptimizeM32_rowlocal(int M, int N, int A[N][M], int B[M][N]) {
 	}
 }
 
-
+char OptimizeM64_desc[] = "4x4 block";
 void OptimizeM64(int M, int N, int A[N][M], int B[M][N]) {
 	//
-	
-	
+	int iLocal, jLocal, iMov, jMov;
+	int tmp8[8];
+	for (iMov=0; iMov<N;iMov+=M64BLOCKSIZE ) {
+		for (jMov=0;jMov<M;jMov+=M64BLOCKSIZE) {
+			for (iLocal=0;iLocal<M64BLOCKSIZE;iLocal++) {
+				for (jLocal=0;jLocal<M64BLOCKSIZE;jLocal++) {
+					tmp8[jLocal] = A[iLocal+iMov][jLocal+jMov];	
+				}
+				for (jLocal=0;jLocal<M64BLOCKSIZE;jLocal++) {
+					B[jLocal+jMov][iLocal+iMov] = tmp8[jLocal];
+				}
+				
+			}
+		}
+	}
+}
+
+char OptimizeM64_2_desc[] = "4x8 block";
+void OptimizeM64_2(int M, int N, int A[N][N], int B[M][N]) {
+    
+	int tmp8[8];
+
 }
 
 /*
@@ -115,6 +136,8 @@ void registerFunctions()
 
 	registerTransFunction(OptimizeM32, OptimizeM32_desc);
 	registerTransFunction(OptimizeM32_rowlocal, OptimizeM32_rowlocal_desc);
+	registerTransFunction(OptimizeM64, OptimizeM64_desc);
+    registerTransFunction(OptimizeM64_2, OptimizeM64_2_desc);
 
 }
 
