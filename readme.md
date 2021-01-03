@@ -7,4 +7,5 @@
 [2.bomblab](bomb/bomb)
 
 
-[Reference](https://mcginn7.github.io/2020/02/14/CSAPP-datalab/)
+[Reference A](https://mcginn7.github.io/2020/02/14/CSAPP-datalab/)
+[Reference B](https://www.zhihu.com/column/deeplearningcat)
