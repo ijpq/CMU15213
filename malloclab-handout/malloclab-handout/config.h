@@ -21,8 +21,8 @@
  * your students to implement realloc, you can delete the last two
  * traces.
  */
+  //"amptjp-bal.rep",
 #define DEFAULT_TRACEFILES \
-  "amptjp-bal.rep",\
   "cccp-bal.rep",\
   "cp-decl-bal.rep",\
   "expr-bal.rep",\

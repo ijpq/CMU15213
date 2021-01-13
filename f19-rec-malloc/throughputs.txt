@@ -1,0 +1,8 @@
+Intel(R)Xeon(R)CPUE5520@2.27GHz:checkpoint:21000
+Intel(R)Xeon(R)CPUE5520@2.27GHz:regular:14650
+Intel(R)Xeon(R)CPUE5-2687Wv3@3.10GHz:regular:25239
+Intel(R)Xeon(R)CPUE5-2690v2@3.00GHz:regular:28426
+Intel(R)Xeon(R)Gold6132CPU@2.60GHz:checkpoint:30000
+Intel(R)Xeon(R)Gold6132CPU@2.60GHz:regular:29000
+Intel(R)Xeon(R)CPUE5-2687Wv3@3.10GHz:checkpoint:28000
+Intel(R)Xeon(R)CPUE5-2690v2@3.00GHz:checkpoint:31000
