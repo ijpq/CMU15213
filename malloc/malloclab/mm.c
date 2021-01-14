@@ -17,6 +17,7 @@
 
 #include "mm.h"
 #include "memlib.h"
+#include "marco.h"
 
 /*********************************************************
  * NOTE TO STUDENTS: Before you do anything else, please
@@ -44,12 +45,76 @@ team_t team = {
 
 #define SIZE_T_SIZE (ALIGN(sizeof(size_t)))
 
+/*
+ * define static(private) global variables here.
+ */
+static char *heap_listp = NULL;
+
+static void *coalesce(void *bp) {
+    size_t prev_alloc = IS_ALLOC(FTRP(PREV_BLKP(bp)));
+    size_t next_alloc = IS_ALLOC(HDRP(NEXT_BLKP(bp)));
+    size_t size = GET_SIZE(HDRP(bp));
+    
+    if (prev_alloc && next_alloc) {
+        return bp;
+    } else if (prev_alloc && !next_alloc) {
+        size += GET_SIZE(HDRP(NEXT_BLKP(bp)));
+        PUT(HDRP(bp), PACK(size, 0));
+        PUT(FTRP(bp), PACK(size,0));
+    } else if (!prev_alloc && next_alloc) {
+        size += GET_SIZE(FTRP(PREV_BLKP(bp)));
+        PUT(HDRP(PREV_BLKP(bp)), PACK(size, 0));
+        PUT(FTRP(bp), PACK(size, 0));
+        bp = PREV_BLKP(bp);
+    } else if (!prev_alloc && !next_alloc) {
+        size_t prev_size = GET_SIZE(HDRP(PREV_BLKP(bp)));
+        size_t next_size = GET_SIZE(HDRP(NEXT_BLKP(bp)));
+        size += (prev_size + next_size);
+        PUT(HDRP(PREV_BLKP(bp)), PACK(size, 0));
+        PUT(FTRP(PREV_BLKP(bp)), PACK(size, 0));
+        bp = PREV_BLKP(bp);
+        
+    }
+    return bp;
+}
+
+
+
+static void *extend_heap(size_t words) {
+    //
+    char *bp;
+    size_t size;
+
+    /* Allocate an even number of words to maintain alignment */
+    size = (words % 2) ? (words+1) * WSIZE : words * WSIZE; //line:vm:mm:beginextend
+    if ((long)(bp = mem_sbrk(size)) == -1)  
+        return NULL;                                        //line:vm:mm:endextend
+
+    /* Initialize free block header/footer and the epilogue header */
+    PUT(HDRP(bp), PACK(size, 0));         /* Free block header */   //line:vm:mm:freeblockhdr
+    PUT(FTRP(bp), PACK(size, 0));         /* Free block footer */   //line:vm:mm:freeblockftr
+    PUT(HDRP(NEXT_BLKP(bp)), PACK(0, 1)); /* New epilogue header */ //line:vm:mm:newepihdr
+
+    /* Coalesce if the previous block was free */
+    return coalesce(bp);                                          //line:vm:mm:returnblock
+}
+
 /* 
  * mm_init - initialize the malloc package.
  */
-int mm_init(void)
-{
-    mem_init();
+int mm_init(void) {
+    if ((heap_listp = mem_sbrk(4*WSIZE)) == (void*)-1) {
+        return -1;
+    }
+    PUT(heap_listp, 0);
+    PUT(heap_listp + 1*(WSIZE), PACK(DSIZE,1));
+    PUT(heap_listp + 2*(WSIZE), PACK(DSIZE,1));
+    PUT(heap_listp + 3*(WSIZE), PACK(0,1));
+    heap_listp += (2*WSIZE);
+
+    if (extend_heap(CHUNKSIZE/WSIZE) == NULL) {
+        return -1;
+    }
     return 0;
 }
 
@@ -59,25 +124,39 @@ int mm_init(void)
  */
 void *mm_malloc(size_t size)
 {
-    return void*;
-    //int newsize = ALIGN(size + SIZE_T_SIZE);
-    //int newsize = ALIGN(size);
-    //void *p = mem_sbrk(newsize);
-    //if (p == (void *)-1)
-	//return NULL;
-    //else {
-    //    *(size_t *)p = size;
-    //    return (void *)((char *)p); 
-    //    //return (void *)((char *)p + SIZE_T_SIZE);
-    //}
+    size_t asize;
+    size_t extendsize;
+    char *bp;
+    if (size==0) {
+        return NULL;
+    }
+    
+    if (size < DSIZE) {
+        asize = 2*DSIZE;
+    } else {
+        asize = DSIZE * ((size+(DSIZE) + DSIZE-1) / DSIZE);
+    }
+
 }
 
-/*
- * mm_free - Freeing a block does nothing.
+/* 
+ * mm_free - Free a block 
  */
-void mm_free(void *ptr)
+/* $begin mmfree */
+void mm_free(void *bp)
 {
+    size_t size = GET_SIZE(HDRP(bp));
+    if (heap_listp == 0){
+        mm_init();
+    }
+    /* $begin mmfree */
+
+    PUT(HDRP(bp), PACK(size, 0));
+    PUT(FTRP(bp), PACK(size, 0));
+    coalesce(bp);
 }
+
+/* $end mmfree */
 
 /*
  * mm_realloc - Implemented simply in terms of mm_malloc and mm_free
