@@ -17,7 +17,7 @@
 
 #include "mm.h"
 #include "memlib.h"
-#include "marco.h"
+#include "macro.h"
 
 /*********************************************************
  * NOTE TO STUDENTS: Before you do anything else, please
@@ -50,6 +50,10 @@ team_t team = {
  */
 static char *heap_listp = NULL;
 
+
+/*
+ * coalesce : define how we merge free blocks.
+ */
 static void *coalesce(void *bp) {
     size_t prev_alloc = IS_ALLOC(FTRP(PREV_BLKP(bp)));
     size_t next_alloc = IS_ALLOC(HDRP(NEXT_BLKP(bp)));
@@ -78,8 +82,9 @@ static void *coalesce(void *bp) {
     return bp;
 }
 
-
-
+/*
+ * invoked when no more space to place or mm_init.
+ */
 static void *extend_heap(size_t words) {
     //
     char *bp;
@@ -97,6 +102,54 @@ static void *extend_heap(size_t words) {
 
     /* Coalesce if the previous block was free */
     return coalesce(bp);                                          //line:vm:mm:returnblock
+}
+
+/* 
+ * find_fit
+ */
+static void *find_fit(size_t asize) {
+    char *walkHeapPtr = NEXT_BLKP(heap_listp);
+    
+    if (FIT_STRATEGY == 0) {
+        while (GET(HDRP(NEXT_BLKP(walkHeapPtr))) != PACK(0, 1)) {
+            if (!IS_ALLOC(HDRP(walkHeapPtr)) && \
+                GET_SIZE(HDRP(walkHeapPtr))-DSIZE >= asize) {
+                break;
+            }
+            walkHeapPtr = NEXT_BLKP(walkHeapPtr);
+        }
+        
+    } else if (FIT_STRATEGY == 1) {
+        //TODO impl best fit
+
+    } else if (FIT_STRATEGY == 2) {
+        //TODO impl next fit
+        
+    }
+    return (void *)walkHeapPtr;
+}
+
+/*
+ * place : how we allocate a block and how we deal with the remain free space
+ * within block.
+ */
+static void place(void *bp, size_t asize) {
+    size_t allocableSize = GET_SIZE(HDRP(bp));
+    size_t kMinimumSize = 16; // hard coding
+    
+    if (allocableSize - asize >= kMinimumSize) {
+        // split block.
+        size_t remainSize = allocableSize - asize;
+        PUT(HDRP(bp), PACK(asize, 1));
+        PUT(FTRP(bp), PACK(asize, 1));
+        PUT(HDRP(NEXT_BLKP(bp)), PACK(remainSize, 0));
+        PUT(FTRP(NEXT_BLKP(bp)), PACK(remainSize, 0));
+    } else {
+        PUT(HDRP(bp), PACK(asize, 1));
+        PUT(FTRP(bp), PACK(asize, 1));
+        // didn't split.
+    }
+    return ;
 }
 
 /* 
@@ -124,8 +177,8 @@ int mm_init(void) {
  */
 void *mm_malloc(size_t size)
 {
-    size_t asize;
-    size_t extendsize;
+    size_t asize; // in byte
+    size_t extendsize; // in byte
     char *bp;
     if (size==0) {
         return NULL;
@@ -134,8 +187,20 @@ void *mm_malloc(size_t size)
     if (size < DSIZE) {
         asize = 2*DSIZE;
     } else {
-        asize = DSIZE * ((size+(DSIZE) + DSIZE-1) / DSIZE);
+        asize = DSIZE * (((size+DSIZE) + DSIZE-1) / DSIZE);
     }
+    
+    if ((bp = find_fit(asize)) != NULL) {
+        place(bp, asize);
+        return bp;
+    }
+
+    extendsize = asize > CHUNKSIZE ? asize : CHUNKSIZE;
+    if ((bp = extend_heap(extendsize/WSIZE)) == NULL) {
+        return NULL;
+    }
+    place(bp, asize);
+    return bp;
 
 }
 
@@ -177,22 +242,3 @@ void *mm_realloc(void *ptr, size_t size)
     mm_free(oldptr);
     return newptr;
 }
-
-
-static void WriteImplicitHeader() {
-    
-    return;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-

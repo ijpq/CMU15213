@@ -1,9 +1,7 @@
 /*
- * defined for use fit strategies.
+ * defined for use fit strategies. 0 - firstfit, 1 - bestfit, 2 - nextfit
  */
-#define NEXT_FIT
-#define FIRST_FIT
-#define BEST_FIT
+#define FIT_STRATEGY 0
 
 /* $begin mallocmacros */
 /* Basic constants and macros */
