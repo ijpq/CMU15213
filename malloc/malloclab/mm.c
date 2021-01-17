@@ -49,7 +49,21 @@ team_t team = {
  * define static(private) global variables here.
  */
 static char *heap_listp = NULL;
+static char *implicit_free_listPtr = NULL;
 
+/*
+ * there are x helper function to help mm_checker checking 
+ * whether heap is valid. both of them returning 0 means correct 
+ * and -1 otherwise.
+ */
+static int IsFreeMarked() {
+    implicit_free_listPtr = heap_listp;
+    return 0;
+}
+
+static int mm_checker(void) {
+    return 0;
+}
 
 /*
  * coalesce : define how we merge free blocks.
@@ -108,13 +122,13 @@ static void *extend_heap(size_t words) {
  * find_fit
  */
 static void *find_fit(size_t asize) {
-    char *walkHeapPtr = NEXT_BLKP(heap_listp);
     
+    char *walkHeapPtr = NEXT_BLKP(heap_listp);
     if (FIT_STRATEGY == 0) {
-        while (GET(HDRP(NEXT_BLKP(walkHeapPtr))) != PACK(0, 1)) {
+        while (GET(HDRP(walkHeapPtr)) != PACK(0, 1)) {
             if (!IS_ALLOC(HDRP(walkHeapPtr)) && \
-                GET_SIZE(HDRP(walkHeapPtr))-DSIZE >= asize) {
-                break;
+                GET_SIZE(HDRP(walkHeapPtr))>= asize) {
+                return walkHeapPtr;
             }
             walkHeapPtr = NEXT_BLKP(walkHeapPtr);
         }
@@ -126,7 +140,7 @@ static void *find_fit(size_t asize) {
         //TODO impl next fit
         
     }
-    return (void *)walkHeapPtr;
+    return NULL;
 }
 
 /*
