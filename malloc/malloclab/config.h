@@ -12,7 +12,7 @@
  * This is the default path where the driver will look for the
  * default tracefiles. You can override it at runtime with the -t flag.
  */
-#define TRACEDIR "home/ketang/CMU15213/malloc/malloclab"
+#define TRACEDIR "/home/ketang/CMU15213/malloc/malloclab/traces/"
 
 /*
  * This is the list of default tracefiles in TRACEDIR that the driver

@@ -163,14 +163,14 @@ int main(int argc, char **argv)
 	case 'g': /* Generate summary info for the autograder */
 	    autograder = 1;
 	    break;
-        case 'f': /* Use one specific trace file only (relative to curr dir) */
-            num_tracefiles = 1;
-            if ((tracefiles = realloc(tracefiles, 2*sizeof(char *))) == NULL)
-		unix_error("ERROR: realloc failed in main");
-	    strcpy(tracedir, "./"); 
-            tracefiles[0] = strdup(optarg);
-            tracefiles[1] = NULL;
-            break;
+    case 'f': /* Use one specific trace file only (relative to curr dir) */
+        num_tracefiles = 1;
+        if ((tracefiles = realloc(tracefiles, 2*sizeof(char *))) == NULL)
+            unix_error("ERROR: realloc failed in main");
+        strcpy(tracedir, "./"); 
+        tracefiles[0] = strdup(optarg);
+        tracefiles[1] = NULL;
+        break;
 	case 't': /* Directory where the traces are located */
 	    if (num_tracefiles == 1) /* ignore if -f already encountered */
 		break;
@@ -593,9 +593,11 @@ static int eval_mm_valid(trace_t *trace, int tracenum, range_t **ranges)
 	malloc_error(tracenum, 0, "mm_init failed.");
 	return 0;
     }
+    //mm_checker();
 
     /* Interpret each operation in the trace in order */
     for (i = 0;  i < trace->num_ops;  i++) {
+       // if (i > 0) mm_checker();
 	index = trace->ops[i].index;
 	size = trace->ops[i].size;
 
