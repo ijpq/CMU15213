@@ -403,15 +403,20 @@ void *mm_realloc(void *ptr, size_t size)
 
     void *oldptr = ptr;
     void *newptr;
-    size_t copySize;
     
-    newptr = mm_malloc(size);
-    if (newptr == NULL)
-      return NULL;
-    copySize = *(size_t *)((char *)oldptr - SIZE_T_SIZE);
-    if (size < copySize)
-      copySize = size;
-    memcpy(newptr, oldptr, copySize);
+    if (GET_SIZE(HDRP(ptr)) != GET_SIZE(FTRP(ptr)) || IS_ALLOC(HDRP(ptr))\
+            != IS_ALLOC(FTRP(ptr))) {
+        // ptr didn't returned by mm_realloc or mm_malloc.
+        return NULL;
+    }
+
+    if (size == GET_SIZE(HDRP(ptr))) return ptr;
+    size_t copySize = GET_SIZE(HDRP(ptr)) > size? size: GET_SIZE(HDRP(ptr));
+    
+    if ((newptr = mm_malloc(size)) == NULL) {
+        return NULL;
+    }
+    memcpy(newptr, oldptr, oldSize);
     mm_free(oldptr);
     return newptr;
 }
