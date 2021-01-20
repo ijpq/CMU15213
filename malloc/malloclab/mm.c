@@ -26,7 +26,7 @@
  ********************************************************/
 team_t team = {
     /* Team name */
-    "TeanOfIjpq",
+    "TeamOfIjpq",
     /* First member's full name */
     "ketang",
     /* First member's email address */
@@ -229,7 +229,6 @@ int isValidHeap() {
     int alength = 0;
     int isalloc = 0;
     int error = 0;
-    int display = 1;
     while (heaPtr != final_brk) {
         if (beforeHeader) { // at bp
             starterbp = heaPtr;
@@ -263,7 +262,7 @@ int isValidHeap() {
         heaPtr = heaPtr + WSIZE;
         alength += WSIZE;
     }
-    if (display) {
+    if (error) {
         displayHeap(alength, heaPtr);
     }
     printf("pass all check\n");
@@ -394,6 +393,14 @@ void mm_free(void *bp)
  */
 void *mm_realloc(void *ptr, size_t size)
 {
+    if (ptr == NULL) {
+        return mm_malloc(size);
+    }
+    if (!size) {
+        mm_free(ptr);
+        return NULL;
+    }
+
     void *oldptr = ptr;
     void *newptr;
     size_t copySize;
