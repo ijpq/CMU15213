@@ -1,7 +1,7 @@
 #
 # Students' Makefile for the Malloc Lab
 #
-TEAM = bovik
+TEAM = ijpq
 VERSION = 1
 HANDINDIR = /home/ketang/CMU15213/malloclab-handout/malloclab-handout/handin
 

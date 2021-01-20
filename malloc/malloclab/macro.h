@@ -21,6 +21,7 @@
 /* Read the size and allocated fields from address p */
 #define GET_SIZE(p)  (GET(p) & ~0x7)                   //line:vm:mm:getsize
 #define IS_ALLOC(p) (GET(p) & 0x1)                    //line:vm:mm:getalloc
+#define GET_ALLOC(p) IS_ALLOC(p)
 
 /* Given block ptr bp, compute address of its header and footer */
 #define HDRP(bp)       ((char *)(bp) - WSIZE)                      //line:vm:mm:hdrp

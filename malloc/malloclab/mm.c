@@ -42,6 +42,7 @@ team_t team = {
 
 /* rounds up to the nearest multiple of ALIGNMENT */
 #define ALIGN(size) (((size) + (ALIGNMENT-1)) & ~0x7)
+#define AGNSIZE(size) DSIZE*((size+DSIZE-1)/DSIZE)
 
 #define SIZE_T_SIZE (ALIGN(sizeof(size_t)))
 
@@ -63,6 +64,11 @@ static char *nxt_starterbp = NULL; // ending pointer at this block,\
 
 int mm_checker(void) {
     return isValidHeap();   
+}
+
+static void *combineNext(void *bp) {
+    // you should assure next block is freed before this function invoked.
+    
 }
 
 /*
@@ -353,10 +359,15 @@ void *mm_malloc(size_t size)
         return NULL;
     }
         
-    if (size < DSIZE) {
+    // both HDR and FTR occupies WSIZE that's why (size+DSIZE).
+    asize = size+DSIZE;
+
+    if (asize < 2*DSIZE) {
         asize = 2*DSIZE;
     } else {
-        asize = DSIZE * (((size+DSIZE) + DSIZE-1) / DSIZE);
+        //asize = DSIZE * ((asize + DSIZE-1) / DSIZE); // this is ceil to the \
+        DSIZE.
+        asize = AGNSIZE(asize);
     }
     
     if ((bp = find_fit(asize)) != NULL) {
@@ -410,13 +421,113 @@ void *mm_realloc(void *ptr, size_t size)
         return NULL;
     }
 
-    if (size == GET_SIZE(HDRP(ptr))) return ptr;
-    size_t copySize = GET_SIZE(HDRP(ptr)) > size? size: GET_SIZE(HDRP(ptr));
-    
-    if ((newptr = mm_malloc(size)) == NULL) {
-        return NULL;
+    size_t asize = size + DSIZE;
+    if (asize < 2*DSIZE) {
+        asize = 2*DSIZE;
     }
-    memcpy(newptr, oldptr, oldSize);
-    mm_free(oldptr);
+    asize = AGNSIZE(asize);
+
+    if (asize == GET_SIZE(HDRP(ptr))) return ptr;
+    
+    size_t oldSize = GET_SIZE(HDRP(ptr));
+    size_t copySize = GET_SIZE(HDRP(ptr)) > asize? asize: GET_SIZE(HDRP(ptr));
+
+    if ((newptr = mm_malloc(asize)) == NULL) {
+        if (asize > oldSize) {
+            // mm_malloc returning NULL only if run out of memory.
+            // that means the realloc is constricted impl in adjcent block.
+            int NextFree = !IS_ALLOC(NEXT_BLKP(oldptr));
+            int PrevFree = !IS_ALLOC(PREV_BLKP(oldptr));
+            if (!PrevFree && !NextFree) {
+                // TODO how to solve?
+                return NULL;
+            } else if (NextFree && GET_SIZE(HDRP(NEXT_BLKP(oldptr)))+oldSize>=asize) {
+                size_t AllSize = GET_SIZE(HDRP(NEXT_BLKP(oldptr)))+oldSize;
+                PUT(HDRP(oldptr), PACK(asize, 1));
+                PUT(FTRP(oldptr), PACK(asize, 1));
+                PUT(HDRP(NEXT_BLKP(oldptr)), PACK(AllSize-asize, 0));
+                PUT(FTRP(NEXT_BLKP(oldptr)), PACK(AllSize-asize, 0));
+                coalesce(NEXT_BLKP(oldptr));
+                newptr = oldptr;
+            } else if (PrevFree && GET_SIZE(HDRP(PREV_BLKP(oldptr)) +oldSize >= asize)) {
+                size_t AllSize = GET_SIZE(HDRP(PREV_BLKP(oldptr)))+oldSize;
+                char *PrevBp = PREV_BLKP(oldptr);
+                PUT(HDRP(PrevBp), PACK(asize, 1));
+                PUT(FTRP(PrevBp), PACK(asize, 1));
+                PUT(HDRP(NEXT_BLKP(PrevBp)), PACK(AllSize-asize, 0));
+                PUT(FTRP(NEXT_BLKP(PrevBp)), PACK(AllSize-asize, 0));
+                coalesce(NEXT_BLKP(oldptr));
+                newptr = PrevBp;
+            }
+        } else if (asize < oldSize) {
+            PUT(HDRP(oldptr), PACK(asize, 1));
+            PUT(FTRP(oldptr), PACK(asize, 1));
+            PUT(HDRP(NEXT_BLKP(oldptr)), PACK(oldSize-asize, 0));
+            PUT(FTRP(NEXT_BLKP(oldptr)), PACK(oldSize-asize, 0));
+            coalesce(NEXT_BLKP(oldptr));
+            newptr = oldptr;
+        }
+    } else {
+        memcpy(newptr, oldptr, copySize-DSIZE);
+        mm_free(oldptr);
+        coalesce(oldptr);
+    }
+    
+    //if (asize > oldSize) { // realloc to more size than before
+    //    PUT(HDRP(newptr), PACK(asize, 1));
+    //    PUT(FTRP(newptr), PACK(asize, 1));
+    //    //size_t remSize = asize - oldSize;
+    //    //PUT(HDRP(NEXT_BLKP(newptr)), PACK(remSize, 0));
+    //    //PUT(FTRP(NEXT_BLKP(newptr)), PACK(remSize, 0));
+    //} else if (asize < oldSize) {
+    //    PUT(HDRP(newptr), PACK(asize, 1));
+    //    PUT(FTRP(newptr), PACK(asize, 1));
+    //}
     return newptr;
 }
+//void *mm_realloc(void *ptr, size_t size)
+//{
+//    if(ptr == NULL){
+//        return mm_malloc(size);
+//    }
+//    if(size == 0){
+//        mm_free(ptr);
+//        return NULL;
+//    }
+//
+//    size_t asize;
+//    if(size <= DSIZE) asize  = 2 * DSIZE;
+//    else asize = DSIZE * ((size + (DSIZE) + (DSIZE - 1))/DSIZE);
+//
+//    size_t oldsize = GET_SIZE(HDRP(ptr));
+//    if(oldsize == asize) return ptr;
+//    else if(oldsize > asize){
+//        PUT(HDRP(ptr), PACK(asize, 1));
+//        PUT(FTRP(ptr), PACK(asize, 1));
+//        PUT(HDRP(NEXT_BLKP(ptr)), PACK(oldsize - asize, 0));
+//        PUT(FTRP(NEXT_BLKP(ptr)), PACK(oldsize - asize, 0));
+//        //immediate_coalesce(NEXT_BLKP(ptr));
+//        //immediate or delay
+//        return ptr;
+//    }
+//    else{
+//        size_t next_alloc = GET_ALLOC(HDRP(NEXT_BLKP(ptr)));
+//        if(!next_alloc && GET_SIZE(HDRP(NEXT_BLKP(ptr))) + oldsize >= asize) {
+//            size_t last = GET_SIZE(HDRP(NEXT_BLKP(ptr))) + oldsize - asize;
+//            PUT(HDRP(ptr), PACK(asize, 1));
+//            PUT(FTRP(ptr), PACK(asize, 1));
+//            if(last >= DSIZE){
+//                PUT(HDRP(NEXT_BLKP(ptr)), PACK(last, 0));
+//                PUT(FTRP(NEXT_BLKP(ptr)), PACK(last, 0));
+//            }
+//            return ptr;
+//        }
+//        else{
+//            char *newptr = mm_malloc(asize);
+//            if(newptr == NULL) return NULL;
+//            memcpy(newptr, ptr, oldsize - DSIZE);
+//            mm_free(ptr);
+//            return newptr;
+//        }
+//    }
+//}
