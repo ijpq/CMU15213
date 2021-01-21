@@ -20,6 +20,7 @@
 #include "memlib.h"
 #include "fsecs.h"
 #include "config.h"
+//#include "checkhelper.h"
 
 /**********************
  * Constants and macros
@@ -597,7 +598,7 @@ static int eval_mm_valid(trace_t *trace, int tracenum, range_t **ranges)
 
     /* Interpret each operation in the trace in order */
     for (i = 0;  i < trace->num_ops;  i++) {
-       // if (i > 0) mm_checker();
+      // if (i > 0) mm_checker();
 	index = trace->ops[i].index;
 	size = trace->ops[i].size;
 

@@ -19,6 +19,7 @@
 #include "memlib.h"
 #include "macro.h"
 #include "stdbool.h"
+//#include "checkhelper.h"
 
 /*********************************************************
  * NOTE TO STUDENTS: Before you do anything else, please
@@ -53,32 +54,23 @@ static char *heap_listp = NULL;
 static char *start_brk = NULL;
 static char *final_brk = NULL;
 static char *starterbp = NULL; // staring pointer at this block
-static char *nxt_starterbp = NULL; // ending pointer at this block,\
-                                    next starterbp as well.
-
+static char *nxt_starterbp = NULL; // ending pointer at this block,
+                                   //next starterbp as well.
 /*
  * there are x helper function to help mm_checker checking 
  * whether heap is valid. both of them returning 0 means correct 
  * and -1 otherwise.
  */
 
-int mm_checker(void) {
-    return isValidHeap();   
-}
-
-static void *combineNext(void *bp) {
-    // you should assure next block is freed before this function invoked.
-    
-}
-
 /*
  * coalesce : define how we merge free blocks.
  */
 static void *coalesce(void *bp) {
-    size_t prev_alloc = IS_ALLOC(FTRP(PREV_BLKP(bp)));
-    size_t next_alloc = IS_ALLOC(HDRP(NEXT_BLKP(bp)));
+    size_t prev_alloc, next_alloc;
     size_t size = GET_SIZE(HDRP(bp));
-    
+    next_alloc = IS_ALLOC(HDRP(NEXT_BLKP(bp)));
+    prev_alloc = IS_ALLOC(HDRP(PREV_BLKP(bp)));
+
     if (prev_alloc && next_alloc) {
         return bp;
     } else if (prev_alloc && !next_alloc) {
@@ -97,7 +89,6 @@ static void *coalesce(void *bp) {
         PUT(HDRP(PREV_BLKP(bp)), PACK(size, 0));
         PUT(FTRP(PREV_BLKP(bp)), PACK(size, 0));
         bp = PREV_BLKP(bp);
-        
     }
     return bp;
 }
@@ -124,155 +115,6 @@ static void *extend_heap(size_t words) {
 
     /* Coalesce if the previous block was free */
     return coalesce(bp);                                          //line:vm:mm:returnblock
-}
-
-void inspectBlock(char *p) {
-    printf("error word at : %p\n", p);
-    printf("%x\t%x\t%x\t%x\n",*p, *(p+1), *(p+2), *(p+3));
-}
-
-void printblock(char *p, int type) {
-    if (type == 0) { // HDR/FTR/PRO/EPI
-        int size = GET_SIZE(p);
-        int alloc = IS_ALLOC(p);
-        printf("------\n");
-        printf("|%d/%d|\n", size, alloc);
-        printf("------\n");
-    } else if (type == 1) {
-        if (GET(p) != 0) {
-            printf("------\n");
-            printf("|%d,%d,%d,%d|\n", *p, *(p+1), *(p+2), *(p+2));
-            printf("------\n");
-        } else {
-            printf("------\n");
-            printf("|    |\n");
-            printf("------\n");
-        }
-    }
-}
-
-void pblockinfo(char *p) {
-    printf("this block starting at %p\n", p);
-    printf("this block ending at %p\n", p+GET_SIZE(p));
-    unsigned int size = GET_SIZE(p);
-    printf("this block length is %u, 0x%x\n", size, size);
-    return;
-}
-
-void displayHeap(int len, char *p) {
-    printf("first ptr %p\n", start_brk);
-    printf("final ptr %p\n", final_brk);
-    char *ptr = HDRP(NEXT_BLKP(heap_listp));
-    char c;
-    int blockcnt = 1;
-    while (ptr < final_brk) {
-        printf("input ENTER to continue\n");
-        c = getchar();
-        if (c == '\n') {
-            printf("blocid : %d\n", blockcnt++);
-            if (ptr == starterbp) {
-                //printf("enter error block\n");
-                printf("enter current block\n");
-                pblockinfo(ptr);
-                inspectBlock(p);
-            } else {
-                pblockinfo(ptr);
-            }
-            if (GET_SIZE(ptr) == 0) {
-                printf("reach epilogue\n");
-                return 0;
-            }
-            ptr = ptr + GET_SIZE(ptr);
-        } else {
-            continue;
-        }
-    }
-}
-
-int isValidHeap() {
-    /*
-     * prologue/epilogue block
-     */
-    char *heaPtr = heap_listp;
-    if (GET_SIZE(HDRP(heaPtr)) != 8 || IS_ALLOC(HDRP(heaPtr)) != 1) {
-        printf("error first prologue block\n");
-        return 0;
-    }
-    if (GET_SIZE(heaPtr) != 8 || IS_ALLOC(heaPtr) != 1) {
-        printf("error second prologue block\n");
-        return 0;
-    }
-
-    if (GET_SIZE(HDRP(final_brk)) != 0 || !IS_ALLOC(HDRP(final_brk))) {
-        printf("error epilogue block\n");
-        return 0;
-    }
-
-    /*
-     * continuous free block
-     */
-    heaPtr = heap_listp;
-    int FreeBefore = 0;
-    while (heaPtr != final_brk) {
-        if (!IS_ALLOC(HDRP(heaPtr))) {
-            if (FreeBefore) {
-                printf("two free block adjcent, but not coalsce\n");
-                return 0;
-            }
-            FreeBefore = 1;
-        } else if(IS_ALLOC(HDRP(heaPtr))) {
-                FreeBefore = 0;
-        }
-        heaPtr = NEXT_BLKP(heaPtr);
-    }
-
-    /*
-     * overlap
-     */
-    heaPtr = NEXT_BLKP(heap_listp) - WSIZE;
-    int beforeHeader = 1;
-    int length = 0;
-    int alength = 0;
-    int isalloc = 0;
-    int error = 0;
-    while (heaPtr != final_brk) {
-        if (beforeHeader) { // at bp
-            starterbp = heaPtr;
-            length = GET_SIZE(heaPtr);
-            nxt_starterbp = starterbp + length;
-            alength = 0;
-            beforeHeader = 0;
-            isalloc = IS_ALLOC(heaPtr);
-        } else if (alength < length - WSIZE) { // at normal
-            // this checking is deleted \
-            // because we cannot gurantee all-zero value in block between HDR and FTR.
-            
-            //if (GET(heaPtr) != 0) {
-            //    printf("non zero value in normal block\n");
-            //    error = 1;
-            //    break;
-            //}
-        } else if (alength == length - WSIZE){ // at FTR
-            if (GET_SIZE(heaPtr) != length) {
-                printf("HDR size %d != FTR size %d \n", length, GET_SIZE(heaPtr));
-                error = 1;
-                break;
-            }
-            if (IS_ALLOC(heaPtr) != isalloc) {
-                printf("HDR alloc != FTR alloc\n");
-                error = 1;
-                break;
-            }
-            beforeHeader = 1;
-        } 
-        heaPtr = heaPtr + WSIZE;
-        alength += WSIZE;
-    }
-    if (error) {
-        displayHeap(alength, heaPtr);
-    }
-    printf("pass all check\n");
-    return 1;
 }
 
 /* 
@@ -306,23 +148,33 @@ static void *find_fit(size_t asize) {
  * within block.
  */
 static void place(void *bp, size_t asize) {
-    size_t allocableSize = GET_SIZE(HDRP(bp));
-    size_t kMinimumSize = 16; // hard coding
+    size_t allocable_size = GET_SIZE(HDRP(bp));
+    const size_t kMinSize = 16; // hard coding
+    size_t remain_size = allocable_size - asize;
     
-    if (allocableSize - asize >= kMinimumSize) {
+    if (remain_size >= kMinSize) {
         // split block.
-        size_t remainSize = allocableSize - asize;
         PUT(HDRP(bp), PACK(asize, 1));
         PUT(FTRP(bp), PACK(asize, 1));
-        PUT(HDRP(NEXT_BLKP(bp)), PACK(remainSize, 0));
-        PUT(FTRP(NEXT_BLKP(bp)), PACK(remainSize, 0));
-    } else if (allocableSize >= asize) {
-        //PUT(HDRP(bp), PACK(GET_SIZE(HDRP(bp)), 1));
+        PUT(HDRP(NEXT_BLKP(bp)), PACK(remain_size, 0));
+        PUT(FTRP(NEXT_BLKP(bp)), PACK(remain_size, 0));
+    } else if (remain_size >= 0) {
+        // remain a fragment.
         PUT(HDRP(bp), PACK(asize, 1));
-        //PUT(FTRP(bp), PACK(GET_SIZE(HDRP(bp)), 1));
         PUT(FTRP(bp), PACK(asize, 1));
+        if (((remain_size/WSIZE) & 1) == 1) {
+            // because of DSIZE aligment, there should not exist 1 WSIZE or
+            // 3 WSIZE.
+            printf("found 1 WSIZE or 3 WSIZE fragment.\n");
+            exit(-1);
+        } else if (remain_size == DSIZE) {
+            PUT(HDRP(NEXT_BLKP(bp)), PACK(DSIZE, 0));
+            PUT(FTRP(NEXT_BLKP(bp)), PACK(DSIZE, 0));
+        }
         // didn't split.
-    } else {}
+    } else {
+        // allocable_size should be always larger or equals than asize
+    }
     return ;
 }
 
@@ -365,8 +217,8 @@ void *mm_malloc(size_t size)
     if (asize < 2*DSIZE) {
         asize = 2*DSIZE;
     } else {
-        //asize = DSIZE * ((asize + DSIZE-1) / DSIZE); // this is ceil to the \
-        DSIZE.
+        asize = DSIZE * ((asize + DSIZE-1) / DSIZE); // this is ceil to the
+        //DSIZE.
         asize = AGNSIZE(asize);
     }
     
@@ -415,74 +267,79 @@ void *mm_realloc(void *ptr, size_t size)
     void *oldptr = ptr;
     void *newptr;
     
-    if (GET_SIZE(HDRP(ptr)) != GET_SIZE(FTRP(ptr)) || IS_ALLOC(HDRP(ptr))\
-            != IS_ALLOC(FTRP(ptr))) {
-        // ptr didn't returned by mm_realloc or mm_malloc.
-        return NULL;
-    }
+    //if (GET_SIZE(HDRP(ptr)) != GET_SIZE(FTRP(ptr)) || IS_ALLOC(HDRP(ptr))
+    //        != IS_ALLOC(FTRP(ptr))) {
+    //    // ptr didn't returned by mm_realloc or mm_malloc.
+    //    return NULL;
+    //}
 
     size_t asize = size + DSIZE;
-    if (asize < 2*DSIZE) {
+    if (asize <= 2*DSIZE) {
         asize = 2*DSIZE;
+    } else {
+        asize = AGNSIZE(asize);
     }
-    asize = AGNSIZE(asize);
 
-    if (asize == GET_SIZE(HDRP(ptr))) return ptr;
+    if (asize == GET_SIZE(HDRP(oldptr))) return ptr;
     
-    size_t oldSize = GET_SIZE(HDRP(ptr));
-    size_t copySize = GET_SIZE(HDRP(ptr)) > asize? asize: GET_SIZE(HDRP(ptr));
+    size_t old_size = GET_SIZE(HDRP(oldptr));
+    size_t copy_size = GET_SIZE(HDRP(oldptr)) > asize? asize: GET_SIZE(HDRP(oldptr));
 
     if ((newptr = mm_malloc(asize)) == NULL) {
-        if (asize > oldSize) {
-            // mm_malloc returning NULL only if run out of memory.
-            // that means the realloc is constricted impl in adjcent block.
-            int NextFree = !IS_ALLOC(NEXT_BLKP(oldptr));
-            int PrevFree = !IS_ALLOC(PREV_BLKP(oldptr));
-            if (!PrevFree && !NextFree) {
-                // TODO how to solve?
+        // mm_malloc returning NULL only if run out of memory.
+        // that means the realloc is constricted impl in adjcent block.
+        if (asize > old_size) {
+            int next_free = !IS_ALLOC(NEXT_BLKP(oldptr));
+            int prev_free = !IS_ALLOC(PREV_BLKP(oldptr));
+            if (!next_free && !prev_free) {
                 return NULL;
-            } else if (NextFree && GET_SIZE(HDRP(NEXT_BLKP(oldptr)))+oldSize>=asize) {
-                size_t AllSize = GET_SIZE(HDRP(NEXT_BLKP(oldptr)))+oldSize;
+            } else if (next_free && GET_SIZE(HDRP(NEXT_BLKP(oldptr)))+old_size>=asize) {
+                size_t remain_size = GET_SIZE(HDRP(NEXT_BLKP(oldptr)))+old_size-asize;
                 PUT(HDRP(oldptr), PACK(asize, 1));
                 PUT(FTRP(oldptr), PACK(asize, 1));
-                PUT(HDRP(NEXT_BLKP(oldptr)), PACK(AllSize-asize, 0));
-                PUT(FTRP(NEXT_BLKP(oldptr)), PACK(AllSize-asize, 0));
-                coalesce(NEXT_BLKP(oldptr));
+                if (remain_size >= DSIZE) { // possible 2WSIZE, 4WSIZE and larger.
+                    PUT(HDRP(NEXT_BLKP(oldptr)), PACK(remain_size, 0));
+                    PUT(FTRP(NEXT_BLKP(oldptr)), PACK(remain_size, 0));
+                    coalesce(NEXT_BLKP(oldptr));
+                } else { 
+                    // we are not going to do anything because remsize < DSIZE meaning
+                    // remsize = WSIZE.  
+                    // but this case may be impossible under the condition of alignment of DSIZE.
+                    printf("found 1 WSIZE fragment unexpected.\n");
+                    exit(-1);
+                }
                 newptr = oldptr;
-            } else if (PrevFree && GET_SIZE(HDRP(PREV_BLKP(oldptr)) +oldSize >= asize)) {
-                size_t AllSize = GET_SIZE(HDRP(PREV_BLKP(oldptr)))+oldSize;
-                char *PrevBp = PREV_BLKP(oldptr);
-                PUT(HDRP(PrevBp), PACK(asize, 1));
-                PUT(FTRP(PrevBp), PACK(asize, 1));
-                PUT(HDRP(NEXT_BLKP(PrevBp)), PACK(AllSize-asize, 0));
-                PUT(FTRP(NEXT_BLKP(PrevBp)), PACK(AllSize-asize, 0));
-                coalesce(NEXT_BLKP(oldptr));
-                newptr = PrevBp;
+            } else if (prev_free && GET_SIZE(HDRP(PREV_BLKP(oldptr)))+old_size>=asize) {
+                size_t remain_size = GET_SIZE(HDRP(PREV_BLKP(oldptr)))+old_size-asize;
+                char *prev_bp = PREV_BLKP(oldptr);
+                PUT(HDRP(prev_bp), PACK(asize, 1));
+                PUT(FTRP(prev_bp), PACK(asize, 1));
+                if (remain_size >= DSIZE) {
+                    PUT(HDRP(NEXT_BLKP(prev_bp)), PACK(remain_size, 0));
+                    PUT(FTRP(NEXT_BLKP(prev_bp)), PACK(remain_size, 0));
+                    coalesce(NEXT_BLKP(prev_bp));
+                } else {
+                    // same as case of next_free.
+                    printf("found 1 WSIZE fragment unexpected.\n");
+                    exit(-1);
+                }
+                memcpy(prev_bp, oldptr, copy_size-DSIZE);
+                newptr = prev_bp;
             }
-        } else if (asize < oldSize) {
+        } else if (asize < old_size) {
             PUT(HDRP(oldptr), PACK(asize, 1));
             PUT(FTRP(oldptr), PACK(asize, 1));
-            PUT(HDRP(NEXT_BLKP(oldptr)), PACK(oldSize-asize, 0));
-            PUT(FTRP(NEXT_BLKP(oldptr)), PACK(oldSize-asize, 0));
+            PUT(HDRP(NEXT_BLKP(oldptr)), PACK(old_size-asize, 0));
+            PUT(FTRP(NEXT_BLKP(oldptr)), PACK(old_size-asize, 0));
             coalesce(NEXT_BLKP(oldptr));
             newptr = oldptr;
         }
     } else {
-        memcpy(newptr, oldptr, copySize-DSIZE);
+        memcpy(newptr, oldptr, copy_size-DSIZE);
         mm_free(oldptr);
         coalesce(oldptr);
     }
     
-    //if (asize > oldSize) { // realloc to more size than before
-    //    PUT(HDRP(newptr), PACK(asize, 1));
-    //    PUT(FTRP(newptr), PACK(asize, 1));
-    //    //size_t remSize = asize - oldSize;
-    //    //PUT(HDRP(NEXT_BLKP(newptr)), PACK(remSize, 0));
-    //    //PUT(FTRP(NEXT_BLKP(newptr)), PACK(remSize, 0));
-    //} else if (asize < oldSize) {
-    //    PUT(HDRP(newptr), PACK(asize, 1));
-    //    PUT(FTRP(newptr), PACK(asize, 1));
-    //}
     return newptr;
 }
 //void *mm_realloc(void *ptr, size_t size)

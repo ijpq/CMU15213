@@ -30,9 +30,9 @@
   "binary2-bal.rep",\
   "realloc2-bal.rep"
 
-  //"random-bal.rep",\
-  //"random2-bal.rep",\
-  //"binary-bal.rep",\
+  //"random-bal.rep",
+  //"random2-bal.rep",
+  //"binary-bal.rep",
   //"realloc-bal.rep"
 
 /*
