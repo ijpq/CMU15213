@@ -43,7 +43,7 @@ team_t team = {
 
 /* rounds up to the nearest multiple of ALIGNMENT */
 #define ALIGN(size) (((size) + (ALIGNMENT-1)) & ~0x7)
-#define AGNSIZE(size) DSIZE*((size+DSIZE-1)/DSIZE)
+#define AGNSIZE(size) DSIZE*(((size+DSIZE)+DSIZE-1)/DSIZE)
 
 #define SIZE_T_SIZE (ALIGN(sizeof(size_t)))
 
@@ -66,7 +66,8 @@ static char *nxt_starterbp = NULL; // ending pointer at this block,
  * coalesce : define how we merge free blocks.
  */
 static void *coalesce(void *bp) {
-    size_t prev_alloc, next_alloc;
+    if (bp == NULL) return bp;
+    int prev_alloc, next_alloc;
     size_t size = GET_SIZE(HDRP(bp));
     next_alloc = IS_ALLOC(HDRP(NEXT_BLKP(bp)));
     prev_alloc = IS_ALLOC(HDRP(PREV_BLKP(bp)));
@@ -149,7 +150,7 @@ static void *find_fit(size_t asize) {
  */
 static void place(void *bp, size_t asize) {
     size_t allocable_size = GET_SIZE(HDRP(bp));
-    const size_t kMinSize = 16; // hard coding
+    const size_t kMinSize = 2*DSIZE; // hard coding
     size_t remain_size = allocable_size - asize;
     
     if (remain_size >= kMinSize) {
@@ -204,22 +205,19 @@ int mm_init(void) {
  */
 void *mm_malloc(size_t size)
 {
-    size_t asize; // in byte
+    // parameter passed to mm_malloc must before alignment.
+    size_t asize;
     size_t extendsize; // in byte
     char *bp;
     if (size==0) {
         return NULL;
     }
         
-    // both HDR and FTR occupies WSIZE that's why (size+DSIZE).
-    asize = size+DSIZE;
-
-    if (asize < 2*DSIZE) {
+    // both HDR and FTR occupies WSIZE that's why (size+DSIZE) in alignment.
+    if (size <= DSIZE) {
         asize = 2*DSIZE;
     } else {
-        asize = DSIZE * ((asize + DSIZE-1) / DSIZE); // this is ceil to the
-        //DSIZE.
-        asize = AGNSIZE(asize);
+        asize = AGNSIZE(size);
     }
     
     if ((bp = find_fit(asize)) != NULL) {
@@ -241,6 +239,7 @@ void *mm_malloc(size_t size)
 /* $begin mmfree */
 void mm_free(void *bp)
 {
+    if (bp == NULL) return ;
     size_t size = GET_SIZE(HDRP(bp));
     /* $begin mmfree */
 
@@ -273,19 +272,19 @@ void *mm_realloc(void *ptr, size_t size)
     //    return NULL;
     //}
 
-    size_t asize = size + DSIZE;
-    if (asize <= 2*DSIZE) {
+    size_t asize;
+    if (size <= DSIZE) {
         asize = 2*DSIZE;
     } else {
-        asize = AGNSIZE(asize);
+        asize =  AGNSIZE(size);
     }
 
-    if (asize == GET_SIZE(HDRP(oldptr))) return ptr;
-    
     size_t old_size = GET_SIZE(HDRP(oldptr));
+    if (asize == old_size) return oldptr;
+    
     size_t copy_size = GET_SIZE(HDRP(oldptr)) > asize? asize: GET_SIZE(HDRP(oldptr));
 
-    if ((newptr = mm_malloc(asize)) == NULL) {
+    if ((newptr = mm_malloc(size)) == NULL) {
         // mm_malloc returning NULL only if run out of memory.
         // that means the realloc is constricted impl in adjcent block.
         if (asize > old_size) {
@@ -309,7 +308,9 @@ void *mm_realloc(void *ptr, size_t size)
                     exit(-1);
                 }
                 newptr = oldptr;
-            } else if (prev_free && GET_SIZE(HDRP(PREV_BLKP(oldptr)))+old_size>=asize) {
+
+            } 
+            else if (prev_free && GET_SIZE(HDRP(PREV_BLKP(oldptr)))+old_size>=asize) {
                 size_t remain_size = GET_SIZE(HDRP(PREV_BLKP(oldptr)))+old_size-asize;
                 char *prev_bp = PREV_BLKP(oldptr);
                 PUT(HDRP(prev_bp), PACK(asize, 1));
@@ -337,11 +338,13 @@ void *mm_realloc(void *ptr, size_t size)
     } else {
         memcpy(newptr, oldptr, copy_size-DSIZE);
         mm_free(oldptr);
-        coalesce(oldptr);
+        // TODO Why Coalesce results in `perserve data from old` fails?
+        //coalesce(oldptr);
     }
     
     return newptr;
 }
+
 //void *mm_realloc(void *ptr, size_t size)
 //{
 //    if(ptr == NULL){
