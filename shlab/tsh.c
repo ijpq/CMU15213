@@ -232,7 +232,32 @@ int parseline(const char *cmdline, char **argv)
  */
 int builtin_cmd(char **argv) 
 {
+    if (!strcmp(argv[0],"quit")) {
+        exit(0);
+    }
+
+    // returning 1 means it's builtin command
+    if (!stcmp(argv[0], "jobs")) {
+        listjobs(&jobs);
+        return 1;
+    }
+
+    if (!strcmp(argv[0], "fg") || !strcmp(argv[0], "bg")) {
+        do_bgfg(argv[0]);
+        return 1;
+    }
     return 0;     /* not a builtin command */
+}
+
+void ParseId(const char *IdCharPtr, int *JIdPtr, int *PIdPtr) {
+    const char *p IdCharPtr;
+    if (IdCharPtr[0] == '%') {
+        p++;
+        *JIdPtr = atoi(IdCharPtr);
+    } else {
+        *PIdPtr = atoi(IdCharPtr);
+    }
+    return ;
 }
 
 /* 
@@ -240,6 +265,12 @@ int builtin_cmd(char **argv)
  */
 void do_bgfg(char **argv) 
 {
+    int JId, PId;
+    char *IDPtr = argv[1];
+    ParseId(IDPtr, &JId, &PId);
+    if (!strcmp(argv[0], "fg")) {
+    } else if (!strcmp(argv[0], "bg")) {
+    }
     return;
 }
 
