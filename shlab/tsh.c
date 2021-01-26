@@ -78,6 +78,7 @@ pid_t fgpid(struct job_t *jobs);
 struct job_t *getjobpid(struct job_t *jobs, pid_t pid);
 struct job_t *getjobjid(struct job_t *jobs, int jid); 
 int pid2jid(pid_t pid); 
+int jid2pid(int jid);
 void listjobs(struct job_t *jobs);
 
 void usage(void);
@@ -85,6 +86,12 @@ void unix_error(char *msg);
 void app_error(char *msg);
 typedef void handler_t(int);
 handler_t *Signal(int signum, handler_t *handler);
+pid_t Fork(void) {
+    pid_t pid;
+    if((pid = fork()) < 0)
+            unix_error("fork error");
+    return pid;
+}
 
 /*
  * main - The shell's main routine 
@@ -166,6 +173,30 @@ int main(int argc, char **argv)
 */
 void eval(char *cmdline) 
 {
+    char *argv[MAXARGS];
+    char buf[MAXLINE];
+    int bg;
+    pid_t pid;
+    strcpy(buf, cmdline);
+    bg = parseline(buf, argv);
+    if (argv[0] == NULL) return;
+    
+    if (!builtin_cmd(argv)) {
+        if ((pid = Fork()) == 0) {
+            if (execve(argv[0], argv, environ) < 0){
+                printf("%s: Command not found.\n", argv[0]);
+                exit(0);
+            }
+        }
+        
+        if (!bg) {
+            
+            waitfg(pid);
+        } else 
+            printf("%d %s", pid, cmdline);
+    }
+    
+
     return;
 }
 
@@ -237,20 +268,20 @@ int builtin_cmd(char **argv)
     }
 
     // returning 1 means it's builtin command
-    if (!stcmp(argv[0], "jobs")) {
-        listjobs(&jobs);
+    if (!strcmp(argv[0], "jobs")) {
+        listjobs(jobs);
         return 1;
     }
 
     if (!strcmp(argv[0], "fg") || !strcmp(argv[0], "bg")) {
-        do_bgfg(argv[0]);
+        do_bgfg(argv);
         return 1;
     }
     return 0;     /* not a builtin command */
 }
 
 void ParseId(const char *IdCharPtr, int *JIdPtr, int *PIdPtr) {
-    const char *p IdCharPtr;
+    const char *p = IdCharPtr;
     if (IdCharPtr[0] == '%') {
         p++;
         *JIdPtr = atoi(IdCharPtr);
@@ -265,11 +296,19 @@ void ParseId(const char *IdCharPtr, int *JIdPtr, int *PIdPtr) {
  */
 void do_bgfg(char **argv) 
 {
-    int JId, PId;
+    int jid = -1;
+    pid_t pid = -1;
     char *IDPtr = argv[1];
-    ParseId(IDPtr, &JId, &PId);
+    ParseId(IDPtr, &jid, &pid);
+    if (jid != -1) {
+        pid = jid2pid(jid);      
+    } 
     if (!strcmp(argv[0], "fg")) {
+        kill(pid, SIGCONT);
+        waitfg(pid);
     } else if (!strcmp(argv[0], "bg")) {
+        kill(pid, SIGCONT);
+        printf("[%d] (%d) %s\n", jid2pid(pid), pid, getjobpid(pid).cmdline);
     }
     return;
 }
@@ -279,6 +318,22 @@ void do_bgfg(char **argv)
  */
 void waitfg(pid_t pid)
 {
+    
+    if (signal(SIGINT, sigint_handler) == SIG_ERR) {
+        unix_error("signal error");
+    }
+    int status;
+    
+    struct job_t *jobptr;
+    jobptr = getjobpid(pid);
+    jobptr->state = FG;
+
+    if (waitpid(pid, &status, 0) > 0) {
+        printf("Job (%d) finished.\n ", pid);
+        
+    } else {
+        printf("you should check if waitpid() return -1.\n");
+    }
     return;
 }
 
@@ -430,6 +485,20 @@ struct job_t *getjobjid(struct job_t *jobs, int jid)
 	if (jobs[i].jid == jid)
 	    return &jobs[i];
     return NULL;
+}
+
+/* jid2pid - Map job ID to process ID */
+pid_t jid2pid(int jid) {
+    pid_t pid;
+    if (jid < 1) 
+        return -1;
+    for (int i =0; i < MAXJOBS; i++) {
+        if (jobs[i].jid == jid) {
+            pid = jobs[i].pid;
+            break;
+        }
+    }
+    return pid;
 }
 
 /* pid2jid - Map process ID to job ID */
