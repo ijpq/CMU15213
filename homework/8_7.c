@@ -11,6 +11,7 @@ void snooze(int s) {
 }
 
 void sigint_handler(int t) {
+    exit(0);
     return ;
 }
 
@@ -18,8 +19,11 @@ int main(int argc, char *argv[]) {
     signal(SIGINT, sigint_handler);
     
     int secs = 0;
-    secs = *argv[1] - '0';
+    secs = atoi(argv[1]);
+    printf("%d",secs);
+    printf("before snooze\n");
     snooze(secs);
+    printf("after snooze\n");
     return 0;
     
 }
