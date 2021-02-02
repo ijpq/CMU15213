@@ -14,6 +14,8 @@
 #include <sys/wait.h>
 #include <errno.h>
 
+#include "csapp.h"
+
 /* Misc manifest constants */
 #define MAXLINE    1024   /* max line size */
 #define MAXARGS     128   /* max args on a command line */
@@ -51,6 +53,7 @@ struct job_t {              /* The job struct */
     char cmdline[MAXLINE];  /* command line */
 };
 struct job_t jobs[MAXJOBS]; /* The job list */
+volatile sig_atomic_t p_id;
 /* End global variables */
 
 
@@ -194,8 +197,8 @@ void eval(char *cmdline)
         // block sigchld because it gurantee deletejob after addjob.
         sigprocmask(SIG_BLOCK, &mask_one, &prev_one); 
         if ((pid = Fork()) == 0) {
-            // unblock sigchld because we should receive sigchld \
-            which send by previous process.
+            // unblock sigchld because we should receive sigchld
+            //which send by previous process.
             sigprocmask(SIG_SETMASK, &prev_one, NULL);
             if (execve(argv[0], argv, environ) < 0){
                 printf("%s: Command not found.\n", argv[0]);
@@ -355,12 +358,10 @@ void waitfg(pid_t pid)
 {
     int status;
     
-    if (waitpid(pid, &status, 0) > 0) {
-        printf("Job (%d) finished.\n ", pid);
-        
-    } else {
-        printf("you should check if waitpid() return -1.\n");
+    while (1) {
+        if (pid != fgpid(jobs)) break;
     }
+
     return;
 }
 
@@ -375,15 +376,60 @@ void waitfg(pid_t pid)
  *     available zombie children, but doesn't wait for any other
  *     currently running children to terminate.  
  */
+//void sigchld_handler(int sig) 
+//{
+//    int old_errno=errno;
+//    sigset_t mask_all,prev_all;
+//    struct job_t *jb;
+//    pid_t pid;
+//    int status;
+//    sigfillset(&mask_all);
+//    //设置不阻塞
+//    
+//    while((pid=waitpid(-1,&status,WNOHANG|WUNTRACED))>0)
+//    {
+//        sigprocmask(SIG_BLOCK,&mask_all,&prev_all);
+//          if(pid == fgpid(jobs)){
+//            p_id = 1;
+//            }
+//             
+//        jb=getjobpid(jobs,pid);
+//        
+//        if(WIFSTOPPED(status)){
+//            
+//            //子进程停止引起的waitpid函数返回
+//            jb->state = ST;
+//            printf("Job [%d] (%d) stop by signal %d\n", jb->jid, jb->pid, WSTOPSIG(status));
+//        }else {
+//            if(WIFSIGNALED(status)){
+//            //子进程终止引起的返回,这里主要是sigint的信号过来的
+//            printf("Job [%d] (%d) terminated by signal %d\n", jb->jid, jb->pid, WTERMSIG(status));
+//           
+//            
+//        }
+//         //只有除了sigstop之外的信号，有sigint和正常的sigchild都需要删除job
+//        deletejob(jobs,pid);
+//        }
+//        
+//        //不能在这里删除job，因为sigstop的信号也会进来，虽然我也不知道为啥
+//        //deletejob(jobs,pid);     //此时这个这个子进程被回收了
+//                    //可以让shell终端开始下一次命令的输入了
+//        sigprocmask(SIG_SETMASK,&prev_all,NULL);
+//    }
+//    
+//    errno=old_errno;
+//}
 void sigchld_handler(int sig) 
 {
     
+    int status;
     pid_t pid;
     sigset_t mask_all, prev_mask;
-    sigfillset(&mask_all); // because handler block the signal which type is \
-                            the same as itself.
-    while ((pid = waitpid(-1, NULL, 0)) > 0 ) {
-        printf("sigchld_handler %d\n", pid);
+    sigfillset(&mask_all); // because handler block the signal which type is 
+                            //the same as itself.
+
+    // reap all child process
+    while ((pid = waitpid(-1, &status, WNOHANG|WUNTRACED)) > 0 ) {
         sigprocmask(SIG_BLOCK, &mask_all, &prev_mask);
         deletejob(jobs, pid);
         sigprocmask(SIG_SETMASK, &prev_mask, NULL);
@@ -401,12 +447,10 @@ void sigint_handler(int sig)
     pid_t pid;
     sigset_t mask_one, prev_mask, mask_all;
     sigfillset(&mask_all);
-    //sigemptyset(&mask_one);
-    //sigaddset(&mask_one, SIGINT);
     if ((pid = fgpid(jobs)) > 0) {
         sigprocmask(SIG_SETMASK, &mask_all, &prev_mask);
-        printf("catch SIGINT\n");
-        //break_prompt = 1;
+        //TODO write a safe signal handler.
+        printf("Job [%d] (%d) terminated by signal 2\n", pid2jid(pid), pid);
         kill(pid, SIGKILL);
         sigprocmask(SIG_SETMASK, &prev_mask, NULL);
     }

@@ -220,13 +220,13 @@ void eval(char *cmdline)
             sigprocmask(SIG_SETMASK,&mask_one,NULL);    //阻塞sigchild
             //Parent waits for foreground job to terminate
             if(!bg){        //child process
-                //是前台进程才会修改那个原子p_id
-                waitfg(pid);        //前台进程要等回收结束才会让下一个命令输入
-            }else{
-                printf("[%d] [%d] %s",pid2jid(pid),pid,cmdline);
-                //后台进程不需要等，只打印命令，然后前台继续执行
+              //是前台进程才会修改那个原子p_id
+              waitfg(pid);        //前台进程要等回收结束才会让下一个命令输入
+            }se{
+              printf("[%d] [%d] %s",pid2jid(pid),pid,cmdline);
+              //后台进程不需要等，只打印命令，然后前台继续执行
             }
-            sigprocmask(SIG_SETMASK,&prev_one,NULL);
+            sprocmask(SIG_SETMASK,&prev_one,NULL);
         }
         
          
@@ -236,7 +236,7 @@ void eval(char *cmdline)
 }
 
 /* 
- * parseline - Parse the command line and build the argv array.
+ * parseline Parse the command line and build the argv array.
  * 
  * Characters enclosed in single quotes are treated as a single
  * argument.  Return true if the user has requested a BG job, false if
