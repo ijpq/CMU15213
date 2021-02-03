@@ -190,7 +190,7 @@ void eval(char *cmdline)
     sigemptyset(&mask_one);
     sigaddset(&mask_one, SIGCHLD);
 
-    printf("eval cmd : %s\n", cmdline);
+    //printf("eval cmd : %s\n", cmdline);
     
     
     if (!builtin_cmd(argv)) {
@@ -281,21 +281,17 @@ int parseline(const char *cmdline, char **argv)
  */
 int builtin_cmd(char **argv) 
 {
-    int isbuiltin = 0;
     //int ground_status = 0;
     if (!strcmp(argv[0],"quit")) {
-        isbuiltin = 1;
         exit(0);
     }
 
     if (!strcmp(argv[0], "jobs")) {
-        isbuiltin = 1;
         listjobs(jobs);
         return 1;
     }
 
     if (!strcmp(argv[0], "fg") || !strcmp(argv[0], "bg")) {
-        isbuiltin = 1;
         do_bgfg(argv);
         return 1;
     }
@@ -303,37 +299,50 @@ int builtin_cmd(char **argv)
 
 }
 
-void ParseId(const char *IdCharPtr, int *JIdPtr, int *PIdPtr) {
-    const char *p = IdCharPtr;
-    if (IdCharPtr[0] == '%') {
-        p++;
-        *JIdPtr = atoi(IdCharPtr);
-    } else {
-        *PIdPtr = atoi(IdCharPtr);
-    }
-    return ;
-}
-
 /* 
  * do_bgfg - Execute the builtin bg and fg commands
  */
 void do_bgfg(char **argv) 
 {
-    //int jid = -1;
-    //pid_t pid = -1;
-    //char *IDPtr = argv[1];
-    //ParseId(IDPtr, &jid, &pid);
-    //if (jid != -1) {
-    //    //pid = jid2pid(jid);      
-    //} 
-    //if (!strcmp(argv[0], "fg")) {
-    //    kill(pid, SIGCONT);
-    //    waitfg(pid);
-    //} else if (!strcmp(argv[0], "bg")) {
-    //    kill(pid, SIGCONT);
-    //    struct job_t *jobp = getjobpid(jobs, pid);
-    //    //printf("[%d] (%d) %s\n", jid2pid(pid), pid, jobp->cmdline);
-    //}
+    pid_t pid;
+    int jid;
+    struct job_t *jobs_ptr;
+    
+    if (argv[1] == NULL) {
+        printf("%s command requires PID or %%jobid argument\n", argv[0]);
+        return ;
+    }
+
+    jid = atoi(argv[1]+1);
+    if (jid == 0) {
+        printf("%s: argument must be a PID or %%jobid\n", argv[0]);
+        return ;
+    } else if (jid >= 9999999) {
+        printf("(%d): No such process\n", jid);
+        return ;
+    }
+    
+    if ((jobs_ptr = getjobjid(jobs, jid)) == NULL) {
+        printf("%s: No such job\n", argv[1]);
+        return;
+    }
+    pid = jobs_ptr->pid;
+
+    if (!strcmp(argv[0], "fg")) {
+        if (jobs_ptr->state == BG || jobs_ptr->state == ST) {
+            // TODO
+            jobs_ptr->state = FG;
+            kill(-pid, SIGCONT);
+            waitfg(pid);
+        }
+    } else if (!strcmp(argv[0], "bg")) {
+        if (jobs_ptr->state == FG || jobs_ptr->state == ST) {
+            // TODO
+            jobs_ptr->state = BG;
+            printf("[%d] (%d) %s\n", jobs_ptr->jid, jobs_ptr->pid, jobs_ptr->cmdline);
+            kill(-pid, SIGCONT);
+        }
+    }
     return;
 }
 
@@ -414,8 +423,6 @@ void sigchld_handler(int sig)
 void sigint_handler(int sig) 
 {
     pid_t pid;
-    sigset_t mask_one, prev_mask, mask_all;
-    sigfillset(&mask_all);
     if ((pid = fgpid(jobs)) > 0) {
         //sigprocmask(SIG_SETMASK, &mask_all, &prev_mask);
         //TODO write a safe signal handler.
@@ -434,19 +441,18 @@ void sigint_handler(int sig)
 void sigtstp_handler(int sig) 
 {
     pid_t pid;
-    int jid = 0;
-    sigset_t mask_all, prev_mask, mask_one;
+    sigset_t mask_all;
 
     // unblock SIGTSTP, since it's blocked when we are handling it.
     //sigemptyset(&mask_one);
     //sigaddset(&mask_one, SIGTSTP);
     //sigprocmask(SIG_UNBLOCK, &mask_one, NULL);
     sigemptyset(&mask_all);
-    sigprocmask(SIG_SETMASK, &mask_all, NULL);
+    //sigprocmask(SIG_SETMASK, &mask_all, NULL);
 
     if ((pid = fgpid(jobs)) > 0) {
         signal(SIGTSTP, SIG_DFL); // reset sigtstp handler to default.
-        jid = pid2jid(pid);
+        //int jid = pid2jid(pid);
         kill(-pid, SIGTSTP);
         signal(SIGTSTP, sigtstp_handler);
     }
