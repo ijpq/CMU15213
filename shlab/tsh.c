@@ -82,7 +82,6 @@ pid_t fgpid(struct job_t *jobs);
 struct job_t *getjobpid(struct job_t *jobs, pid_t pid);
 struct job_t *getjobjid(struct job_t *jobs, int jid); 
 int pid2jid(pid_t pid); 
-int jid2pid(int jid);
 void listjobs(struct job_t *jobs);
 
 void usage(void);
@@ -207,18 +206,13 @@ void eval(char *cmdline)
         }
         
         if (!bg) {
-            // ./executable program 
-            sigprocmask(SIG_BLOCK, &mask_all, NULL);// protect global var jobs
             addjob(jobs, pid, FG, cmdline);
-            sigprocmask(SIG_SETMASK, &prev_one, NULL);
             waitfg(pid);
         } else {
-            // ./executable program &
-            sigprocmask(SIG_BLOCK, &mask_all, NULL);// protect global var jobs
             addjob(jobs, pid, BG, cmdline);
             printf("[%d] (%d) %s", pid2jid(pid), pid, cmdline);
-            sigprocmask(SIG_SETMASK, &prev_one, NULL);
         }
+        sigprocmask(SIG_SETMASK, &prev_one, NULL);
     } 
 
     return;
@@ -288,7 +282,7 @@ int parseline(const char *cmdline, char **argv)
 int builtin_cmd(char **argv) 
 {
     int isbuiltin = 0;
-    int ground_status = 0;
+    //int ground_status = 0;
     if (!strcmp(argv[0],"quit")) {
         isbuiltin = 1;
         exit(0);
@@ -325,21 +319,21 @@ void ParseId(const char *IdCharPtr, int *JIdPtr, int *PIdPtr) {
  */
 void do_bgfg(char **argv) 
 {
-    int jid = -1;
-    pid_t pid = -1;
-    char *IDPtr = argv[1];
-    ParseId(IDPtr, &jid, &pid);
-    if (jid != -1) {
-        pid = jid2pid(jid);      
-    } 
-    if (!strcmp(argv[0], "fg")) {
-        kill(pid, SIGCONT);
-        waitfg(pid);
-    } else if (!strcmp(argv[0], "bg")) {
-        kill(pid, SIGCONT);
-        struct job_t *jobp = getjobpid(jobs, pid);
-        printf("[%d] (%d) %s\n", jid2pid(pid), pid, jobp->cmdline);
-    }
+    //int jid = -1;
+    //pid_t pid = -1;
+    //char *IDPtr = argv[1];
+    //ParseId(IDPtr, &jid, &pid);
+    //if (jid != -1) {
+    //    //pid = jid2pid(jid);      
+    //} 
+    //if (!strcmp(argv[0], "fg")) {
+    //    kill(pid, SIGCONT);
+    //    waitfg(pid);
+    //} else if (!strcmp(argv[0], "bg")) {
+    //    kill(pid, SIGCONT);
+    //    struct job_t *jobp = getjobpid(jobs, pid);
+    //    //printf("[%d] (%d) %s\n", jid2pid(pid), pid, jobp->cmdline);
+    //}
     return;
 }
 
@@ -352,10 +346,11 @@ void waitfg(pid_t pid)
     fg_exit = 0;
     sigset_t mask_none, prev_mask;
     sigemptyset(&mask_none);
-
-    while (fg_exit == 0){
-        sigsuspend(&mask_none);
+    sigprocmask(SIG_SETMASK, &mask_none, &prev_mask); // in order to avoid prev mask exist.
+    while (pid == fgpid(jobs)){
+        sleep(0);
     }
+    sigprocmask(SIG_SETMASK, &prev_mask, NULL);
 
     //while (pid == fgpid(jobs)) {
     //    //sleep(1);
@@ -390,26 +385,24 @@ void sigchld_handler(int sig)
             fg_exit = 1;
         }
         if (WIFEXITED(status)) {
-            jptr = getjobpid(jobs, pid);
-            printf("job terminated normally: %s",jptr->cmdline);
             deletejob(jobs, pid);
-            printf("delete job done\n");
         } else if (WIFSTOPPED(status)) {
-            jid = pid2jid(jid);
-            jobs[jid].state = ST;
+            jptr = getjobpid(jobs, pid);
+            jid = jptr->jid;
             printf("Job [%d] (%d) stopped by signal %d\n", jid, pid, WSTOPSIG(status));
+            getjobpid(jobs, pid)->state = ST;
         } else if (WIFSIGNALED(status)) {
-            jid = pid2jid(jid);
-            deletejob(jobs, pid);
+            jptr = getjobpid(jobs, pid);
+            jid = jptr->jid;
             printf("Job [%d] (%d) terminated by signal %d\n", jid, pid, WTERMSIG(status));
+            deletejob(jobs, pid);
         } else if (WIFCONTINUED(status)) {
             //TODO receive sigcont?
         } else {
             printf("wtf\n");
         }
-            sigprocmask(SIG_SETMASK, &prev_mask, NULL);
+        sigprocmask(SIG_SETMASK, &prev_mask, NULL);
     }
-    printf("returning pid %d\n", pid);
     return;
 }
 
@@ -441,7 +434,7 @@ void sigint_handler(int sig)
 void sigtstp_handler(int sig) 
 {
     pid_t pid;
-    int jid;
+    int jid = 0;
     sigset_t mask_all, prev_mask, mask_one;
 
     // unblock SIGTSTP, since it's blocked when we are handling it.
@@ -450,12 +443,10 @@ void sigtstp_handler(int sig)
     //sigprocmask(SIG_UNBLOCK, &mask_one, NULL);
     sigemptyset(&mask_all);
     sigprocmask(SIG_SETMASK, &mask_all, NULL);
-    printf("catch tstp\n");
 
     if ((pid = fgpid(jobs)) > 0) {
         signal(SIGTSTP, SIG_DFL); // reset sigtstp handler to default.
         jid = pid2jid(pid);
-        //jobs[jid].state = ST;
         kill(-pid, SIGTSTP);
         signal(SIGTSTP, sigtstp_handler);
     }
@@ -576,31 +567,18 @@ struct job_t *getjobjid(struct job_t *jobs, int jid)
     return NULL;
 }
 
-/* jid2pid - Map job ID to process ID */
-pid_t jid2pid(int jid) {
-    pid_t pid;
-    if (jid < 1) 
-        return -1;
-    for (int i =0; i < MAXJOBS; i++) {
-        if (jobs[i].jid == jid) {
-            pid = jobs[i].pid;
-            break;
-        }
-    }
-    return pid;
-}
 
 /* pid2jid - Map process ID to job ID */
 int pid2jid(pid_t pid) 
 {
     int i;
-
     if (pid < 1)
-	return 0;
-    for (i = 0; i < MAXJOBS; i++)
-	if (jobs[i].pid == pid) {
+	    return 0;
+    for (i = 0; i < MAXJOBS; i++){
+        if (jobs[i].pid == pid) {
             return jobs[i].jid;
         }
+    }
     return 0;
 }
 
