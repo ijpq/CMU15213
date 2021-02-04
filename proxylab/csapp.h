@@ -38,6 +38,8 @@
 /* Simplifies calls to bind(), connect(), and accept() */
 /* $begin sockaddrdef */
 typedef struct sockaddr SA;
+
+/* request line */
 /* $end sockaddrdef */
 
 /* Persistent state for the robust I/O (Rio) package */
