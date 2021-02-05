@@ -20,6 +20,7 @@ static  char *user_agent_hdr = "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:1
 //    return 0;
 //}
 
+void *thread(void *vargp);
 void parse_hostname(char *uri, char *hostname, char* rem_path, char *http_port);
 void from_server_to_client(int fd, int server_fd);
 int from_client_to_server(int fd);
@@ -33,11 +34,12 @@ void clienterror(int fd, char *cause, char *errnum,
 
 int main(int argc, char **argv) 
 {
-    int listenfd, connfd;
-    int server_fd;
+    int listenfd;
+    int *connfd_p;
     char hostname[MAXLINE], port[MAXLINE];
     socklen_t clientlen;
     struct sockaddr_storage clientaddr;
+    pthread_t tid;
 
     /* Check command line args */
     if (argc != 2) {
@@ -49,22 +51,11 @@ int main(int argc, char **argv)
     
     while (1) {
         clientlen = sizeof(clientaddr);
-        connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen); //line:netp:tiny:accept
-        Getnameinfo((SA *) &clientaddr, clientlen, hostname, MAXLINE, 
-                        port, MAXLINE, 0);
-        printf("proxy on\n");
-        printf("Accepted connection from (%s, %s)\n", hostname, port);
-        server_fd = from_client_to_server(connfd);
-        if (server_fd == -2) {
-            printf("read request line error\n");
-            continue;
-        } else if (server_fd == -1) {
-            printf("not impl this method\n");
-            continue;
-        }
-        from_server_to_client(connfd, server_fd);
-        Close(connfd);             
-        Close(server_fd);             
+        connfd_p = Malloc(sizeof(int));
+        *connfd_p = Accept(listenfd, (SA *)&clientaddr, &clientlen); 
+        Getnameinfo((SA *) &clientaddr, clientlen, hostname, MAXLINE, \
+                port, MAXLINE, 0);
+        Pthread_create(&tid, NULL, thread, connfd_p);
     }
 }
 /* $end tinymain */
@@ -75,11 +66,8 @@ int main(int argc, char **argv)
 /* $begin from_client_to_server */
 int from_client_to_server(int fd) 
 {
-    int is_static;
-    struct stat sbuf;
     char buf[MAXLINE], method[MAXLINE], uri[MAXLINE], version[MAXLINE];
-    char filename[MAXLINE], cgiargs[MAXLINE];
-    rio_t rio, rio_server;
+    rio_t rio; 
 
     /* Read request line */
     Rio_readinitb(&rio, fd);
@@ -119,7 +107,7 @@ int from_client_to_server(int fd)
     Rio_writen(conn_to_server_fd, rq_line, strlen(rq_line)); // sending request line
 
     /* send rq header*/
-    char *rq_header[MAXLINE];
+    char rq_header[MAXLINE];
     sprintf(rq_header, "Host: %s\r\n", hostname);
     Rio_writen(conn_to_server_fd, rq_header, strlen(rq_header)); // sending request header
     char rq_hdr_buf[MAXLINE];
@@ -141,24 +129,6 @@ int from_client_to_server(int fd)
 
 }
 /* $end from_client_to_server */
-
-/*
- * read_requesthdrs - read HTTP request headers
- */
-/* $begin read_requesthdrs */
-void read_requesthdrs(rio_t *rp) 
-{
-    char buf[MAXLINE];
-
-    Rio_readlineb(rp, buf, MAXLINE);
-    printf("%s", buf);
-    while(strcmp(buf, "\r\n")) {          //line:netp:readhdrs:checkterm
-	Rio_readlineb(rp, buf, MAXLINE);
-	printf("%s", buf);
-    }
-    return;
-}
-/* $end read_requesthdrs */
 
 /*
  * parse_uri - parse URI into filename and CGI args
@@ -192,79 +162,6 @@ int parse_uri(char *uri, char *filename, char *cgiargs)
 }
 /* $end parse_uri */
 
-/*
- * serve_static - copy a file back to the client 
- */
-/* $begin serve_static */
-void serve_static(int fd, char *filename, int filesize)
-{
-    int srcfd;
-    char *srcp, filetype[MAXLINE], buf[MAXBUF];
-
-    /* Send response headers to client */
-    get_filetype(filename, filetype);    //line:netp:servestatic:getfiletype
-    sprintf(buf, "HTTP/1.0 200 OK\r\n"); //line:netp:servestatic:beginserve
-    Rio_writen(fd, buf, strlen(buf));
-    sprintf(buf, "Server: Tiny Web Server\r\n");
-    Rio_writen(fd, buf, strlen(buf));
-    sprintf(buf, "Content-length: %d\r\n", filesize);
-    Rio_writen(fd, buf, strlen(buf));
-    sprintf(buf, "Content-type: %s\r\n\r\n", filetype);
-    Rio_writen(fd, buf, strlen(buf));    //line:netp:servestatic:endserve
-
-    /* Send response body to client */
-    srcfd = Open(filename, O_RDONLY, 0); //line:netp:servestatic:open
-    srcp = Mmap(0, filesize, PROT_READ, MAP_PRIVATE, srcfd, 0); //line:netp:servestatic:mmap
-    Close(srcfd);                       //line:netp:servestatic:close
-    Rio_writen(fd, srcp, filesize);     //line:netp:servestatic:write
-    Munmap(srcp, filesize);             //line:netp:servestatic:munmap
-}
-
-/*
- * get_filetype - derive file type from file name
- */
-void get_filetype(char *filename, char *filetype) 
-{
-    if (strstr(filename, ".html"))
-	strcpy(filetype, "text/html");
-    else if (strstr(filename, ".gif"))
-	strcpy(filetype, "image/gif");
-    else if (strstr(filename, ".png"))
-	strcpy(filetype, "image/png");
-    else if (strstr(filename, ".jpg"))
-	strcpy(filetype, "image/jpeg");
-    else
-	strcpy(filetype, "text/plain");
-}  
-/* $end serve_static */
-
-/*
- * serve_dynamic - run a CGI program on behalf of the client
- */
-/* $begin serve_dynamic */
-void serve_dynamic(int fd, char *filename, char *cgiargs) 
-{
-    char buf[MAXLINE], *emptylist[] = { NULL };
-
-    /* Return first part of HTTP response */
-    sprintf(buf, "HTTP/1.0 200 OK\r\n"); 
-    Rio_writen(fd, buf, strlen(buf));
-    sprintf(buf, "Server: Tiny Web Server\r\n");
-    Rio_writen(fd, buf, strlen(buf));
-  
-    if (Fork() == 0) { /* Child */ //line:netp:servedynamic:fork
-	/* Real server would set all CGI vars here */
-	setenv("QUERY_STRING", cgiargs, 1); //line:netp:servedynamic:setenv
-	Dup2(fd, STDOUT_FILENO);         /* Redirect stdout to client */ //line:netp:servedynamic:dup2
-	Execve(filename, emptylist, environ); /* Run CGI program */ //line:netp:servedynamic:execve
-    }
-    Wait(NULL); /* Parent waits for and reaps child */ //line:netp:servedynamic:wait
-}
-/* $end serve_dynamic */
-
-/*
- * clienterror - returns an error message to the client
- */
 /* $begin clienterror */
 void clienterror(int fd, char *cause, char *errnum, 
 		 char *shortmsg, char *longmsg) 
@@ -337,3 +234,18 @@ void parse_hostname(char *uri, char *hostname, char *rem_path, char *http_port) 
     return ;
 }
 
+void *thread(void *vargp) {
+    int connfd = *((int *)vargp);
+    int server_fd = 0;
+    Pthread_detach(pthread_self());
+    Free(vargp);
+    /* do */
+    if ((server_fd = from_client_to_server(connfd)) > 0) {
+        printf("proxy successful\n");
+        from_server_to_client(connfd, server_fd);
+    }
+    if (server_fd > 0) 
+        Close(server_fd);
+    Close(connfd);
+    return NULL;
+}
