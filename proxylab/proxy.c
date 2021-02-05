@@ -12,7 +12,7 @@
 #define MAX_OBJECT_SIZE 102400
 
 /* You won't lose style points for including this long line in your code */
-static const char *user_agent_hdr = "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0.3) Gecko/20120305 Firefox/10.0.3\r\n";
+static  char *user_agent_hdr = "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0.3) Gecko/20120305 Firefox/10.0.3\r\n";
 
 //int main()
 //{
@@ -20,7 +20,7 @@ static const char *user_agent_hdr = "User-Agent: Mozilla/5.0 (X11; Linux x86_64;
 //    return 0;
 //}
 
-void parse_hostname(char *uri, char *hostname, char* rem_path);
+void parse_hostname(char *uri, char *hostname, char* rem_path, char *http_port);
 void from_server_to_client(int fd, int server_fd);
 int from_client_to_server(int fd);
 void read_requesthdrs(rio_t *rp);
@@ -52,8 +52,16 @@ int main(int argc, char **argv)
         connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen); //line:netp:tiny:accept
         Getnameinfo((SA *) &clientaddr, clientlen, hostname, MAXLINE, 
                         port, MAXLINE, 0);
+        printf("proxy on\n");
         printf("Accepted connection from (%s, %s)\n", hostname, port);
         server_fd = from_client_to_server(connfd);
+        if (server_fd == -2) {
+            printf("read request line error\n");
+            continue;
+        } else if (server_fd == -1) {
+            printf("not impl this method\n");
+            continue;
+        }
         from_server_to_client(connfd, server_fd);
         Close(connfd);             
         Close(server_fd);             
@@ -73,58 +81,54 @@ int from_client_to_server(int fd)
     char filename[MAXLINE], cgiargs[MAXLINE];
     rio_t rio, rio_server;
 
-    /* Read request line and headers */
+    /* Read request line */
     Rio_readinitb(&rio, fd);
-    if (!Rio_readlineb(&rio, buf, MAXLINE))  //line:netp:from_client_to_server:readrequest
-        return;
-    printf("%s", buf);
+    if (!Rio_readlineb(&rio, buf, MAXLINE))  
+        return -2;
+    //printf("%s", buf);
 
     /* request line */
-    sscanf(buf, "%s %s %s", method, uri, version);       //line:netp:from_client_to_server:parserequest
-    if (strcasecmp(method, "GET")) {                     //line:netp:from_client_to_server:beginrequesterr
+    sscanf(buf, "%s %s %s", method, uri, version);       
+    if (strcasecmp(method, "GET")) {                     
         clienterror(fd, method, "501", "Not Implemented",
                     "Tiny does not implement this method");
-        return;
+        return -1;
     }                                                    
 
-    /* parse hostname*/
-    char *host, target_server;
-    Rio_readlineb(&rio, host, MAXLINE);
-    //TODO parse the hostname from rq_hdrs `Host: www.xxx.com`.
-    //there are some string manipulation.
-    char *hostname, *rem_path;
-    parse_hostname(uri, hostname, rem_path);
+    /* parse hostname and port*/
+    char hostname[MAXLINE], rem_path[MAXLINE], http_port[10];
+    parse_hostname(uri, hostname, rem_path, http_port);
 
     /* connect to target server*/
     int conn_to_server_fd;
-    // TODO determine port number after reading port number part in wirteup.
-    conn_to_server_fd = Open_clientfd(hostname, 80); // 80 is the default HTTP port. 
-    //Rio_readinitb(&rio_server, conn_to_server_fd);
+    char *port = "80";// 80 is the default HTTP port. 
+    if (http_port != NULL) port = http_port; 
+    printf("method: %s\nhost: %s\npath: %s\nport: %s\nversion: %s\n", \
+            method, hostname, rem_path, port, version);
+    conn_to_server_fd = Open_clientfd(hostname, port); 
     
-    //TODO read from our client and sending it to target server
-    // i need to learn from echo client code from textbook, which instruct me 
-    // to send bytes to target server.
-    // i also need to learn from read_requesthdrs(), which instruct me
-    // read from our client
 
     /* send rq line*/
     char *http_version = "HTTP/1.0\r\n";
-    char *rq_line;
+    char rq_line[MAXLINE];
     strcpy(rq_line, method);
     strcat(rq_line, " ");
     strcat(rq_line, rem_path);
     strcat(rq_line, " ");
     strcat(rq_line, http_version);
-    Rio_writen(conn_to_server_fd, rq_line, strlen(rq_line));
+    Rio_writen(conn_to_server_fd, rq_line, strlen(rq_line)); // sending request line
 
     /* send rq header*/
-    Rio_writen(conn_to_server_fd, host, strlen(host));
+    char *rq_header[MAXLINE];
+    sprintf(rq_header, "Host: %s\r\n", hostname);
+    Rio_writen(conn_to_server_fd, rq_header, strlen(rq_header)); // sending request header
     char rq_hdr_buf[MAXLINE];
     Rio_readlineb(&rio, rq_hdr_buf, MAXLINE);
     while (strcmp(rq_hdr_buf, "\r\n")) {
         Rio_writen(conn_to_server_fd, rq_hdr_buf, strlen(rq_hdr_buf));
         Rio_readlineb(&rio, rq_hdr_buf, MAXLINE);
     }
+    Rio_writen(conn_to_server_fd, "\r\n", strlen("\r\n"));
 
     
     Rio_writen(conn_to_server_fd, user_agent_hdr, strlen(user_agent_hdr));
@@ -135,36 +139,6 @@ int from_client_to_server(int fd)
     
     return conn_to_server_fd;
 
-    /* original request header parser. deprecated */
-    //read_requesthdrs(&rio);                              
-
-    /* Parse URI from GET request */
-    //is_static = parse_uri(uri, filename, cgiargs);       
-    //if (stat(filename, &sbuf) < 0) {                     
-    //    clienterror(fd, filename, "404", "Not found",
-    //            "Tiny couldn't find this file");
-    //    return;
-    //}                                                    
-
-    /* 
-     * behaving like a server code as below.
-     */
-    //if (is_static) { /* Serve static content */          
-	//if (!(S_ISREG(sbuf.st_mode)) || !(S_IRUSR & sbuf.st_mode)) { //line:netp:from_client_to_server:readable
-	//    clienterror(fd, filename, "403", "Forbidden",
-	//		"Tiny couldn't read the file");
-	//    return;
-	//}
-	//serve_static(fd, filename, sbuf.st_size);        //line:netp:from_client_to_server:servestatic
-    //}
-    //else { /* Serve dynamic content */
-	//if (!(S_ISREG(sbuf.st_mode)) || !(S_IXUSR & sbuf.st_mode)) { //line:netp:from_client_to_server:executable
-	//    clienterror(fd, filename, "403", "Forbidden",
-	//		"Tiny couldn't run the CGI program");
-	//    return;
-	//}
-	//serve_dynamic(fd, filename, cgiargs);            //line:netp:from_client_to_server:servedynamic
-    //}
 }
 /* $end from_client_to_server */
 
@@ -317,25 +291,49 @@ void clienterror(int fd, char *cause, char *errnum,
 }
 
 void from_server_to_client(int client_fd, int server_fd) {
+    char buf_from_server_to_client[MAXLINE];
+    memset(buf_from_server_to_client, 0, sizeof(buf_from_server_to_client));
+    rio_t rio;
+    Rio_readinitb(&rio, server_fd);
+    while (strcmp(buf_from_server_to_client, "\r\n")) {
+        Rio_readlineb(&rio, buf_from_server_to_client, MAXLINE);
+        Rio_writen(client_fd, buf_from_server_to_client, \
+                    strlen(buf_from_server_to_client));
+    }
+    Rio_writen(client_fd, "\r\n", strlen("\r\n"));
+    return ;
     
 }
-void parse_hostname(char *uri, char *hostname, char *rem_path) {
+void parse_hostname(char *uri, char *hostname, char *rem_path, char *http_port) {
     int cnt = 0;
     size_t uri_len = strlen(uri);
-    char *st_pos, *end_pos;
+    char *st_pos = NULL, *end_pos=NULL;
+    char *port_ptr = NULL;
     
     for (size_t i = 0; i < uri_len; ++i) {
+        if (uri[i] == ':' && cnt == 2) {
+            port_ptr = &uri[i+1];
+            continue;
+        }
         if (uri[i] == '/') {
             if (cnt < 1) {
             } else if (cnt == 1) {
                 st_pos = uri+i+1;
             } else if (cnt == 2) {
                 end_pos = uri+i;
-                strncpy(hostname, st_pos, end_pos-st_pos);
+                if (!port_ptr) {
+                    strncpy(hostname, st_pos, end_pos - st_pos - 11);
+                    http_port = NULL;
+                } else {
+                    strncpy(hostname, st_pos, port_ptr - st_pos - 1); // assign hostname
+                    strncpy(http_port, port_ptr, end_pos - (port_ptr)); // assign port
+                }
             }
             cnt++;
         }
     }
+    
     strncpy(rem_path, end_pos, (uri+uri_len-1) - end_pos + 1);
     return ;
 }
+
