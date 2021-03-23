@@ -7,18 +7,29 @@
 
 sbuf_t sbuf;
 static  char *user_agent_hdr = "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0.3) Gecko/20120305 Firefox/10.0.3\r\n";
+static const char *conn_hdr = "Connection: close\r\n";
+static const char *prox_hdr = "Proxy-Connection: close\r\n";
+static const char *host_hdr_format = "Host: %s\r\n";
+static const char *requestlint_hdr_format = "GET %s HTTP/1.0\r\n";
+static const char *endof_hdr = "\r\n";
 
-int from_client_to_server(int fd);
-void from_server_to_client(int client_fd, int server_fd);
+static const char *connection_key = "Connection";
+static const char *user_agent_key= "User-Agent";
+static const char *proxy_connection_key = "Proxy-Connection";
+static const char *host_key = "Host";
+
+void from_client_to_server(int fd);
 void clienterror(int fd, char *cause, char *errnum, 
 		 char *shortmsg, char *longmsg);
 void* thread(void *vargp);
-void parse_hostname(char *uri, char *hostname, char *path, int *http_port);
+void parse_hostname(char *uri, char *hostname, char path[], int *http_port);
+void build_http_header(char *http_header,char *hostname,char *path, rio_t *client_rio);
 
 
-void parse_hostname(char *uri, char *hostname, char *path, int *http_port) {
+void parse_hostname(char *uri, char *hostname, char path[], int *http_port) {
     char *pos = strstr(uri, "//");
-    *path = "/\0";
+    path[0] = '/';
+    path[1] = '\0';
     pos = pos != NULL?pos+2:uri;
     *http_port = 80;
     
@@ -69,10 +80,8 @@ void* thread(void *vargp) {
     Pthread_detach(pthread_self());
     while(1) {
         int connfd = sbuf_remove(&sbuf);
-        int serverfd = from_client_to_server(connfd);
-        from_server_to_client(connfd, serverfd);
+        from_client_to_server(connfd);
         Close(connfd);
-        Close(serverfd);
     }
 }
 
@@ -99,30 +108,15 @@ int main(int argc, char** argv) {
         sbuf_insert(&sbuf, connfd);
     }
 }
-void from_server_to_client(int client_fd, int server_fd) {
-    char buf_from_server_to_client[MAXLINE];
-    memset(buf_from_server_to_client, 0, sizeof(buf_from_server_to_client));
-    rio_t rio;
-    Rio_readinitb(&rio, server_fd);
-    Rio_readlineb(&rio, buf_from_server_to_client, MAXLINE);
-    while (strcmp(buf_from_server_to_client, "\r\n")) {
-        Rio_readlineb(&rio, buf_from_server_to_client, MAXLINE);
-        Rio_writen(client_fd, buf_from_server_to_client, \
-                    strlen(buf_from_server_to_client));
-    }
-    Rio_writen(client_fd, "\r\n", strlen("\r\n"));
-    return ;
-    
-}
-int from_client_to_server(int fd) 
+void from_client_to_server(int fd) 
 {
     char buf[MAXLINE], method[MAXLINE], uri[MAXLINE], version[MAXLINE];
-    rio_t rio, server_rio; 
+    rio_t rio, server_rio;
 
     /* Read request line */
     Rio_readinitb(&rio, fd);
     if (!Rio_readlineb(&rio, buf, MAXLINE))  
-        return -2;
+        return ;
     //printf("%s", buf);
 
     /* request line */
@@ -130,13 +124,15 @@ int from_client_to_server(int fd)
     if (strcasecmp(method, "GET")) {                     
         clienterror(fd, method, "501", "Not Implemented",
                     "Tiny does not implement this method");
-        return -1;
+        return ;
     }                                                    
 
     /* parse hostname and port*/
     char hostname[MAXLINE], rem_path[MAXLINE];
     int http_port;
+    char server_header[MAXLINE];
     parse_hostname(uri, hostname, rem_path, &http_port);
+    build_http_header(server_header, hostname, rem_path, &rio);
 
     /* connect to target server*/
     int conn_to_server_fd;
@@ -145,41 +141,55 @@ int from_client_to_server(int fd)
     char port[10];
     sprintf(port, "%d", http_port);
     conn_to_server_fd = Open_clientfd(hostname, port); 
+    Rio_readinitb(&server_rio, conn_to_server_fd);
+    Rio_writen(conn_to_server_fd, server_header, strlen(server_header));
+
+    size_t n;
+    memset(buf, 0, sizeof(buf));
+    while((n=Rio_readlineb(&server_rio,buf,MAXLINE))!=0)
+    {
+        printf("proxy received %ld bytes,then send\n",n);
+        Rio_writen(fd,buf,n);
+    }
+    Close(conn_to_server_fd);
+    return ;
+}
     
+void build_http_header(char *http_header,char *hostname,char *path, rio_t *client_rio)
+{
+    char buf[MAXLINE],request_hdr[MAXLINE],other_hdr[MAXLINE],host_hdr[MAXLINE];
+    /*request line*/
+    sprintf(request_hdr,requestlint_hdr_format,path);
+    /*get other request header for client rio and change it */
+    while(Rio_readlineb(client_rio,buf,MAXLINE)>0)
+    {
+        if(strcmp(buf,endof_hdr)==0) break;/*EOF*/
 
-    /* send rq line*/
-    char *http_version = "HTTP/1.0\r\n";
-    char rq_line[MAXLINE];
-    strcpy(rq_line, method);
-    strcat(rq_line, " ");
-    strcat(rq_line, rem_path);
-    strcat(rq_line, " ");
-    strcat(rq_line, http_version);
-    Rio_writen(conn_to_server_fd, rq_line, strlen(rq_line)); // sending request line
+        if(!strncasecmp(buf,host_key,strlen(host_key)))/*Host:*/
+        {
+            strcpy(host_hdr,buf);
+            continue;
+        }
 
-    /* send rq header*/
-    char rq_header[MAXLINE];
-    sprintf(rq_header, "Host: %s\r\n", hostname);
-    Rio_writen(conn_to_server_fd, rq_header, strlen(rq_header)); // sending request header
-    
-    /* send keep-alive header*/
-    Rio_writen(conn_to_server_fd, user_agent_hdr, strlen(user_agent_hdr));
-    char *connection_hdr = "Connection: close\r\n";
-    Rio_writen(conn_to_server_fd, connection_hdr, strlen(connection_hdr));
-    char *proxy_conn_hdr = "Proxy-Connection: close\r\n";
-    Rio_writen(conn_to_server_fd, proxy_conn_hdr, strlen(proxy_conn_hdr));
+        if(!strncasecmp(buf,connection_key,strlen(connection_key))
+                &&!strncasecmp(buf,proxy_connection_key,strlen(proxy_connection_key))
+                &&!strncasecmp(buf,user_agent_key,strlen(user_agent_key)))
+        {
+            strcat(other_hdr,buf);
+        }
+    }
+    if(strlen(host_hdr)==0)
+    {
+        sprintf(host_hdr,host_hdr_format,hostname);
+    }
+    sprintf(http_header,"%s%s%s%s%s%s%s",
+            request_hdr,
+            host_hdr,
+            conn_hdr,
+            prox_hdr,
+            user_agent_hdr,
+            other_hdr,
+            endof_hdr);
 
-    //char rq_hdr_buf[MAXLINE];
-    //Rio_readinitb(&server_rio, conn_to_server_fd);
-    //Rio_readlineb(&server_rio, rq_hdr_buf, MAXLINE);
-    //while (strcmp(rq_hdr_buf, "\r\n")) {
-    //    Rio_writen(fd, rq_hdr_buf, strlen(rq_hdr_buf));
-    //    Rio_readlineb(&rio, rq_hdr_buf, MAXLINE);
-    //}
-    //Rio_writen(fd, "\r\n", strlen("\r\n"));
-
-    
-    
-    return conn_to_server_fd;
-
+    return ;
 }
