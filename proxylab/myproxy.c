@@ -9,7 +9,7 @@ sbuf_t sbuf;
 static  char *user_agent_hdr = "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0.3) Gecko/20120305 Firefox/10.0.3\r\n";
 
 int from_client_to_server(int fd);
-void from_server_to_client(int client_fd, int server_fd);
+void from_server_to_client(int client_fd, int *server_fd);
 void clienterror(int fd, char *cause, char *errnum, 
 		 char *shortmsg, char *longmsg);
 void* thread(void *vargp);
@@ -69,7 +69,8 @@ void* thread(void *vargp) {
     Pthread_detach(pthread_self());
     while(1) {
         int connfd = sbuf_remove(&sbuf);
-        int serverfd = from_client_to_server(connfd);
+        int *serverfd = malloc(sizeof(int));
+        *serverfd = from_client_to_server(connfd);
         from_server_to_client(connfd, serverfd);
         Close(connfd);
         Close(serverfd);
@@ -99,11 +100,11 @@ int main(int argc, char** argv) {
         sbuf_insert(&sbuf, connfd);
     }
 }
-void from_server_to_client(int client_fd, int server_fd) {
+void from_server_to_client(int client_fd, int *server_fd) {
     char buf_from_server_to_client[MAXLINE];
     memset(buf_from_server_to_client, 0, sizeof(buf_from_server_to_client));
     rio_t rio;
-    Rio_readinitb(&rio, server_fd);
+    Rio_readinitb(&rio, *server_fd);
     Rio_readlineb(&rio, buf_from_server_to_client, MAXLINE);
     while (strcmp(buf_from_server_to_client, "\r\n")) {
         Rio_readlineb(&rio, buf_from_server_to_client, MAXLINE);
